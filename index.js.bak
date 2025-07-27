@@ -1,0 +1,1408 @@
+require('dotenv').config();
+const fsp = require('fs/promises');
+const path = require('path');
+const cron = require('node-cron');
+
+const {
+  Client,
+  GatewayIntentBits,
+  SlashCommandBuilder,
+  EmbedBuilder,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  Events,
+  REST,
+  Routes,
+  PermissionsBitField,
+  ChannelType,
+  MessageFlags,
+} = require('discord.js');
+
+const intents = [
+  GatewayIntentBits.Guilds,
+  GatewayIntentBits.GuildMembers,
+  GatewayIntentBits.GuildMessages,
+  GatewayIntentBits.MessageContent,
+].filter(Boolean);
+
+const client = new Client({
+  intents: intents,
+});
+
+const schedulesFilePath = path.join(__dirname, 'schedules.json');
+let backupSchedules = new Map();
+
+// ユーザーごとのバックアップディレクトリを取得
+const getBackupDir = (userId) => {
+  return path.join(__dirname, 'backups', userId);
+};
+
+// バックアップディレクトリの存在確認、なければ作成
+const ensureBackupDir = async (userId) => {
+  const backupDir = getBackupDir(userId);
+  try {
+    await fsp.mkdir(backupDir, { recursive: true });
+  } catch (error) {
+    console.error(
+      `[エラー] ユーザーID ${userId} のバックアップディレクトリ作成に失敗しました。`,
+      error
+    );
+    throw new Error('バックアップディレクトリの作成に失敗しました。');
+  }
+};
+
+// --- スラッシュコマンドの定義 ---
+const commands = [
+  new SlashCommandBuilder()
+    .setName('help')
+    .setDescription('このボットのコマンドについての詳細なヘルプを表示します。'),
+  new SlashCommandBuilder().setName('server').setDescription('サーバーの情報を表示します。'),
+  new SlashCommandBuilder()
+    .setName('backup')
+    .setDescription('サーバーの構成をバックアップします。')
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild)
+    .addStringOption((option) =>
+      option
+        .setName('name')
+        .setDescription('バックアップ用のファイル名を指定します。')
+        .setRequired(true)
+    ),
+  new SlashCommandBuilder()
+    .setName('restore')
+    .setDescription('バックアップからサーバーを復元します。')
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild)
+    .addStringOption((option) =>
+      option
+        .setName('name')
+        .setDescription('復元に使うバックアップのファイル名を指定します。')
+        .setRequired(true)
+        .setAutocomplete(true)
+    ),
+  new SlashCommandBuilder()
+    .setName('create-template')
+    .setDescription('オーナーのテンプレートでサーバーを上書き構築します。')
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild),
+  new SlashCommandBuilder()
+    .setName('backup-manage')
+    .setDescription('バックアップファイルの管理を行います。')
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild)
+    .addStringOption((option) =>
+      option
+        .setName('action')
+        .setDescription('実行する操作を選択してください。')
+        .setRequired(true)
+        .addChoices(
+          { name: 'list', value: 'list' },
+          { name: 'lock', value: 'lock' },
+          { name: 'unlock', value: 'unlock' },
+          { name: 'delete', value: 'delete' }
+        )
+    )
+    .addStringOption((option) =>
+      option
+        .setName('name')
+        .setDescription('対象のバックアップファイル名 (lock, unlock, delete の場合)')
+        .setRequired(false)
+        .setAutocomplete(true)
+    ),
+  new SlashCommandBuilder()
+    .setName('backuptimer-manage')
+    .setDescription('自動バックアップの管理を行います。')
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild)
+    .addStringOption((option) =>
+      option
+        .setName('action')
+        .setDescription('実行する操作を選択してください。')
+        .setRequired(true)
+        .addChoices(
+          { name: 'on', value: 'on' },
+          { name: 'off', value: 'off' },
+          { name: 'list', value: 'list' }
+        )
+    ),
+  new SlashCommandBuilder()
+    .setName('deletemessage')
+    .setDescription('指定されたユーザーのメッセージを指定された件数削除します。')
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageMessages)
+    .addUserOption((option) =>
+      option
+        .setName('user')
+        .setDescription('メッセージを削除するユーザーを指定します。')
+        .setRequired(true)
+    )
+    .addIntegerOption((option) =>
+      option
+        .setName('count')
+        .setDescription('削除するメッセージの件数を指定します。(最大100件)')
+        .setRequired(true)
+        .setMinValue(1)
+        .setMaxValue(100)
+    ),
+  new SlashCommandBuilder()
+    .setName('backuptimer')
+    .setDescription('バックアップの自動スケジュールを設定します。')
+    .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild)
+    .addStringOption((option) =>
+      option
+        .setName('schedule')
+        .setDescription('スケジュールを設定します。')
+        .setRequired(true)
+        .addChoices({ name: 'everyday', value: 'everyday' })
+    )
+    .addStringOption((option) =>
+      option
+        .setName('time')
+        .setDescription('時間帯を選択してください。')
+        .setRequired(true)
+        .addChoices({ name: 'AM', value: 'AM' }, { name: 'PM', value: 'PM' })
+    )
+    .addIntegerOption((option) =>
+      option
+        .setName('hour')
+        .setDescription('時間 (0-23)')
+        .setRequired(true)
+        .setMinValue(0)
+        .setMaxValue(23)
+    )
+    .addIntegerOption((option) =>
+      option
+        .setName('minute')
+        .setDescription('分 (0-59)')
+        .setRequired(true)
+        .setMinValue(0)
+        .setMaxValue(59)
+    ),
+].map((cmd) => cmd.toJSON());
+
+const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
+const USE_GLOBAL = false;
+
+// --- イベントハンドラー ---
+client.once(Events.ClientReady, async () => {
+  console.log('--------------------------------------------------');
+  console.log(`[起動] ${client.user.tag} が起動しました。`);
+  console.log('[起動] スラッシュコマンドを登録します。');
+  try {
+    if (USE_GLOBAL) {
+      await rest.put(Routes.applicationCommands(client.user.id), { body: commands });
+      console.log('[起動] グローバルスラッシュコマンドを登録しました。');
+    } else {
+      for (const guild of client.guilds.cache.values()) {
+        await guild.commands.set(commands);
+        console.log(`[起動] ギルド "${guild.name}" にスラッシュコマンドを登録しました。`);
+      }
+    }
+    console.log('[起動] スラッシュコマンドの登録が完了しました。');
+    await loadSchedules();
+    console.log('--------------------------------------------------');
+  } catch (err) {
+    console.error('[エラー] スラッシュコマンドの登録に失敗しました。', err);
+  }
+});
+
+if (!process.env.DISCORD_TOKEN) {
+  console.error('DISCORD_TOKENが設定されていません。');
+  process.exit(1);
+}
+
+client.on(Events.GuildCreate, async (guild) => {
+  if (USE_GLOBAL) return;
+  try {
+    await guild.commands.set(commands);
+    console.log(`[参加] 新しいギルド "${guild.name}" に参加し、コマンドを登録しました。`);
+  } catch (err) {
+    console.error(`[エラー] 新しいギルド "${guild.name}" でのコマンド登録に失敗しました。`, err);
+  }
+});
+
+client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
+  if (newMessage.author.bot || newMessage.system || oldMessage.content === newMessage.content) {
+    return;
+  }
+  if (oldMessage.partial) {
+    try {
+      oldMessage = await oldMessage.fetch();
+    } catch (error) {
+      console.error(
+        `[エラー] 編集前のメッセージの取得に失敗しました (ID: ${oldMessage.id})`,
+        error
+      );
+      return;
+    }
+  }
+  const userTag = newMessage.author.tag;
+  const userId = newMessage.author.id;
+  const channelName = newMessage.channel.name;
+  const oldContent = oldMessage.content || '[内容なし]';
+  const newContent = newMessage.content || '[内容なし]';
+  const messageURL = `https://discord.com/channels/${newMessage.guildId}/${newMessage.channelId}/${newMessage.id}`;
+  console.log('--------------------------------------------------');
+  console.log('[メッセージ編集検知]');
+  console.log(`ユーザー: ${userTag} (ID: ${userId})`);
+  console.log(`チャンネル: #${channelName}`);
+  console.log(`編集前の内容: ${oldContent}`);
+  console.log(`編集後の内容: ${newContent}`);
+  console.log(`メッセージURL: ${messageURL}`);
+  console.log('--------------------------------------------------');
+});
+
+client.on(Events.MessageDelete, async (message) => {
+  if (message.partial) {
+    console.log('[メッセージ削除検知] キャッシュ外のメッセージが削除されました。');
+    return;
+  }
+  const userTag = message.author ? message.author.tag : '不明なユーザー';
+  const userId = message.author ? message.author.id : '不明なID';
+  const channelName = message.channel ? message.channel.name : '不明なチャンネル';
+  const channelId = message.channel ? message.channel.id : '不明なID';
+  const deletedContent = message.content || '[内容なし]';
+  const messageId = message.id;
+  const messageURL = `https://discord.com/channels/${message.guildId}/${message.channelId}/${message.id}`;
+  let attachmentURLs = [];
+  if (message.attachments.size > 0) {
+    attachmentURLs = message.attachments.map((attachment) => attachment.url);
+  }
+  console.log('--------------------------------------------------');
+  console.log('[メッセージ削除検知]');
+  console.log(`送信者: ${userTag} (ID: ${userId})`);
+  console.log(`チャンネル: #${channelName} (ID: ${channelId})`);
+  console.log(`削除されたメッセージ内容: ${deletedContent}`);
+  if (attachmentURLs.length > 0) {
+    console.log(`添付ファイルURL: ${attachmentURLs.join(', ')}`);
+  }
+  console.log(`メッセージID: ${messageId}`);
+  console.log(`メッセージURL: ${messageURL}`);
+  console.log('--------------------------------------------------');
+});
+
+function logCommand(interaction) {
+  const user = interaction.user;
+  const commandName = interaction.commandName;
+  const options = interaction.options.data.map((opt) => `${opt.name}: ${opt.value}`).join(' ');
+  const guild = interaction.guild;
+  console.log(
+    `[コマンド実行] ユーザー: ${user.tag} (ID: ${user.id}) | コマンド: /${commandName} ${options} | サーバー: ${guild.name} (ID: ${guild.id})`
+  );
+}
+
+client.on(Events.InteractionCreate, async (interaction) => {
+  if (interaction.isAutocomplete()) {
+    const focusedOption = interaction.options.getFocused(true);
+    if (focusedOption.name === 'name') {
+      const backupDir = getBackupDir(interaction.user.id);
+      try {
+        await fsp.access(backupDir);
+        const files = await fsp.readdir(backupDir);
+        const choices = files
+          .filter((file) => file.endsWith('.json') && file.startsWith(focusedOption.value))
+          .map((file) => file.replace('.json', ''));
+        await interaction.respond(choices.map((choice) => ({ name: choice, value: choice })));
+      } catch {
+        await interaction.respond([]);
+      }
+    }
+  }
+
+  if (!interaction.isChatInputCommand()) return;
+  if (!interaction.guild || !interaction.inCachedGuild()) {
+    return interaction.reply({
+      content: 'このコマンドはサーバー内でのみ使用できます。',
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+
+  logCommand(interaction);
+  const { commandName } = interaction;
+
+  try {
+    if (commandName === 'help') {
+      await handleHelpCommand(interaction);
+    } else if (commandName === 'server') {
+      await handleServerCommand(interaction);
+    } else if (commandName === 'backup') {
+      await handleBackupCommand(interaction);
+    } else if (commandName === 'restore') {
+      await handleRestoreCommand(interaction);
+    } else if (commandName === 'backup-manage') {
+      await handleBackupManageCommand(interaction);
+    } else if (commandName === 'create-template') {
+      await handleCreateTemplateCommand(interaction);
+    } else if (commandName === 'deletemessage') {
+      await handleDeleteMessageCommand(interaction);
+    } else if (commandName === 'backuptimer') {
+      await handleBackupTimerCommand(interaction);
+    } else if (commandName === 'backuptimer-manage') {
+      await handleBackupTimerManageCommand(interaction);
+    }
+  } catch (error) {
+    console.error('[エラー] コマンド実行中に予期せぬエラーが発生しました。', error);
+    const replyOptions = {
+      content: 'コマンドの実行中に予期せぬエラーが発生しました。',
+      flags: MessageFlags.Ephemeral,
+    };
+    if (interaction.replied || interaction.deferred) {
+      await interaction.followUp(replyOptions);
+    } else {
+      await interaction.reply(replyOptions);
+    }
+  }
+});
+
+// --- 復元処理の共通関数 ---
+async function applyBackup(guild, backupData, isTemplate = false) {
+  console.log(`[復元] サーバー "${guild.name}" (ID: ${guild.id}) の復元処理を開始します。`);
+  const createdRoles = new Map();
+
+  console.log('[復元] ロールの復元を開始します。');
+  for (const roleData of backupData.roles.reverse()) {
+    try {
+      const existingRole = guild.roles.cache.find((r) => r.name === roleData.name);
+      let newRole;
+      if (!existingRole) {
+        console.log(`[復元] ロール "${roleData.name}" を作成します。`);
+        newRole = await guild.roles.create({
+          name: roleData.name,
+          color: roleData.color,
+          permissions: BigInt(roleData.permissions),
+          hoist: roleData.hoist,
+          mentionable: roleData.mentionable,
+          position: roleData.position,
+        });
+      } else {
+        console.log(`[復元] 既存のロール "${roleData.name}" を更新します。`);
+        await existingRole.edit({
+          color: roleData.color,
+          permissions: BigInt(roleData.permissions),
+          hoist: roleData.hoist,
+          mentionable: roleData.mentionable,
+        });
+        newRole = existingRole;
+      }
+      createdRoles.set(roleData.name, newRole);
+
+      if (!isTemplate && roleData.members && roleData.members.length > 0) {
+        console.log(`[復元] ロール "${roleData.name}" のメンバーを復元します。`);
+        for (const memberId of roleData.members) {
+          try {
+            const member = await guild.members.fetch(memberId);
+            if (member) {
+              try {
+                await member.roles.add(newRole);
+              } catch (err) {
+                console.error(
+                  `[エラー] ユーザー "${member.user.tag}" へのロール "${newRole.name}" の付与に失敗しました。Botのロールが対象ロールより下にある可能性があります。`,
+                  err.message
+                );
+              }
+            }
+          } catch (err) {
+            if (err.code !== 10007) {
+              console.error(
+                `[エラー] メンバー (ID: ${memberId}) の取得に失敗しました。`,
+                err.message
+              );
+            }
+          }
+        }
+      }
+    } catch (err) {
+      console.error(
+        `[エラー] ロール "${roleData.name}" の作成または編集に失敗しました。Botのロールが対象ロールより下にある可能性があります。`,
+        err.message
+      );
+    }
+  }
+  console.log('[復元] ロールの復元が完了しました。');
+
+  console.log('[復元] チャンネルの復元を開始します。');
+  const createdChannels = new Map();
+  const threadChannelTypes = [
+    ChannelType.GuildPublicThread,
+    ChannelType.GuildPrivateThread,
+    ChannelType.GuildNewsThread,
+  ];
+  const regularChannelsData = backupData.channels.filter(
+    (c) => !threadChannelTypes.includes(c.type)
+  );
+  const threadChannelsData = backupData.channels.filter((c) => threadChannelTypes.includes(c.type));
+
+  for (const channelData of regularChannelsData.filter(
+    (c) => c.type === ChannelType.GuildCategory
+  )) {
+    try {
+      const existingChannel = guild.channels.cache.find(
+        (c) => c.name === channelData.name && c.type === channelData.type
+      );
+      if (!existingChannel) {
+        console.log(`[復元] カテゴリ "${channelData.name}" を作成します。`);
+        const newChannel = await guild.channels.create({
+          name: channelData.name,
+          type: channelData.type,
+          position: channelData.position,
+        });
+        createdChannels.set(channelData.name, newChannel);
+      } else {
+        console.log(`[復元] 既存のカテゴリ "${channelData.name}" を使用します。`);
+        createdChannels.set(channelData.name, existingChannel);
+      }
+    } catch (err) {
+      console.error(`[エラー] カテゴリ "${channelData.name}" の作成に失敗しました。`, err.message);
+    }
+  }
+
+  for (const channelData of regularChannelsData.filter(
+    (c) => c.type !== ChannelType.GuildCategory
+  )) {
+    try {
+      let existingChannel = guild.channels.cache.find(
+        (c) => c.name === channelData.name && c.type === channelData.type
+      );
+      let newChannel = existingChannel;
+
+      if (!existingChannel) {
+        const parent = channelData.parent
+          ? createdChannels.get(channelData.parent) ||
+            guild.channels.cache.find(
+              (c) => c.name === channelData.parent && c.type === ChannelType.GuildCategory
+            )
+          : null;
+        console.log(
+          `[復元] チャンネル "${channelData.name}" を作成します。${parent ? `(親カテゴリ: ${parent.name})` : ''}`
+        );
+        newChannel = await guild.channels.create({
+          name: channelData.name,
+          type: channelData.type,
+          parent: parent ? parent.id : null,
+          position: channelData.position,
+        });
+        createdChannels.set(channelData.name, newChannel);
+      } else {
+        console.log(`[復元] 既存のチャンネル "${channelData.name}" を使用します。`);
+        createdChannels.set(channelData.name, existingChannel);
+      }
+
+      if (
+        newChannel &&
+        newChannel.isTextBased() &&
+        channelData.messages &&
+        channelData.messages.length > 0
+      ) {
+        console.log(
+          `[復元] チャンネル "${newChannel.name}" に ${channelData.messages.length} 件のメッセージを復元します。`
+        );
+        for (const msg of channelData.messages) {
+          try {
+            const messageEmbed = new EmbedBuilder()
+              .setAuthor({
+                name: msg.author.username,
+                iconURL: msg.author.avatarURL,
+              })
+              .setDescription(msg.content || null)
+              .setTimestamp(new Date(msg.timestamp));
+
+            if (msg.embeds && msg.embeds.length > 0) {
+              messageEmbed.addFields({
+                name: '元の埋め込み',
+                value: '復元されたメッセージには、元の埋め込みコンテンツも含まれていました。',
+              });
+            }
+
+            if (msg.attachments && msg.attachments.length > 0) {
+              messageEmbed.addFields({ name: '添付ファイル', value: msg.attachments.join('\n') });
+            }
+
+            await newChannel.send({ embeds: [messageEmbed] });
+          } catch (err) {
+            console.error(
+              `[エラー] メッセージの復元中にエラーが発生しました (チャンネル: ${newChannel.name})`,
+              err.message
+            );
+          }
+        }
+      }
+    } catch (err) {
+      console.error(
+        `[エラー] チャンネル "${channelData.name}" の作成またはメッセージ復元に失敗しました。`,
+        err.message
+      );
+    }
+  }
+
+  for (const threadData of threadChannelsData) {
+    try {
+      const parentChannel =
+        createdChannels.get(threadData.parent) ||
+        guild.channels.cache.find((c) => c.name === threadData.parent && c.isTextBased());
+      if (parentChannel && parentChannel.threads) {
+        const existingThread = parentChannel.threads.cache.find((t) => t.name === threadData.name);
+        if (!existingThread) {
+          console.log(
+            `[復元] スレッド "${threadData.name}" をチャンネル "${parentChannel.name}" に作成します。`
+          );
+          await parentChannel.threads.create({
+            name: threadData.name,
+            type: threadData.type,
+            autoArchiveDuration: 1440,
+          });
+        } else {
+          console.log(`[復元] 既存のスレッド "${threadData.name}" を使用します。`);
+        }
+      } else {
+        console.error(
+          `[エラー] スレッド "${threadData.name}" の親チャンネル "${threadData.parent}" が見つかりません。`
+        );
+      }
+    } catch (err) {
+      console.error(`[エラー] スレッド "${threadData.name}" の作成に失敗しました。`, err.message);
+    }
+  }
+  console.log('[復元] チャンネルの復元が完了しました。');
+  console.log(`[復元] サーバー "${guild.name}" (ID: ${guild.id}) の復元処理が完了しました。`);
+}
+
+// --- コマンドごとのハンドラー ---
+
+async function handleHelpCommand(interaction) {
+  const helpEmbed = new EmbedBuilder()
+    .setColor(0x0099ff)
+    .setTitle('🤖 Bot コマンドヘルプ')
+    .setDescription('このBotが提供するコマンドの一覧と説明です。')
+    .addFields(
+      { name: '\n📜 一般コマンド', value: ' ' },
+      { name: '/help', value: 'このヘルプメッセージを表示します。' },
+      { name: '/server', value: 'サーバーの各種情報を表示します。' },
+      { name: '\n🔧 バックアップ＆復元コマンド (要: サーバーの管理権限)', value: ' ' },
+      {
+        name: '/backup name:<バックアップ名>',
+        value: '現在のサーバー構成を、あなた専用の個人用バックアップとして保存します。',
+      },
+      {
+        name: '/restore name:<バックアップ名>',
+        value:
+          'あなたの個人用バックアップからサーバーを復元します（既存のチャンネルは維持されます）。',
+      },
+      {
+        name: '/create-template',
+        value:
+          '**[危険]** Botオーナーのテンプレートでサーバーを完全に上書きします。テンプレートにないチャンネルは全て削除されます。',
+      },
+      {
+        name: '/backup-manage action:<操作> [name:<ファイル名>]',
+        value:
+          'あなたの個人用バックアップの、一覧表示、ロック、削除などを行います。「list」アクションではファイル名の指定は不要です。',
+      },
+      {
+        name: '/backuptimer schedule:<頻度> time:<時間帯> hour:<時> minute:<分>',
+        value: 'サーバーの自動バックアップスケジュールを設定します。',
+      },
+      {
+        name: '/backuptimer-manage action:<操作>',
+        value: 'サーバーの自動バックアップのON/OFFを切り替えます。',
+      },
+      {
+        name: '/deletemessage user:<ユーザー> count:<件数>',
+        value:
+          '指定されたユーザーのメッセージを、指定された件数だけ削除します。(最大100件、14日以内のメッセージのみ)',
+      },
+      { name: '\n⚠️ ご利用上の注意', value: ' ' },
+      {
+        name: '🚨【重要】権限の設定',
+        value:
+          '**このBotのロールが、管理したい全てのロールより上にあることを確認してください。** そうしないと、権限不足でロールの復元に失敗します。',
+      },
+      {
+        name: 'サーバーの複製について',
+        value:
+          'あるサーバーで `/backup` したファイルを、別のサーバーで `/restore` することで、サーバーの構成（チャンネルやロール）を複製できます。',
+      }
+    )
+    .setTimestamp()
+    .setFooter({ text: 'Server Backup Bot' });
+
+  await interaction.reply({ embeds: [helpEmbed], flags: MessageFlags.Ephemeral });
+}
+
+async function handleServerCommand(interaction) {
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+  const guild = interaction.guild;
+  let members;
+  try {
+    await guild.members.fetch();
+    members = guild.members.cache.map((m) => m.user.tag);
+  } catch (err) {
+    console.error('[エラー] サーバーメンバーの取得に失敗しました。', err);
+    return interaction.editReply({
+      content:
+        'メンバー情報の取得に失敗しました。Botに「Server Members Intent」と必要な権限があるか確認してください。',
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+  const totalMembers = guild.memberCount;
+  const pageSize = 10;
+  const totalPages = Math.ceil(members.length / pageSize);
+  let page = 0;
+
+  const generateEmbed = (p) => {
+    const slice = members.slice(p * pageSize, p * pageSize + pageSize);
+    return new EmbedBuilder()
+      .setColor(0x0099ff)
+      .setTitle(guild.name)
+      .setThumbnail(guild.iconURL({ dynamic: true }))
+      .addFields(
+        { name: 'サーバーID', value: guild.id, inline: true },
+        { name: '作成日', value: guild.createdAt.toLocaleDateString(), inline: true },
+        { name: 'メンバー数', value: `${totalMembers}`, inline: true },
+        { name: 'オーナー', value: `<@${guild.ownerId}>`, inline: true },
+        { name: 'チャンネル数', value: `${guild.channels.cache.size}`, inline: true },
+        { name: 'ロール数', value: `${guild.roles.cache.size}`, inline: true },
+        { name: 'ブーストレベル', value: `${guild.premiumTier}`, inline: true },
+        { name: 'ブースト数', value: `${guild.premiumSubscriptionCount}`, inline: true },
+        {
+          name: `メンバー一覧 (ページ ${p + 1}/${totalPages})`,
+          value: slice.join('\n') || 'メンバーがいません。',
+        }
+      )
+      .setTimestamp()
+      .setFooter({ text: `Requested by ${interaction.user.tag}` });
+  };
+
+  const row = new ActionRowBuilder().addComponents(
+    new ButtonBuilder()
+      .setCustomId('previous_page')
+      .setLabel('前へ')
+      .setStyle(ButtonStyle.Primary)
+      .setDisabled(true),
+    new ButtonBuilder()
+      .setCustomId('next_page')
+      .setLabel('次へ')
+      .setStyle(ButtonStyle.Primary)
+      .setDisabled(totalPages <= 1)
+  );
+
+  const message = await interaction.editReply({
+    embeds: [generateEmbed(page)],
+    components: [row],
+    fetchReply: true,
+    flags: MessageFlags.Ephemeral,
+  });
+  const collector = message.createMessageComponentCollector({ time: 60_000 });
+
+  collector.on('collect', async (btn) => {
+    if (btn.user.id !== interaction.user.id) {
+      return btn.reply({ content: 'あなた以外は操作できません。', flags: MessageFlags.Ephemeral });
+    }
+    page += btn.customId === 'next_page' ? 1 : -1;
+    row.components[0].setDisabled(page === 0);
+    row.components[1].setDisabled(page === totalPages - 1);
+    await btn.update({ embeds: [generateEmbed(page)], components: [row] });
+  });
+
+  collector.on('end', () => {
+    row.components.forEach((c) => c.setDisabled(true));
+    interaction.editReply({ components: [row] });
+  });
+}
+
+async function executeBackup(guild, userId, backupName, isAuto = false) {
+  let sanitizedName;
+  if (isAuto) {
+    const now = new Date();
+    const yy = now.getFullYear().toString().slice(-2);
+    const mm = (now.getMonth() + 1).toString().padStart(2, '0');
+    const dd = now.getDate().toString().padStart(2, '0');
+    const hh = now.getHours().toString().padStart(2, '0');
+    const mi = now.getMinutes().toString().padStart(2, '0');
+    sanitizedName = `auto_${yy}${mm}${dd}_${hh}${mi}`;
+  } else {
+    if (!backupName) throw new Error('バックアップ名が指定されていません。');
+    sanitizedName = backupName.replace(/[^a-zA-Z0-9_\\-]+/g, '');
+    if (!sanitizedName) {
+      throw new Error(
+        '無効なバックアップ名です。英数字、アンダースコア(_)、ハイフン(-)のみ使用できます。'
+      );
+    }
+  }
+
+  await ensureBackupDir(userId);
+  const backupFileName = `${sanitizedName}.json`;
+  const backupFilePath = path.join(getBackupDir(userId), backupFileName);
+
+  const backupData = {
+    serverName: guild.name,
+    serverId: guild.id,
+    createdAt: new Date().toISOString(),
+    createdBy: userId,
+    locked: isAuto ? true : false, // 自動バックアップはデフォルトでロック
+    roles: [],
+    channels: [],
+  };
+
+  await guild.members.fetch();
+  console.log('[バックアップ] ロール情報を収集しています...');
+  guild.roles.cache
+    .filter((role) => role.name !== '@everyone')
+    .sort((a, b) => b.position - a.position)
+    .forEach((role) => {
+      backupData.roles.push({
+        name: role.name,
+        color: role.hexColor,
+        permissions: role.permissions.toString(),
+        hoist: role.hoist,
+        mentionable: role.mentionable,
+        position: role.position,
+        members: role.members.map((member) => member.id),
+      });
+    });
+  console.log('[バックアップ] ロール情報の収集が完了しました。');
+
+  console.log('[バックアップ] チャンネル情報とメッセージ履歴を収集しています...');
+  const channelPromises = guild.channels.cache
+    .sort((a, b) => a.position - b.position)
+    .map(async (channel) => {
+      const channelData = {
+        name: channel.name,
+        type: channel.type,
+        parent: channel.parent ? channel.parent.name : null,
+        position: channel.position,
+        messages: [],
+      };
+
+      if (channel.isTextBased() && channel.type !== ChannelType.GuildVoice) {
+        try {
+          if (
+            guild.members.me.permissionsIn(channel).has(PermissionsBitField.Flags.ViewChannel) &&
+            guild.members.me
+              .permissionsIn(channel)
+              .has(PermissionsBitField.Flags.ReadMessageHistory)
+          ) {
+            const messages = await channel.messages.fetch({ limit: 30 });
+            channelData.messages = messages
+              .map((msg) => ({
+                author: {
+                  username: msg.author.username,
+                  avatarURL: msg.author.displayAvatarURL(),
+                },
+                content: msg.content,
+                embeds: msg.embeds,
+                attachments: msg.attachments.map((a) => a.url),
+                timestamp: msg.createdAt.toISOString(),
+              }))
+              .reverse();
+          } else {
+            console.log(
+              `[バックアップ] チャンネル "${channel.name}" の閲覧またはメッセージ履歴の権限がありません。スキップします。`
+            );
+          }
+        } catch (err) {
+          console.error(
+            `[エラー] チャンネル "${channel.name}" のメッセージ履歴の取得に失敗しました。`,
+            err.message
+          );
+        }
+      }
+      return channelData;
+    });
+
+  backupData.channels = await Promise.all(channelPromises);
+  console.log('[バックアップ] チャンネル情報とメッセージ履歴の収集が完了しました。');
+
+  await fsp.writeFile(backupFilePath, JSON.stringify(backupData, null, 2));
+
+  if (isAuto) {
+    const backupDir = getBackupDir(userId);
+    const allFiles = await fsp.readdir(backupDir);
+    const autoBackups = allFiles
+      .filter((file) => file.startsWith('auto_') && file.endsWith('.json'))
+      .sort()
+      .reverse();
+
+    if (autoBackups.length > 3) {
+      const filesToDelete = autoBackups.slice(3);
+      for (const fileToDelete of filesToDelete) {
+        try {
+          await fsp.unlink(path.join(backupDir, fileToDelete));
+          console.log(
+            `[自動バックアップ] 古いバックアップファイル ${fileToDelete} を削除しました。`
+          );
+        } catch (err) {
+          console.error(
+            `[エラー] 古いバックアップファイル ${fileToDelete} の削除に失敗しました。`,
+            err
+          );
+        }
+      }
+    }
+  }
+
+  return backupFileName;
+}
+
+async function handleBackupCommand(interaction) {
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+  const userId = interaction.user.id;
+  const backupName = interaction.options.getString('name');
+
+  try {
+    const backupFileName = await executeBackup(interaction.guild, userId, backupName, false);
+    await interaction.editReply({
+      content: `サーバーのバックアップが完了しました。
+ファイル: ${backupFileName}`,
+      flags: MessageFlags.Ephemeral,
+    });
+  } catch (error) {
+    console.error('[エラー] バックアップに失敗しました。', error);
+    await interaction.editReply({
+      content: `バックアップに失敗しました。詳細: ${error.message}`,
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+}
+
+async function handleRestoreCommand(interaction) {
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+  const userId = interaction.user.id;
+  const backupName = interaction.options.getString('name');
+  const backupFileName = `${backupName}.json`;
+  const backupFilePath = path.join(getBackupDir(userId), backupFileName);
+
+  try {
+    await fsp.access(backupFilePath);
+  } catch (error) {
+    console.log(
+      `[復元] ユーザー ${interaction.user.tag} が存在しないバックアップファイル "${backupFileName}" を指定しました。`
+    );
+    return interaction.editReply({
+      content: `あなたのバックアップファイル「${backupFileName}」が見つかりません。`,
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+
+  try {
+    const backupData = JSON.parse(await fsp.readFile(backupFilePath, 'utf-8'));
+    await interaction.editReply({
+      content: 'バックアップからサーバーの復元を開始します...',
+      flags: MessageFlags.Ephemeral,
+    });
+    await applyBackup(interaction.guild, backupData, false);
+    await interaction.followUp({
+      content: `バックアップ「${backupFileName}」からのサーバーの復元が完了しました。`,
+      flags: MessageFlags.Ephemeral,
+    });
+  } catch (error) {
+    console.error('[エラー] 復元に失敗しました。', error);
+    await interaction.followUp({
+      content: '復元に失敗しました。Botに必要な権限があるか、コンソールログを確認してください。',
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+}
+
+async function handleCreateTemplateCommand(interaction) {
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+
+  const ownerId = '1068465891743899698';
+  const backupName = 'template';
+  const backupFileName = `${backupName}.json`;
+  const backupFilePath = path.join(getBackupDir(ownerId), backupFileName);
+
+  try {
+    await fsp.access(backupFilePath);
+  } catch (error) {
+    console.log(
+      `[テンプレート] オーナー (ID: ${ownerId}) のテンプレートファイルが見つかりません。`
+    );
+    return interaction.editReply({
+      content: `オーナーのテンプレートファイル (${backupFileName}) が見つかりません。`,
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+
+  const confirmButton = new ButtonBuilder()
+    .setCustomId('confirm_template')
+    .setLabel('はい、上書きします')
+    .setStyle(ButtonStyle.Danger);
+  const cancelButton = new ButtonBuilder()
+    .setCustomId('cancel_template')
+    .setLabel('いいえ、やめます')
+    .setStyle(ButtonStyle.Secondary);
+  const row1 = new ActionRowBuilder().addComponents(confirmButton, cancelButton);
+
+  const warning1 = await interaction.editReply({
+    content: `⚠️ **警告: サーバー上書き** ⚠️\nこの操作を実行すると、まずテンプレートの内容が復元され、その後、**テンプレートに存在しない全てのチャンネルがサーバーから削除されます。** この操作は元に戻せません。\n\n本当に続行しますか？`,
+    components: [row1],
+    fetchReply: true,
+    flags: MessageFlags.Ephemeral,
+  });
+
+  try {
+    const collectorFilter = (i) => i.user.id === interaction.user.id;
+    const confirmation1 = await warning1.awaitMessageComponent({
+      filter: collectorFilter,
+      time: 30_000,
+    });
+
+    if (confirmation1.customId === 'cancel_template') {
+      return confirmation1.update({ content: '操作はキャンセルされました。', components: [] });
+    }
+
+    const confirmButton2 = new ButtonBuilder()
+      .setCustomId('confirm_final')
+      .setLabel('はい、実行します')
+      .setStyle(ButtonStyle.Danger);
+    const cancelButton2 = new ButtonBuilder()
+      .setCustomId('cancel_final')
+      .setLabel('いいえ、やはり中止します')
+      .setStyle(ButtonStyle.Secondary);
+    const row2 = new ActionRowBuilder().addComponents(confirmButton2, cancelButton2);
+
+    await confirmation1.update({
+      content:
+        '🚨 **最終確認** 🚨\n本当によろしいですか？ **テンプレートにないチャンネルは、このコマンドを打ったチャンネルも含めて全て削除されます。**',
+      components: [row2],
+    });
+
+    const confirmation2 = await warning1.awaitMessageComponent({
+      filter: collectorFilter,
+      time: 30_000,
+    });
+
+    if (confirmation2.customId === 'cancel_final') {
+      return confirmation2.update({ content: '操作はキャンセルされました。', components: [] });
+    }
+
+    await confirmation2.update({
+      content: '確認が取れました。テンプレートを適用し、完了後に不要なチャンネルを削除します...',
+      components: [],
+    });
+
+    const backupData = JSON.parse(await fsp.readFile(backupFilePath, 'utf-8'));
+    const guild = interaction.guild;
+
+    await interaction.followUp({
+      content: 'テンプレートの適用を開始します...',
+      flags: MessageFlags.Ephemeral,
+    });
+    await applyBackup(guild, backupData, true);
+    await interaction.followUp({
+      content: 'テンプレートの適用が完了しました。',
+      flags: MessageFlags.Ephemeral,
+    });
+
+    await interaction.followUp({
+      content: '不要なチャンネルの削除を開始します...',
+      flags: MessageFlags.Ephemeral,
+    });
+    const backupChannelNames = new Set(backupData.channels.map((c) => c.name));
+    const interactionChannelId = interaction.channelId;
+
+    await guild.channels.fetch();
+
+    const channelsToDelete = guild.channels.cache.filter(
+      (channel) => !backupChannelNames.has(channel.name) && channel.id !== interactionChannelId
+    );
+
+    console.log(`[テンプレート] ${channelsToDelete.size}個の不要なチャンネルを削除します。`);
+    for (const channel of channelsToDelete.values()) {
+      try {
+        await channel.delete('Template overwrite cleanup');
+        console.log(`[テンプレート] チャンネル "${channel.name}" を削除しました。`);
+      } catch (err) {
+        console.error(
+          `[エラー] テンプレートクリーンアップ中にチャンネル "${channel.name}" の削除に失敗しました。`,
+          err
+        );
+      }
+    }
+
+    const interactionChannel = guild.channels.cache.get(interactionChannelId);
+    if (interactionChannel && !backupChannelNames.has(interactionChannel.name)) {
+      try {
+        await interaction.followUp({
+          content: '最後に、この応答用チャンネルを削除します。',
+          flags: MessageFlags.Ephemeral,
+        });
+        await interactionChannel.delete('Template overwrite cleanup');
+        console.log(
+          `[テンプレート] 応答用チャンネル "${interactionChannel.name}" を削除しました。`
+        );
+      } catch (err) {
+        console.error(
+          `[エラー] 応答用チャンネル "${interactionChannel.name}" の削除に失敗しました。`,
+          err
+        );
+      }
+    }
+  } catch (err) {
+    console.error('[エラー] テンプレート適用中にエラーが発生しました。', err);
+    await interaction.editReply({
+      content: '確認がタイムアウトしたか、エラーが発生したため操作を中止しました。',
+      components: [],
+    });
+  }
+}
+
+async function handleBackupManageCommand(interaction) {
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+  const action = interaction.options.getString('action');
+  const fileName = interaction.options.getString('name');
+  const userId = interaction.user.id;
+  const backupDir = getBackupDir(userId);
+
+  try {
+    await ensureBackupDir(userId);
+
+    if (action === 'list') {
+      if (fileName) {
+        await interaction.followUp({
+          content:
+            '「list」アクションではファイル名の指定は不要です。全てのバックアップを表示します。',
+        });
+      }
+      const files = await fsp.readdir(backupDir);
+      const backupFiles = files.filter((file) => file.endsWith('.json'));
+
+      if (backupFiles.length === 0) {
+        return interaction.editReply({
+          content: 'あなたにはバックアップファイルは存在しません。',
+          flags: MessageFlags.Ephemeral,
+        });
+      }
+
+      const fileListPromises = backupFiles.map(async (file) => {
+        try {
+          const filePath = path.join(backupDir, file);
+          const data = await fsp.readFile(filePath, 'utf-8');
+          const json = JSON.parse(data);
+          const serverInfo = json.serverName ? `(${json.serverName})` : '';
+          return json.locked ? `🔒 \`${file}\` ${serverInfo}` : `✅ \`${file}\` ${serverInfo}`;
+        } catch {
+          return `❌ \`${file}\` (読み取り不可)`;
+        }
+      });
+
+      const fileList = (await Promise.all(fileListPromises)).join('\n');
+      const embed = new EmbedBuilder()
+        .setColor(0x0099ff)
+        .setTitle('あなたの個人用バックアップ一覧')
+        .setDescription(fileList || 'バックアップはありません。')
+        .setTimestamp();
+      await interaction.editReply({ embeds: [embed], flags: MessageFlags.Ephemeral });
+    } else {
+      if (!fileName) {
+        return interaction.reply({
+          content: 'この操作にはファイル名の指定が必要です。',
+          flags: MessageFlags.Ephemeral,
+        });
+      }
+      const backupFileName = `${fileName}.json`;
+      const backupFilePath = path.join(backupDir, backupFileName);
+
+      try {
+        await fsp.access(backupFilePath);
+      } catch (error) {
+        return interaction.editReply({
+          content: `バックアップファイル「${backupFileName}」が見つかりません。`,
+          flags: MessageFlags.Ephemeral,
+        });
+      }
+
+      const fileData = await fsp.readFile(backupFilePath, 'utf-8');
+      const backupJson = JSON.parse(fileData);
+
+      if (action === 'lock') {
+        if (backupJson.locked) {
+          return interaction.editReply({
+            content: `ファイル「${backupFileName}」は既にロックされています。`,
+            flags: MessageFlags.Ephemeral,
+          });
+        }
+        backupJson.locked = true;
+        await fsp.writeFile(backupFilePath, JSON.stringify(backupJson, null, 2));
+        console.log(
+          `[管理] ユーザー ${interaction.user.tag} がバックアップファイル "${backupFileName}" をロックしました。`
+        );
+        await interaction.editReply({
+          content: `ファイル「${backupFileName}」をロックしました。`,
+          flags: MessageFlags.Ephemeral,
+        });
+      } else if (action === 'unlock') {
+        if (!backupJson.locked) {
+          return interaction.editReply({
+            content: `ファイル「${backupFileName}」はロックされていません。`,
+            flags: MessageFlags.Ephemeral,
+          });
+        }
+        backupJson.locked = false;
+        await fsp.writeFile(backupFilePath, JSON.stringify(backupJson, null, 2));
+        console.log(
+          `[管理] ユーザー ${interaction.user.tag} がバックアップファイル "${backupFileName}" のロックを解除しました。`
+        );
+        await interaction.editReply({
+          content: `ファイル「${backupFileName}」のロックを解除しました。`,
+          flags: MessageFlags.Ephemeral,
+        });
+      } else if (action === 'delete') {
+        if (backupJson.locked) {
+          console.log(
+            `[管理] ユーザー ${interaction.user.tag} がロックされたファイル "${backupFileName}" の削除を試みました。`
+          );
+          return interaction.editReply({
+            content: `ファイル「${backupFileName}」はロックされているため削除できません。`,
+            flags: MessageFlags.Ephemeral,
+          });
+        }
+        await fsp.unlink(backupFilePath);
+        console.log(
+          `[管理] ユーザー ${interaction.user.tag} がバックアップファイル "${backupFileName}" を削除しました。`
+        );
+        await interaction.editReply({
+          content: `ファイル「${backupFileName}」を削除しました。`,
+          flags: MessageFlags.Ephemeral,
+        });
+      }
+    }
+  } catch (error) {
+    console.error(`[エラー] バックアップ管理コマンド (${action}) の実行に失敗しました。`, error);
+    await interaction.editReply({
+      content: '操作に失敗しました。コンソールログを確認してください。',
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+}
+
+async function handleDeleteMessageCommand(interaction) {
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+
+  const targetUser = interaction.options.getUser('user');
+  const deleteCount = interaction.options.getInteger('count');
+  const guild = interaction.guild;
+  const member = await guild.members.fetch(interaction.user.id);
+  const channel = interaction.channel;
+
+  if (!member.permissions.has(PermissionsBitField.Flags.ManageMessages)) {
+    return interaction.editReply({
+      content: 'このコマンドを使用するには、メッセージの管理権限が必要です。',
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+
+  if (!targetUser || !deleteCount) {
+    return interaction.editReply({
+      content: 'ユーザーと削除件数を指定してください。',
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+
+  if (!channel.isTextBased()) {
+    return interaction.editReply({
+      content: 'このコマンドはテキストチャンネルでのみ使用できます。',
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+
+  const twoWeeksAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
+  let deletedMessagesCount = 0;
+
+  try {
+    console.log(
+      `[削除] チャンネル "${channel.name}" (ID: ${channel.id}) のメッセージ削除処理を開始します。`
+    );
+    const messages = await channel.messages.fetch({ limit: 100 });
+    const userMessages = messages.filter(
+      (m) => m.author.id === targetUser.id && m.createdTimestamp > twoWeeksAgo
+    );
+
+    const messagesToDelete = Array.from(userMessages.values()).slice(0, deleteCount);
+    if (messagesToDelete.length > 0) {
+      const deleted = await channel.bulkDelete(messagesToDelete, true);
+      deletedMessagesCount = deleted.size;
+    }
+
+    console.log(
+      `[削除] ユーザー "${targetUser.tag}" のメッセージを ${deletedMessagesCount} 件削除しました。`
+    );
+    await interaction.editReply({
+      content: `ユーザー「${targetUser.tag}」のメッセージを ${deletedMessagesCount} 件削除しました。`,
+      flags: MessageFlags.Ephemeral,
+    });
+  } catch (error) {
+    console.error('[エラー] メッセージ削除中にエラーが発生しました。', error);
+    await interaction.editReply({
+      content: 'メッセージの削除中にエラーが発生しました。コンソールログを確認してください。',
+      flags: MessageFlags.Ephemeral,
+    });
+  }
+}
+
+async function saveSchedules() {
+  const serializableSchedules = new Map();
+  for (const [guildId, schedule] of backupSchedules.entries()) {
+    const { task, ...serializableSchedule } = schedule;
+    serializableSchedules.set(guildId, serializableSchedule);
+  }
+  const data = JSON.stringify(Array.from(serializableSchedules.entries()), null, 2);
+  await fsp.writeFile(schedulesFilePath, data);
+}
+
+async function loadSchedules() {
+  try {
+    await fsp.access(schedulesFilePath);
+    const data = await fsp.readFile(schedulesFilePath, 'utf-8');
+    const schedules = new Map(JSON.parse(data));
+    for (const [guildId, schedule] of schedules.entries()) {
+      const guild = await client.guilds.fetch(guildId);
+      if (guild) {
+        const task = cron.schedule(schedule.cronString, async () => {
+          // eslint-disable-line no-unused-vars
+          console.log(`[自動バックアップ] サーバー "${guild.name}" のバックアップを開始します。`);
+          try {
+            await executeBackup(guild, schedule.userId, null, true);
+            console.log(
+              `[自動バックアップ] サーバー "${guild.name}" のバックアップが完了しました。`
+            );
+          } catch (error) {
+            console.error(
+              `[エラー] 自動バックアップに失敗しました (サーバー: ${guild.name})`,
+              error
+            );
+          }
+        });
+        backupSchedules.set(guildId, { ...schedule, task });
+      }
+    }
+    console.log('[起動] 保存されているバックアップスケジュールを読み込みました。');
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      console.log('[起動] スケジュールファイルが見つかりません。新しく作成します。');
+    } else {
+      console.error('[エラー] スケジュールの読み込みに失敗しました。', error);
+    }
+  }
+}
+
+async function handleBackupTimerCommand(interaction) {
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+
+  const schedule = interaction.options.getString('schedule'); // eslint-disable-line no-unused-vars
+  const time = interaction.options.getString('time');
+  const hour = interaction.options.getInteger('hour');
+  const minute = interaction.options.getInteger('minute');
+  const guild = interaction.guild;
+  const userId = interaction.user.id;
+
+  let cronHour = hour;
+  if (time === 'PM' && hour < 12) {
+    cronHour += 12;
+  }
+  if (time === 'AM' && hour === 12) {
+    cronHour = 0;
+  }
+
+  const cronString = `${minute} ${cronHour} * * *`;
+
+  if (backupSchedules.has(guild.id)) {
+    const existingTask = backupSchedules.get(guild.id).task;
+    if (existingTask) {
+      existingTask.stop();
+    }
+  }
+
+  const task = cron.schedule(cronString, async () => {
+    console.log(`[自動バックアップ] サーバー "${guild.name}" のバックアップを開始します。`);
+    try {
+      await executeBackup(guild, userId, null, true);
+      console.log(`[自動バックアップ] サーバー "${guild.name}" のバックアップが完了しました。`);
+    } catch (error) {
+      console.error(`[エラー] 自動バックアップに失敗しました (サーバー: ${guild.name})`, error);
+    }
+  });
+
+  backupSchedules.set(guild.id, { cronString, userId, task });
+  await saveSchedules();
+
+  await interaction.editReply({
+    content: `自動バックアップをスケジュールしました: ${cronString}`,
+    flags: MessageFlags.Ephemeral,
+  });
+}
+
+async function handleBackupTimerManageCommand(interaction) {
+  await interaction.deferReply({ flags: MessageFlags.Ephemeral });
+  const action = interaction.options.getString('action');
+  const guildId = interaction.guild.id;
+
+  if (action === 'on') {
+    const scheduleData = backupSchedules.get(guildId);
+    if (scheduleData) {
+      if (scheduleData.task && scheduleData.task.running) {
+        return interaction.editReply({ content: '自動バックアップは既にONになっています。' });
+      }
+      // スケジュールが停止しているか、タスクがない場合は再開
+      const task = cron.schedule(scheduleData.cronString, async () => {
+        console.log(
+          `[自動バックアップ] サーバー "${interaction.guild.name}" のバックアップを開始します。`
+        );
+        try {
+          await executeBackup(interaction.guild, scheduleData.userId, null, true);
+          console.log(
+            `[自動バックアップ] サーバー "${interaction.guild.name}" のバックアップが完了しました。`
+          );
+        } catch (error) {
+          console.error(
+            `[エラー] 自動バックアップに失敗しました (サーバー: ${interaction.guild.name})`,
+            error
+          );
+        }
+      });
+      backupSchedules.set(guildId, { ...scheduleData, task });
+      await saveSchedules();
+      await interaction.editReply({ content: '自動バックアップをONにしました。' });
+    } else {
+      await interaction.editReply({
+        content:
+          'このサーバーには設定された自動バックアップがありません。/backuptimer コマンドで設定してください。',
+      });
+    }
+  } else if (action === 'off') {
+    const scheduleData = backupSchedules.get(guildId);
+    if (scheduleData && scheduleData.task) {
+      scheduleData.task.stop();
+      backupSchedules.delete(guildId);
+      await saveSchedules();
+      await interaction.editReply({ content: '自動バックアップをOFFにしました。' });
+    }
+  } else if (action === 'list') {
+    const schedules = Array.from(backupSchedules.entries());
+    if (schedules.length === 0) {
+      return interaction.editReply({
+        content: 'このサーバーには自動バックアップスケジュールが設定されていません。',
+      });
+    }
+
+    let description = '';
+    for (const [guildId, scheduleData] of schedules) {
+      const guild = client.guilds.cache.get(guildId);
+      const guildName = guild ? guild.name : '不明なサーバー';
+      description += `**サーバー:** ${guildName} (ID: ${guildId})\n`;
+      description += `  **スケジュール:** ${scheduleData.cronString}\n`;
+      description += `  **設定者ID:** ${scheduleData.userId}\n`;
+      description += `  **ステータス:** ${scheduleData.task && scheduleData.task.running ? 'ON' : 'OFF'}\n`;
+      description += '--------------------\n';
+    }
+
+    const embed = new EmbedBuilder()
+      .setColor(0x0099ff)
+      .setTitle('自動バックアップスケジュール一覧')
+      .setDescription(description)
+      .setTimestamp();
+
+    await interaction.editReply({ embeds: [embed], flags: MessageFlags.Ephemeral });
+  }
+}
+
+process.on('unhandledRejection', (reason) => {
+  console.error('[エラー] 未処理のPromise rejection:', reason);
+});
+
+client.login(process.env.DISCORD_TOKEN);

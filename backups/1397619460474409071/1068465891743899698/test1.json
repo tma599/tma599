@@ -1,0 +1,188 @@
+{
+  "serverName": "tma59のサーバー",
+  "serverId": "1397619460474409071",
+  "createdAt": "2025-07-25T04:21:27.196Z",
+  "createdBy": "1068465891743899698",
+  "locked": false,
+  "roles": [
+    {
+      "name": "サーバー情報表示BOT",
+      "color": "#000000",
+      "permissions": "8",
+      "hoist": false,
+      "mentionable": false,
+      "position": 3,
+      "members": ["1394519643028455485"]
+    },
+    {
+      "name": "test1",
+      "color": "#2ecc71",
+      "permissions": "1721826618638327",
+      "hoist": false,
+      "mentionable": false,
+      "position": 2,
+      "members": ["1394519643028455485", "1068465891743899698", "1239871189212463104"]
+    },
+    {
+      "name": "test3",
+      "color": "#f1c40f",
+      "permissions": "1721826618638327",
+      "hoist": false,
+      "mentionable": false,
+      "position": 1,
+      "members": []
+    }
+  ],
+  "channels": [
+    {
+      "name": "テキストチャンネル",
+      "type": 4,
+      "parent": null,
+      "position": 0
+    },
+    {
+      "name": "一般",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 0
+    },
+    {
+      "name": "一般",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 0
+    },
+    {
+      "name": "ボイスチャンネル",
+      "type": 4,
+      "parent": null,
+      "position": 1
+    },
+    {
+      "name": "test3",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 1
+    }
+  ],
+  "messages": {
+    "一般": [
+      {
+        "id": "1398107005947744286",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-25T00:58:05.790Z"
+      },
+      {
+        "id": "1398105623090167918",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-25T00:52:36.091Z"
+      },
+      {
+        "id": "1398105001980723261",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-25T00:50:08.007Z"
+      },
+      {
+        "id": "1398081330826448896",
+        "author": "nigenkun",
+        "content": "test2",
+        "createdAt": "2025-07-24T23:16:04.364Z"
+      },
+      {
+        "id": "1398081321556902042",
+        "author": "nigenkun",
+        "content": "test1",
+        "createdAt": "2025-07-24T23:16:02.154Z"
+      },
+      {
+        "id": "1398081290632167425",
+        "author": "nigenkun",
+        "content": "ああ",
+        "createdAt": "2025-07-24T23:15:54.781Z"
+      },
+      {
+        "id": "1397979482748358855",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-24T16:31:21.890Z"
+      },
+      {
+        "id": "1397978833533014086",
+        "author": "nigenkun",
+        "content": "/jsonName",
+        "createdAt": "2025-07-24T16:28:47.105Z"
+      },
+      {
+        "id": "1397975244928450580",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-24T16:14:31.515Z"
+      },
+      {
+        "id": "1397961885826945076",
+        "author": "ci0l",
+        "content": "",
+        "createdAt": "2025-07-24T15:21:26.457Z"
+      },
+      {
+        "id": "1397777920298324121",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-24T03:10:25.657Z"
+      },
+      {
+        "id": "1397746960219508796",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-24T01:07:24.199Z"
+      },
+      {
+        "id": "1397745641962213579",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-24T01:02:09.902Z"
+      },
+      {
+        "id": "1397619867032752130",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-23T16:42:22.822Z"
+      },
+      {
+        "id": "1397619822816264313",
+        "author": "サーバー統計情報表示BOT#5945",
+        "content": "",
+        "createdAt": "2025-07-23T16:42:12.280Z"
+      }
+    ],
+    "test3": [
+      {
+        "id": "1398081366641344574",
+        "author": "nigenkun",
+        "content": "test5",
+        "createdAt": "2025-07-24T23:16:12.903Z"
+      },
+      {
+        "id": "1398081346735439993",
+        "author": "nigenkun",
+        "content": "test4",
+        "createdAt": "2025-07-24T23:16:08.157Z"
+      },
+      {
+        "id": "1398078999661510828",
+        "author": "nigenkun",
+        "content": "test3",
+        "createdAt": "2025-07-24T23:06:48.571Z"
+      },
+      {
+        "id": "1398078989385601045",
+        "author": "nigenkun",
+        "content": "test2",
+        "createdAt": "2025-07-24T23:06:46.121Z"
+      }
+    ]
+  }
+}

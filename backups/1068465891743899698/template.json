@@ -1,0 +1,105 @@
+{
+  "serverName": "template　server",
+  "serverId": "1398185492083900487",
+  "createdAt": "2025-07-25T07:07:06.128Z",
+  "createdBy": "1068465891743899698",
+  "locked": false,
+  "roles": [
+    {
+      "name": "サーバー情報表示BOT",
+      "color": "#000000",
+      "permissions": "8",
+      "hoist": false,
+      "mentionable": false,
+      "position": 1,
+      "members": ["1394519643028455485"]
+    }
+  ],
+  "channels": [
+    {
+      "name": "テキストチャンネル",
+      "type": 4,
+      "parent": null,
+      "position": 0
+    },
+    {
+      "name": "雑談1",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 0
+    },
+    {
+      "name": "雑談1",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 0
+    },
+    {
+      "name": "聞き専1",
+      "type": 0,
+      "parent": "ボイスチャンネル",
+      "position": 0
+    },
+    {
+      "name": "ボイスチャンネル",
+      "type": 4,
+      "parent": null,
+      "position": 1
+    },
+    {
+      "name": "雑談2",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 1
+    },
+    {
+      "name": "雑談2",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 1
+    },
+    {
+      "name": "聞き専2",
+      "type": 0,
+      "parent": "ボイスチャンネル",
+      "position": 1
+    },
+    {
+      "name": "画像-動画",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 2
+    },
+    {
+      "name": "ゲーム1",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 2
+    },
+    {
+      "name": "リンク共有",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 3
+    },
+    {
+      "name": "ゲーム2",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 3
+    },
+    {
+      "name": "募集",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 4
+    },
+    {
+      "name": "bot",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 5
+    }
+  ],
+  "messages": {}
+}

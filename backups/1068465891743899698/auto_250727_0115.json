@@ -1,0 +1,215 @@
+{
+  "serverName": "tma59のサーバー",
+  "serverId": "1397619460474409071",
+  "createdAt": "2025-07-26T16:15:00.290Z",
+  "createdBy": "1068465891743899698",
+  "locked": true,
+  "roles": [
+    {
+      "name": "サーバー情報表示BOT",
+      "color": "#000000",
+      "permissions": "[object Object]",
+      "hoist": false,
+      "mentionable": false,
+      "position": 3,
+      "members": ["1394519643028455485"]
+    },
+    {
+      "name": "test1",
+      "color": "#2ecc71",
+      "permissions": "[object Object]",
+      "hoist": false,
+      "mentionable": false,
+      "position": 2,
+      "members": ["1394519643028455485", "1068465891743899698", "1239871189212463104"]
+    },
+    {
+      "name": "test3",
+      "color": "#f1c40f",
+      "permissions": "[object Object]",
+      "hoist": false,
+      "mentionable": false,
+      "position": 1,
+      "members": []
+    }
+  ],
+  "channels": [
+    {
+      "name": "テキストチャンネル",
+      "type": 4,
+      "parent": null,
+      "position": 0,
+      "messages": []
+    },
+    {
+      "name": "一般",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 0,
+      "messages": [
+        {
+          "author": {
+            "username": "ci0l",
+            "avatarURL": "https://cdn.discordapp.com/avatars/1239871189212463104/9d537bdadb9d92e629684ee975d7f8c1.webp"
+          },
+          "content": "",
+          "embeds": [],
+          "attachments": [],
+          "timestamp": "2025-07-24T15:21:26.457Z"
+        },
+        {
+          "author": {
+            "username": "nigenkun",
+            "avatarURL": "https://cdn.discordapp.com/avatars/1068465891743899698/97e387f7c8348d69083bdcaf24db21e6.webp"
+          },
+          "content": "ああ",
+          "embeds": [],
+          "attachments": [],
+          "timestamp": "2025-07-25T20:19:17.376Z"
+        },
+        {
+          "author": {
+            "username": "nigenkun",
+            "avatarURL": "https://cdn.discordapp.com/avatars/1068465891743899698/97e387f7c8348d69083bdcaf24db21e6.webp"
+          },
+          "content": "さはり",
+          "embeds": [],
+          "attachments": [],
+          "timestamp": "2025-07-25T20:19:18.681Z"
+        },
+        {
+          "author": {
+            "username": "サーバー統計情報表示BOT",
+            "avatarURL": "https://cdn.discordapp.com/embed/avatars/0.png"
+          },
+          "content": "",
+          "embeds": [
+            {
+              "type": "rich",
+              "timestamp": "2025-07-24T15:21:26.457000+00:00",
+              "author": {
+                "name": "ci0l",
+                "icon_url": "https://cdn.discordapp.com/avatars/1239871189212463104/9d537bdadb9d92e629684ee975d7f8c1.webp",
+                "proxy_icon_url": "https://images-ext-1.discordapp.net/external/glu8XefsX8Sge3cA-YFhtjGagzLRw_1rdUt-xu7zFrE/https/cdn.discordapp.com/avatars/1239871189212463104/9d537bdadb9d92e629684ee975d7f8c1.webp"
+              }
+            }
+          ],
+          "attachments": [],
+          "timestamp": "2025-07-26T15:52:29.923Z"
+        },
+        {
+          "author": {
+            "username": "サーバー統計情報表示BOT",
+            "avatarURL": "https://cdn.discordapp.com/embed/avatars/0.png"
+          },
+          "content": "",
+          "embeds": [
+            {
+              "type": "rich",
+              "description": "ああ",
+              "timestamp": "2025-07-25T20:19:17.376000+00:00",
+              "author": {
+                "name": "nigenkun",
+                "icon_url": "https://cdn.discordapp.com/avatars/1068465891743899698/97e387f7c8348d69083bdcaf24db21e6.webp",
+                "proxy_icon_url": "https://images-ext-1.discordapp.net/external/WSQNazMF6VlDIr8bXKOCaGSgsOYNf-1vZ6CaJuDcoOY/https/cdn.discordapp.com/avatars/1068465891743899698/97e387f7c8348d69083bdcaf24db21e6.webp"
+              }
+            }
+          ],
+          "attachments": [],
+          "timestamp": "2025-07-26T15:52:30.192Z"
+        },
+        {
+          "author": {
+            "username": "サーバー統計情報表示BOT",
+            "avatarURL": "https://cdn.discordapp.com/embed/avatars/0.png"
+          },
+          "content": "",
+          "embeds": [
+            {
+              "type": "rich",
+              "description": "さはり",
+              "timestamp": "2025-07-25T20:19:18.681000+00:00",
+              "author": {
+                "name": "nigenkun",
+                "icon_url": "https://cdn.discordapp.com/avatars/1068465891743899698/97e387f7c8348d69083bdcaf24db21e6.webp",
+                "proxy_icon_url": "https://images-ext-1.discordapp.net/external/WSQNazMF6VlDIr8bXKOCaGSgsOYNf-1vZ6CaJuDcoOY/https/cdn.discordapp.com/avatars/1068465891743899698/97e387f7c8348d69083bdcaf24db21e6.webp"
+              }
+            }
+          ],
+          "attachments": [],
+          "timestamp": "2025-07-26T15:52:30.474Z"
+        }
+      ]
+    },
+    {
+      "name": "一般",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 0,
+      "messages": []
+    },
+    {
+      "name": "ボイスチャンネル",
+      "type": 4,
+      "parent": null,
+      "position": 1,
+      "messages": []
+    },
+    {
+      "name": "test3",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 1,
+      "messages": [
+        {
+          "author": {
+            "username": "サーバー統計情報表示BOT",
+            "avatarURL": "https://cdn.discordapp.com/embed/avatars/0.png"
+          },
+          "content": "",
+          "embeds": [
+            {
+              "type": "rich",
+              "description": "ああああ",
+              "timestamp": "2025-07-26T00:03:19.548000+00:00",
+              "author": {
+                "name": "nigenkun",
+                "icon_url": "https://cdn.discordapp.com/avatars/1068465891743899698/97e387f7c8348d69083bdcaf24db21e6.webp",
+                "proxy_icon_url": "https://images-ext-1.discordapp.net/external/WSQNazMF6VlDIr8bXKOCaGSgsOYNf-1vZ6CaJuDcoOY/https/cdn.discordapp.com/avatars/1068465891743899698/97e387f7c8348d69083bdcaf24db21e6.webp"
+              }
+            }
+          ],
+          "attachments": [],
+          "timestamp": "2025-07-26T00:04:27.709Z"
+        },
+        {
+          "author": {
+            "username": "サーバー統計情報表示BOT",
+            "avatarURL": "https://cdn.discordapp.com/embed/avatars/0.png"
+          },
+          "content": "",
+          "embeds": [
+            {
+              "type": "rich",
+              "timestamp": "2025-07-26T00:04:27.709000+00:00",
+              "fields": [
+                {
+                  "name": "元の埋め込み",
+                  "value": "復元されたメッセージには、元の埋め込みコンテンツも含まれていました。",
+                  "inline": false
+                }
+              ],
+              "author": {
+                "name": "サーバー統計情報表示BOT",
+                "icon_url": "https://cdn.discordapp.com/embed/avatars/0.png",
+                "proxy_icon_url": "https://images-ext-1.discordapp.net/external/2dZVVL6feMSM7lxfFkKVW__LToSOzmToSEmocJV5vcA/https/cdn.discordapp.com/embed/avatars/0.png"
+              }
+            }
+          ],
+          "attachments": [],
+          "timestamp": "2025-07-26T15:52:30.611Z"
+        }
+      ]
+    }
+  ]
+}
