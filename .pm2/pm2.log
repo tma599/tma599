@@ -24284,3 +24284,22 @@
 2025-08-03T05:46:31: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
 2025-08-03T05:47:01: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
 2025-08-03T05:47:31: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:48:01: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:48:29: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:48:29: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:48:29: PM2 log: Stopping app:discord-bot id:0
+2025-08-03T05:48:29: PM2 log: pid=23635 msg=failed to kill - retrying in 100ms
+2025-08-03T05:48:29: PM2 log: App [discord-bot:0] exited with code [0] via signal [SIGINT]
+2025-08-03T05:48:29: PM2 log: pid=23635 msg=process killed
+2025-08-03T05:48:29: PM2 log: App [discord-bot:0] starting in -fork mode-
+2025-08-03T05:48:29: PM2 log: App [discord-bot:0] online
+2025-08-03T05:48:31: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:49:01: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:49:31: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:50:01: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:50:31: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:51:01: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:51:31: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:52:01: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:52:31: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value
+2025-08-03T05:53:01: PM2 warn: [pidusage] We couldn't find uptime from /proc/uptime, using os.uptime() value

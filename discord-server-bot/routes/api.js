@@ -409,13 +409,11 @@ router.post('/guilds/:guildId/ngwords', async (req, res) => {
     ngWords.set(guildId, currentNgWords);
     await saveNgWords();
 
-    res
-      .status(201)
-      .json({
-        success: true,
-        message: `NGワード「${originalWord}」を追加しました。`,
-        addedWord: originalWord,
-      });
+    res.status(201).json({
+      success: true,
+      message: `NGワード「${originalWord}」を追加しました。`,
+      addedWord: originalWord,
+    });
   } catch (error) {
     console.error('[Web] Error adding NG word:', error);
     res.status(500).json({ error: 'NGワードの追加に失敗しました。' });

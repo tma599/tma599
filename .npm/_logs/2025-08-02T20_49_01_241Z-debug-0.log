@@ -4,15 +4,15 @@
 3 silly config load:file:/data/data/com.termux/files/usr/lib/node_modules/npm/npmrc
 4 silly config load:file:/data/data/com.termux/files/home/.npmrc
 5 silly config load:file:/data/data/com.termux/files/usr/etc/npmrc
-6 verbose title npm run lint
-7 verbose argv "run" "lint"
-8 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2025-08-01T09_57_00_277Z-
-9 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2025-08-01T09_57_00_277Z-debug-0.log
+6 verbose title npm run format
+7 verbose argv "run" "format"
+8 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2025-08-02T20_49_01_241Z-
+9 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2025-08-02T20_49_01_241Z-debug-0.log
 10 silly logfile start cleaning logs, removing 1 files
 11 silly logfile done cleaning log files
 12 verbose cwd /data/data/com.termux/files/home
 13 verbose os Linux 5.4.259-perf-g98b987981a60
 14 verbose node v24.4.1
 15 verbose npm  v11.4.2
-16 verbose exit 0
-17 info ok
+16 verbose exit 2
+17 verbose code 2
