@@ -6,7 +6,7 @@ const { applyBackup } = require('../../utils/backupRestorer');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('aothbackuprestor')
+    .setName('autobackuprestore')
     .setDescription('自動バックアップからサーバーを復元します。')
     .setDefaultMemberPermissions(PermissionsBitField.Flags.ManageGuild)
     .addStringOption((option) =>
@@ -32,7 +32,8 @@ module.exports = {
           )
           .map((file) => file.replace('.json', ''));
         await interaction.respond(choices.map((choice) => ({ name: choice, value: choice })));
-      } catch {
+      } catch (error) {
+        console.error('[自動バックアップ復元] オートコンプリートエラー:', error);
         await interaction.respond([]);
       }
     }

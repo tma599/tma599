@@ -1,3 +1,4 @@
+console.log('Starting index.js...');
 require('dotenv').config();
 const fsp = require('fs/promises');
 const path = require('path');
@@ -10,10 +11,6 @@ const {
   Routes,
   Collection,
   MessageFlags,
-  EmbedBuilder,
-  ActionRowBuilder,
-  ButtonBuilder,
-  ButtonStyle,
   PermissionsBitField,
   ChannelType,
 } = require('discord.js');
@@ -87,7 +84,7 @@ client.on(Events.GuildCreate, async (guild) => {
 });
 
 client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
-  if (newMessage.author.bot || newMessage.system || oldMessage.content === newMessage.content) {
+  if (newMessage.author?.bot || newMessage.system || oldMessage.content === newMessage.content) {
     return;
   }
   if (oldMessage.partial) {
@@ -98,13 +95,13 @@ client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
         `[エラー] 編集前のメッセージの取得に失敗しました (ID: ${oldMessage.id})`,
         error
       );
-      return;
+      // 取得に失敗しても、新しいメッセージの情報だけでログを残す
     }
   }
-  const userTag = newMessage.author.tag;
-  const userId = newMessage.author.id;
-  const channelName = newMessage.channel.name;
-  const oldContent = oldMessage.content || '[内容なし]';
+  const userTag = newMessage.author?.tag || '不明なユーザー';
+  const userId = newMessage.author?.id || '不明なID';
+  const channelName = newMessage.channel?.name || '不明なチャンネル';
+  const oldContent = oldMessage.content || '[内容不明]';
   const newContent = newMessage.content || '[内容なし]';
   const messageURL = `https://discord.com/channels/${newMessage.guildId}/${newMessage.channelId}/${newMessage.id}`;
   console.log('--------------------------------------------------');
@@ -119,8 +116,14 @@ client.on(Events.MessageUpdate, async (oldMessage, newMessage) => {
 
 client.on(Events.MessageDelete, async (message) => {
   if (message.partial) {
-    console.log('[メッセージ削除検知] キャッシュ外のメッセージが削除されました。');
-    return;
+    try {
+      await message.fetch();
+    } catch (error) {
+      console.log(
+        '[メッセージ削除検知] キャッシュ外のメッセージが削除され、詳細の取得に失敗しました。'
+      );
+      return;
+    }
   }
   const userTag = message.author ? message.author.tag : '不明なユーザー';
   const userId = message.author ? message.author.id : '不明なID';
@@ -279,8 +282,13 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 });
 
-process.on('unhandledRejection', (reason) => {
+process.on('unhandledRejection', (reason, promise) => {
   console.error('[エラー] 未処理のPromise rejection:', reason);
+  // ここに、エラー追跡サービスへのレポートなどの追加処理を記述できます
+});
+
+process.on('uncaughtException', (err, origin) => {
+  console.error(`[エラー] キャッチされなかった例外: ${err}\n` + `例外の発生源: ${origin}`);
 });
 
 client.login(process.env.DISCORD_TOKEN);

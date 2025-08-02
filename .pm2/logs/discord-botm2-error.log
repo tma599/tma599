@@ -1,0 +1,2247 @@
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at app.listen (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:635:24)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:78:20)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+Error: Cannot find module '../utils/commandLoader'
+Require stack:
+- /data/data/com.termux/files/home/discord-server-bot/bot/client.js
+- /data/data/com.termux/files/home/discord-server-bot/index.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1369:15)
+    at Hook._require.Module.require (/data/data/com.termux/files/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/bot/client.js:2:26)
+    at Module._compile (node:internal/modules/cjs/loader:1692:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)
+    at Module.load (node:internal/modules/cjs/loader:1427:32)
+    at Module._load (node:internal/modules/cjs/loader:1250:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/data/data/com.termux/files/home/discord-server-bot/bot/client.js',
+    '/data/data/com.termux/files/home/discord-server-bot/index.js'
+  ]
+}

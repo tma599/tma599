@@ -1,0 +1,37 @@
+{
+  "name": "discord-server-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "husky",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cron-parser": "^5.3.0",
+    "discord.js": "^14.21.0",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "kuromoji": "^0.1.2",
+    "node-cron": "^3.0.0",
+    "passport": "^0.7.0",
+    "passport-discord": "^0.1.4",
+    "session-file-store": "^1.5.0",
+    "wanakana": "^5.3.1",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2"
+  }
+}

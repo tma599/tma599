@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ログイン</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #f4f4f9;
+      }
+      .login-container {
+        text-align: center;
+        padding: 2em;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .login-button {
+        display: inline-block;
+        padding: 12px 24px;
+        margin-top: 1em;
+        background-color: #5865f2;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>ダッシュボードへようこそ</h1>
+      <p>続けるにはDiscordアカウントでログインしてください。</p>
+      <a href="/auth/discord" class="login-button">Discordでログイン</a>
+    </div>
+  </body>
+</html>

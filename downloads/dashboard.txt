@@ -1,0 +1,2443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Botダッシュボード</title>
+    <style>
+        :root {
+            --primary-color: #5865F2;
+            --success-color: #43b581;
+            --danger-color: #f04747;
+            --warning-color: #faa61a;
+            --background-primary: #f2f3f5;
+            --background-secondary: #ffffff;
+            --background-tertiary: #e3e5e8;
+            --header-primary: #060607;
+            --text-normal: #2e3338;
+            --text-muted: #747f8d;
+            --font-primary: "gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --shadow-sm: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius: 8px;
+            --white-color: #ffffff;
+        }
+        body {
+            font-family: var(--font-primary);
+            margin: 0;
+            background-color: var(--background-primary);
+            color: var(--text-normal);
+        }
+        #top-bar {
+            display: flex;
+            align-items: center;
+            padding: 10px 16px;
+            background-color: #23272a;
+            color: var(--white-color);
+            box-shadow: var(--shadow-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        #log-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: #b9bbbe;
+            font-weight: 600;
+            border-radius: 5px;
+            margin-right: 10px;
+            white-space: nowrap;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        #log-link:hover, #log-link.active {
+            background-color: rgba(255,255,255,0.1);
+            color: #ffffff;
+        }
+        #guild-selector {
+            display: flex;
+            overflow-x: auto;
+            flex-grow: 1;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        #guild-selector::-webkit-scrollbar { display: none; }
+        .guild-tab {
+            display: flex;
+            align-items: center;
+            padding: 6px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.2s ease, border-radius 0.3s;
+            margin-right: 8px;
+            flex-shrink: 0;
+            border: 2px solid transparent;
+        }
+        .guild-tab.active {
+            border-color: var(--primary-color);
+        }
+        .guild-tab:hover {
+             border-radius: 16px;
+        }
+        .guild-tab.active:hover {
+            border-radius: 50%;
+        }
+        .guild-tab img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .guild-tab .guild-name-tooltip {
+            visibility: hidden;
+            width: max-content;
+            background-color: #18191c;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .guild-tab:hover .guild-name-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+        #main-content { 
+            padding: 24px;
+            max-width: 1400px; /* Add max-width for larger screens */
+            margin: 0 auto; /* Center the content */
+        }
+        .view { display: none; }
+        .view.active { display: block; }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 1em;
+        }
+        .info-card, .management-section {
+            background-color: var(--background-secondary);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+        }
+        .info-card h3, .management-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0;
+            font-size: 1.2em;
+            color: var(--header-primary);
+            border-bottom: 1px solid var(--background-tertiary);
+            padding-bottom: 0.75em;
+            margin-bottom: 1em;
+        }
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            max-height: 220px; /* Keep existing max-height for the card */
+            overflow-y: auto;
+        }
+        .info-card ul li {
+            padding: 6px 8px;
+            border-bottom: 1px solid var(--background-tertiary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-card ul li:last-child { border-bottom: none; }
+
+        .channel-group-uncategorized,
+        .channel-category-group {
+            margin-top: 25px; /* Increased space above each group */
+            margin-bottom: 25px; /* Increased space below each group */
+            background-color: var(--background-secondary); /* White background for the group */
+            border: 1px solid var(--background-tertiary); /* Added border for clearer separation */
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md); /* Add shadow for card-like effect */
+            overflow: hidden; /* Ensures border-radius applies to children */
+        }
+        .channel-category-name {
+            display: flex;
+            align-items: center;
+            font-size: 1em; /* Slightly larger font */
+            font-weight: 800; /* Bolder */
+            color: var(--header-primary);
+            text-transform: uppercase;
+            padding: 12px 15px; /* Increased padding */
+            background-color: var(--background-tertiary); /* Light grey background for category header */
+            border-bottom: 1px solid var(--background-tertiary);
+            cursor: pointer;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow */
+        }
+        .channel-category-name .icon {
+            margin-right: 10px; /* More space for icon */
+            transition: transform 0.2s ease;
+        }
+        .channel-category-name.collapsed .icon {
+            transform: rotate(-90deg);
+        }
+        .channel-indent {
+            padding-left: 30px; /* Further increased indentation for channels within categories */
+        }
+        .channel-list-group {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .channel-list-group li {
+            padding: 10px 15px; /* Increased padding for list items */
+            border-bottom: 1px solid var(--background-tertiary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .channel-list-group li:last-child { border-bottom: none; }
+        .vc-member {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+            padding-left: 10px;
+        }
+        .vc-member img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .vc-member span {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .role-pill {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 16px;
+            color: var(--white-color);
+            font-size: 0.85em;
+            margin: 3px;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        .form-group { margin-bottom: 1.5em; }
+        label { display: block; margin-bottom: .5em; font-weight: 600; color: var(--text-muted); font-size: 0.9em; }
+        input[type="text"], input[type="number"], select, textarea, input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--background-tertiary);
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: var(--background-primary);
+            color: var(--text-normal);
+            transition: border-color 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 5px;
+            color: var(--white-color);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        button:active { transform: translateY(1px); }
+        .btn-primary { background-color: var(--primary-color); }
+        .btn-danger { background-color: var(--danger-color); }
+        .btn-success { background-color: var(--success-color); }
+        .btn-warning { background-color: var(--warning-color); }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+        }
+        th, td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--background-tertiary);
+            text-align: left;
+        }
+        th {
+            background-color: var(--background-primary);
+            font-size: 0.9em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        #log-container {
+            background-color: #2b2d31;
+            color: #dcddde;
+            padding: 1em;
+            border-radius: var(--border-radius);
+            height: calc(100vh - 120px);
+            overflow-y: scroll;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Custom Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: var(--background-secondary);
+            padding: 24px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            width: 90%;
+            max-width: 500px;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--background-tertiary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .modal-header h3 { margin: 0; color: var(--header-primary); }
+        .modal-close-button {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+        .modal-body { margin-bottom: 20px; }
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        /* Skeleton Loader Styles */
+        .skeleton-loader {
+            background-color: #e0e0e0;
+            background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+            display: inline-block;
+            height: 1em; /* Adjust as needed */
+            width: 100%;
+            margin-bottom: 0.5em;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Tooltip Styles */
+        [data-tooltip] {
+            position: relative;
+            cursor: help;
+        }
+        [data-tooltip]::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 125%; /* Position above the element */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #36393f;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            font-size: 0.85em;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+            z-index: 1000;
+        }
+        [data-tooltip]:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design Adjustments */
+        @media (max-width: 768px) {
+            #main-content {
+                padding: 16px;
+            }
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .management-section {
+                padding: 16px;
+            }
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                border: 1px solid var(--background-tertiary);
+                margin-bottom: 1em;
+                border-radius: var(--border-radius);
+                overflow: hidden;
+            }
+            td {
+                border: none;
+                border-bottom: 1px solid var(--background-tertiary);
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+            td:last-child {
+                border-bottom: none;
+            }
+            td::before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: 600;
+                color: var(--text-muted);
+            }
+            /* Specific labels for each column */
+            #backups-table td:nth-of-type(1)::before { content: "ファイル名"; }
+            #backups-table td:nth-of-type(2)::before { content: "作成日時"; }
+            #backups-table td:nth-of-type(3)::before { content: "状態"; }
+            #backups-table td:nth-of-type(4)::before { content: "操作"; }
+            #schedules-table td:nth-of-type(1)::before { content: "スケジュール"; }
+            #schedules-table td:nth-of-type(2)::before { content: "次回実行日時"; }
+            #schedules-table td:nth-of-type(3)::before { content: "操作"; }
+            #ngwords-table td:nth-of-type(1)::before { content: "ワード"; }
+            #ngwords-table td:nth-of-type(2)::before { content: "操作"; }
+            /* Adjust for channel/role/member tables */
+            #channel-management-table td:nth-of-type(1)::before { content: "名前"; }
+            #channel-management-table td:nth-of-type(2)::before { content: "タイプ"; }
+            #channel-management-table td:nth-of-type(3)::before { content: "操作"; }
+            #role-management-table td:nth-of-type(1)::before { content: "ロール"; }
+            #role-management-table td:nth-of-type(2)::before { content: "ID"; }
+            #role-management-table td:nth-of-type(3)::before { content: "操作"; }
+            #member-management-table td:nth-of-type(1)::before { content: "ユーザー"; }
+            #member-management-table td:nth-of-type(2)::before { content: "参加日"; }
+            #member-management-table td:nth-of-type(3)::before { content: "操作"; }
+        }
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+</head>
+<body>
+
+    <div id="sidebar">
+        <div id="sidebar-header"></div>
+        <nav id="sidebar-nav"></nav>
+    </div>
+    <div id="overlay"></div>
+
+    <!-- Custom Confirmation Modal -->
+    <div id="custom-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="custom-modal-title"></h3>
+                <button class="modal-close-button" id="custom-modal-close-button">&times;</button>
+            </div>
+            <div class="modal-body" id="custom-modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="custom-modal-cancel-button">キャンセル</button>
+                <button class="btn-danger" id="custom-modal-confirm-button">確認</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="top-bar">
+        <button id="menu-toggle" disabled>
+            <svg class="icon" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+        </button>
+        <a href="#logs" id="log-link">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21.41,11.58l-9-9C12.05,2.22,11.55,2,11,2H4C2.9,2,2,2.9,2,4v7c0,0.55,0.22,1.05,0.59,1.42l9,9c0.36,0.36,0.86,0.58,1.41,0.58s1.05-0.22,1.41-0.59l7-7C22.17,13.66,22.17,12.34,21.41,11.58z M13,20.01L4,11V4h7l9,9L13,20.01z"/><circle cx="6.5" cy="6.5" r="1.5"/></svg>
+            リアルタイムログ
+        </a>
+        <div id="guild-selector"></div>
+    </div>
+
+    <div id="main-content">
+        <div id="loading-overlay" class="view active">
+            <div class="info-card" style="text-align:center; padding: 4em 2em;">
+                <div class="spinner"></div>
+                <h2>読み込み中...</h2>
+                <p class="skeleton-loader" style="height: 20px; width: 60%;"></p>
+            </div>
+        </div>
+        <div id="guild-view" class="view"></div>
+        <div id="log-view" class="view"><div id="log-container"></div></div>
+        <div id="welcome-view" class="view">
+             <div class="info-card" style="text-align:center; padding: 4em 2em;">
+                <h2>ダッシュボードへようこそ</h2>
+                <p>上のメニューからサーバーを選択して管理を開始するか、リアルタイムログを表示してください。</p>
+             </div>
+        </div>
+    </div>
+
+    <script>
+        // --- State ---
+        let allGuilds = [];
+        let currentGuildData = null;
+        let currentView = 'overview';
+
+        // --- DOM Elements ---
+        const logLink = document.getElementById('log-link');
+        const guildSelector = document.getElementById('guild-selector');
+        const mainContent = document.getElementById('main-content');
+        const guildView = document.getElementById('guild-view');
+        const logView = document.getElementById('log-view');
+        const welcomeView = document.getElementById('welcome-view');
+        const logContainer = document.getElementById('log-container');
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarHeader = document.getElementById('sidebar-header');
+        const sidebarNav = document.getElementById('sidebar-nav');
+        const overlay = document.getElementById('overlay');
+        const loadingOverlay = document.getElementById('loading-overlay');
+
+        // Custom Modal Elements
+        const customModalOverlay = document.getElementById('custom-modal-overlay');
+        const customModalTitle = document.getElementById('custom-modal-title');
+        const customModalBody = document.getElementById('custom-modal-body');
+        const customModalConfirmButton = document.getElementById('custom-modal-confirm-button');
+        const customModalCancelButton = document.getElementById('custom-modal-cancel-button');
+        const customModalCloseButton = document.getElementById('custom-modal-close-button');
+
+        // --- View Management ---
+        function showView(viewId) {
+            document.querySelectorAll('#main-content .view').forEach(v => v.classList.remove('active'));
+            document.getElementById(viewId)?.classList.add('active');
+            logLink.classList.toggle('active', viewId === 'log-view');
+            if (viewId !== 'guild-view') {
+                document.querySelectorAll('.guild-tab').forEach(t => t.classList.remove('active'));
+                closeSidebar();
+                menuToggle.disabled = true;
+            } else {
+                menuToggle.disabled = false;
+            }
+        }
+
+        function openSidebar() { document.body.classList.add('sidebar-open'); }
+        function closeSidebar() { document.body.classList.remove('sidebar-open'); }
+
+        // --- Custom Modal Functions ---
+        let resolveModalPromise;
+        function showCustomModal(title, bodyHtml, confirmText = '確認', cancelText = 'キャンセル', confirmButtonClass = 'btn-danger') {
+            return new Promise(resolve => {
+                customModalTitle.textContent = title;
+                customModalBody.innerHTML = bodyHtml;
+                customModalConfirmButton.textContent = confirmText;
+                customModalCancelButton.textContent = cancelText;
+                customModalConfirmButton.className = `btn ${confirmButtonClass}`;
+
+                customModalOverlay.style.display = 'flex';
+                resolveModalPromise = resolve;
+
+                const handleConfirm = () => {
+                    customModalOverlay.style.display = 'none';
+                    customModalConfirmButton.removeEventListener('click', handleConfirm);
+                    customModalCancelButton.removeEventListener('click', handleCancel);
+                    customModalCloseButton.removeEventListener('click', handleCancel);
+                    resolve(true);
+                };
+
+                const handleCancel = () => {
+                    customModalOverlay.style.display = 'none';
+                    customModalConfirmButton.removeEventListener('click', handleConfirm);
+                    customModalCancelButton.removeEventListener('click', handleCancel);
+                    customModalCloseButton.removeEventListener('click', handleCancel);
+                    resolve(false);
+                };
+
+                customModalConfirmButton.addEventListener('click', handleConfirm);
+                customModalCancelButton.addEventListener('click', handleCancel);
+                customModalCloseButton.addEventListener('click', handleCancel);
+            });
+        }
+
+        // --- API Functions ---
+        async function fetchApi(url, options) {
+            loadingOverlay.classList.add('active');
+            try {
+                const response = await fetch(url, options);
+                if (response.status === 401) {
+                    window.location.reload();
+                    return null;
+                }
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ error: '不明なエラーが発生しました。' }));
+                    throw new Error(errorData.error);
+                }
+                return response.status === 204 ? {} : await response.json();
+            } catch (error) {
+                showToast(error.message, true);
+                return null;
+            } finally {
+                loadingOverlay.classList.remove('active');
+            }
+        }
+
+        // --- HTML Generation ---
+        function generateServerInfoHTML(guild) {
+            const sortedRoles = [...guild.roles].sort((a, b) => b.position - a.position);
+
+            return `
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>サーバー情報</h3>
+                        <ul><li><strong>メンバー数:</strong> ${guild.memberCount}</li></ul>
+                    </div>
+                    <div class="info-card" id="channel-list-card">
+                        <h3>チャンネルリスト</h3>
+                        <div id="channel-list-content"></div>
+                    </div>
+                    <div class="info-card">
+                        <h3>ロール (${sortedRoles.length})</h3>
+                        <div style="display:flex; flex-wrap:wrap;">
+                            ${sortedRoles.map(r => {
+                                const hex = r.color;
+                                const bgColor = hex === '#000000' ? '#99aab5' : hex;
+                                const r_val = parseInt(bgColor.slice(1, 3), 16);
+                                const g_val = parseInt(bgColor.slice(3, 5), 16);
+                                const b_val = parseInt(bgColor.slice(5, 7), 16);
+                                const luminance = (0.299 * r_val + 0.587 * g_val + 0.114 * b_val);
+                                const textColor = luminance > 150 ? '#2e3338' : '#ffffff';
+                                return `<span class="role-pill" style="background-color:${bgColor}; color: ${textColor};">${r.name}</span>`;
+                            }).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderChannelList(guild) {
+            const allChannels = [...guild.channels].sort((a, b) => a.position - b.position);
+
+            const categories = allChannels.filter(c => c.type === 4).sort((a, b) => a.position - b.position);
+
+            const getChannelIcon = (channel) => {
+                let icon = '❓'; // Default for unknown types
+                switch(channel.type) {
+                    case 0: icon = '#'; break;        // GUILD_TEXT
+                    case 2: icon = '🔊'; break;        // GUILD_VOICE
+                    case 4: icon = '📁'; break;        // GUILD_CATEGORY (not directly listed, but for completeness)
+                    case 5: icon = '📢'; break;        // GUILD_NEWS
+                    case 10:                            // GUILD_NEWS_THREAD
+                    case 11:                            // GUILD_PUBLIC_THREAD
+                    case 12: icon = '💬'; break;       // GUILD_PRIVATE_THREAD
+                    case 13: icon = '🎤'; break;       // GUILD_STAGE_VOICE
+                    case 14: icon = '📖'; break;       // GUILD_DIRECTORY
+                    case 15: icon = '📰'; break;       // GUILD_FORUM
+                    case 16: icon = '🖼️'; break;       // GUILD_MEDIA
+                }
+                return icon;
+            };
+
+            const buildChannelItemHTML = (channel) => {
+                const icon = getChannelIcon(channel);
+                return `<li class="channel-item"><div>${icon} ${channel.name}</div></li>`;
+            };
+
+            let channelListHTML = '';
+
+            // 1. Render channels without category first
+            const topLevelChannels = allChannels.filter(c => (c.parentId === null || c.parentId === undefined) && c.type !== 4);
+            if (topLevelChannels.length > 0) {
+                channelListHTML += `
+                    <div class="channel-group-uncategorized">
+                        <div class="channel-category-name" data-category-id="uncategorized">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            カテゴリなしチャンネル
+                        </div>
+                        <ul class="channel-list-group" id="channel-list-uncategorized" style="display: block;">
+                            ${topLevelChannels.map(buildChannelItemHTML).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // 2. Render categorized channels
+            categories.forEach(cat => {
+                const channelsInCategory = allChannels.filter(c => c.parentId === cat.id)
+                                                      .sort((a, b) => {
+                                                          if (a.type !== b.type) {
+                                                              return a.type - b.type;
+                                                          }
+                                                          return a.position - b.position;
+                                                      });
+
+                if (channelsInCategory.length > 0) {
+                    channelListHTML += `
+                        <div class="channel-category-group">
+                            <div class="channel-category-name" data-category-id="${cat.id}">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                                ${cat.name}
+                            </div>
+                            <ul class="channel-indent channel-list-group" id="channel-list-${cat.id}" style="display: block;">
+                                ${channelsInCategory.map(buildChannelItemHTML).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+            });
+
+            const channelListContent = document.getElementById('channel-list-content');
+            if (channelListContent) {
+                channelListContent.innerHTML = channelListHTML;
+            }
+        }
+        
+        // --- Main Functions ---
+        async function selectGuild(guildId) {
+            const hashParts = window.location.hash.slice(1).split('/');
+            currentView = hashParts[1] || 'overview';
+            if (!guildId) return;
+            showView('guild-view');
+            window.location.hash = `${guildId}/${currentView}`;
+            document.querySelectorAll('.guild-tab').forEach(t => t.classList.toggle('active', t.dataset.guildId === guildId));
+            guildView.innerHTML = "<div class='management-section'><h3 class='skeleton-loader'></h3><p class='skeleton-loader'></p></div>"; // Skeleton loader
+            const guildData = await fetchApi(`/api/guilds/${guildId}`);
+            if (!guildData) {
+                guildView.innerHTML = "<h2>サーバー情報の読み込みに失敗しました。</h2>";
+                return;
+            }
+            currentGuildData = guildData;
+            updateSidebar();
+            renderGuildView(currentView);
+        }
+
+        function updateSidebar() {
+            if (!currentGuildData) return;
+            sidebarHeader.innerHTML = `<img src="${currentGuildData.iconURL}" alt="${currentGuildData.name}"><h2>${currentGuildData.name}</h2>`;
+            sidebarNav.innerHTML = `<ul>
+                <li><a href="#${currentGuildData.id}/overview" data-view="overview">サーバー概要</a></li>
+                <li><a href="#${currentGuildData.id}/channels" data-view="channels">チャンネル管理</a></li>
+                <li><a href="#${currentGuildData.id}/roles" data-view="roles">ロール管理</a></li>
+                <li><a href="#${currentGuildData.id}/members" data-view="members">メンバー管理</a></li>
+                <li><a href="#${currentGuildData.id}/moderation" data-view="moderation">モデレーション</a></li>
+                <li><a href="#${currentGuildData.id}/settings" data-view="settings">ボット設定</a></li>
+            </ul>`;
+            sidebarNav.querySelectorAll('a').forEach(a => a.addEventListener('click', e => {
+                e.preventDefault();
+                const view = e.currentTarget.dataset.view;
+                window.location.hash = `${currentGuildData.id}/${view}`;
+            }));
+        }
+
+        function renderGuildView(view) {
+            if (!currentGuildData) return;
+            currentView = view;
+            sidebarNav.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.dataset.view === view));
+            switch(view) {
+                case 'overview':
+                    guildView.innerHTML = generateServerInfoHTML(currentGuildData);
+                    renderChannelList(currentGuildData);
+                    break;
+                case 'channels':
+                    renderChannelManagement();
+                    break;
+                case 'roles':
+                    renderRoleManagement();
+                    break;
+                case 'members':
+                    renderMemberManagement();
+                    break;
+                case 'moderation':
+                    renderModeration();
+                    break;
+                case 'settings':
+                    guildView.innerHTML = getBackupPaneHTML();
+                    attachBackupListeners();
+                    break;
+                default:
+                    guildView.innerHTML = generateServerInfoHTML(currentGuildData);
+                    renderChannelList(currentGuildData);
+            }
+            closeSidebar();
+        }
+
+        async function renderChannelManagement() {
+            const channels = currentGuildData.channels;
+            guildView.innerHTML = `<div class="management-section"><h3>チャンネル管理</h3>
+                <table id="channel-management-table"><thead><tr><th>名前</th><th>タイプ</th><th>操作</th></tr></thead><tbody>
+                ${channels.map(ch => `<tr><td>${ch.name}</td><td>${ch.type === 0 ? 'テキスト' : ch.type === 2 ? 'ボイス' : 'その他'}</td><td><div class="action-buttons"><button class="btn-primary" data-channel-id="${ch.id}" data-action="edit-channel" data-tooltip="チャンネルを編集">編集</button><button class="btn-danger" data-channel-id="${ch.id}" data-action="delete-channel" data-tooltip="チャンネルを削除">削除</button></div></td></tr>`).join('')}
+                </tbody></table></div>`;
+            attachChannelManagementListeners();
+        }
+
+        function attachChannelManagementListeners() {
+            document.querySelectorAll('#channel-management-table button[data-action="edit-channel"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const channelId = e.target.dataset.channelId;
+                    const channel = currentGuildData.channels.find(c => c.id === channelId);
+                    if (!channel) return showToast('チャンネルが見つかりません。', true);
+
+                    const formHtml = `
+                        <div class="form-group">
+                            <label for="edit-channel-name">チャンネル名</label>
+                            <input type="text" id="edit-channel-name" value="${channel.name}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-channel-topic">チャンネルトピック (テキストチャンネルのみ)</label>
+                            <textarea id="edit-channel-topic" rows="3">${channel.topic || ''}</textarea>
+                        </div>
+                    `;
+                    const confirmed = await showCustomModal(
+                        `チャンネル「${channel.name}」を編集`,
+                        formHtml,
+                        '保存',
+                        'キャンセル',
+                        'btn-primary'
+                    );
+
+                    if (confirmed) {
+                        const newName = document.getElementById('edit-channel-name').value;
+                        const newTopic = document.getElementById('edit-channel-topic').value;
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/channels/${channelId}`, {
+                            method: 'PATCH',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name: newName, topic: newTopic })
+                        });
+                        if (result) {
+                            showToast('チャンネルを更新しました。');
+                            // Refresh guild data and re-render channel management
+                            selectGuild(currentGuildData.id); 
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('#channel-management-table button[data-action="delete-channel"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const channelId = e.target.dataset.channelId;
+                    const channel = currentGuildData.channels.find(c => c.id === channelId);
+                    if (!channel) return showToast('チャンネルが見つかりません。', true);
+
+                    const confirmed = await showCustomModal(
+                        'チャンネル削除確認',
+                        `本当にチャンネル「<strong>${channel.name}</strong>」を削除しますか？<br>この操作は元に戻せません。`,
+                        '削除する',
+                        'キャンセル',
+                        'btn-danger'
+                    );
+                    if (confirmed) {
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/channels/${channelId}`, {
+                            method: 'DELETE'
+                        });
+                        if (result) {
+                            showToast('チャンネルを削除しました。');
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+        }
+
+        async function renderRoleManagement() {
+            const roles = currentGuildData.roles.filter(r => r.name !== '@everyone').sort((a,b) => b.position - a.position);
+            guildView.innerHTML = `<div class="management-section"><h3>ロール管理</h3>
+                <table id="role-management-table"><thead><tr><th>ロール</th><th>ID</th><th>操作</th></tr></thead><tbody>
+                ${roles.map(r => `<tr><td><span class="color-dot" style="background-color:${r.color};"></span>${r.name}</td><td>${r.id}</td><td><div class="action-buttons"><button class="btn-primary" data-role-id="${r.id}" data-action="edit-role" data-tooltip="ロールを編集">編集</button><button class="btn-danger" data-role-id="${r.id}" data-action="delete-role" data-tooltip="ロールを削除">削除</button></div></td></tr>`).join('')}
+                </tbody></table></div>`;
+            attachRoleManagementListeners();
+        }
+
+        function attachRoleManagementListeners() {
+            document.querySelectorAll('#role-management-table button[data-action="edit-role"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const roleId = e.target.dataset.roleId;
+                    const role = currentGuildData.roles.find(r => r.id === roleId);
+                    if (!role) return showToast('ロールが見つかりません。', true);
+
+                    const formHtml = `
+                        <div class="form-group">
+                            <label for="edit-role-name">ロール名</label>
+                            <input type="text" id="edit-role-name" value="${role.name}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-role-color">色 (HEXコード)</label>
+                            <input type="color" id="edit-role-color" value="${role.color}">
+                        </div>
+                    `;
+                    const confirmed = await showCustomModal(
+                        `ロール「${role.name}」を編集`,
+                        formHtml,
+                        '保存',
+                        'キャンセル',
+                        'btn-primary'
+                    );
+
+                    if (confirmed) {
+                        const newName = document.getElementById('edit-role-name').value;
+                        const newColor = document.getElementById('edit-role-color').value;
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/roles/${roleId}`, {
+                            method: 'PATCH',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name: newName, color: newColor })
+                        });
+                        if (result) {
+                            showToast('ロールを更新しました。');
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('#role-management-table button[data-action="delete-role"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const roleId = e.target.dataset.roleId;
+                    const role = currentGuildData.roles.find(r => r.id === roleId);
+                    if (!role) return showToast('ロールが見つかりません。', true);
+
+                    const confirmed = await showCustomModal(
+                        'ロール削除確認',
+                        `本当にロール「<strong>${role.name}</strong>」を削除しますか？<br>この操作は元に戻せません。`,
+                        '削除する',
+                        'キャンセル',
+                        'btn-danger'
+                    );
+                    if (confirmed) {
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/roles/${roleId}`, {
+                            method: 'DELETE'
+                        });
+                        if (result) {
+                            showToast('ロールを削除しました。');
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+        }
+
+        async function renderMemberManagement() {
+            guildView.innerHTML = `<div class="management-section"><h3>メンバー管理</h3><p class="skeleton-loader" style="height: 20px; width: 80%;"></p><p class="skeleton-loader" style="height: 20px; width: 90%;"></p></div>`;
+            const members = await fetchApi(`/api/guilds/${currentGuildData.id}/members`);
+            if(!members) return;
+            guildView.innerHTML = `<div class="management-section"><h3>メンバー管理</h3>
+                <table id="member-management-table"><thead><tr><th>ユーザー</th><th>参加日</th><th>操作</th></tr></thead><tbody>
+                ${members.map(m => `<tr><td><img src="${m.avatarURL}" style="width:32px; height:32px; border-radius:50%; vertical-align:middle; margin-right:10px;">${m.username}</td><td>${new Date(m.joinedAt).toLocaleDateString()}</td><td><div class="action-buttons"><button class="btn-warning" data-member-id="${m.id}" data-member-name="${m.username}" data-action="kick-member" data-tooltip="メンバーをキック">キック</button><button class="btn-danger" data-member-id="${m.id}" data-member-name="${m.username}" data-action="ban-member" data-tooltip="メンバーをBAN">BAN</button></div></td></tr>`).join('')}
+                </tbody></table></div>`;
+            attachMemberManagementListeners();
+        }
+
+        function attachMemberManagementListeners() {
+            document.querySelectorAll('#member-management-table button[data-action="kick-member"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const memberId = e.target.dataset.memberId;
+                    const memberName = e.target.dataset.memberName;
+                    const confirmed = await showCustomModal(
+                        'メンバーキック確認',
+                        `本当にメンバー「<strong>${memberName}</strong>」をキックしますか？`,
+                        'キックする',
+                        'キャンセル',
+                        'btn-warning'
+                    );
+                    if (confirmed) {
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/members/${memberId}/kick`, {
+                            method: 'POST'
+                        });
+                        if (result) {
+                            showToast(`${memberName} をキックしました。`);
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('#member-management-table button[data-action="ban-member"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const memberId = e.target.dataset.memberId;
+                    const memberName = e.target.dataset.memberName;
+                    const formHtml = `
+                        <div class="form-group">
+                            <label for="ban-reason">理由 (任意)</label>
+                            <input type="text" id="ban-reason" placeholder="例: 荒らし行為">
+                        </div>
+                        <div class="form-group">
+                            <label for="delete-message-days">メッセージ削除期間 (日数)</label>
+                            <input type="number" id="delete-message-days" min="0" max="7" value="0">
+                        </div>
+                    `;
+                    const confirmed = await showCustomModal(
+                        `メンバー「${memberName}」をBAN確認`,
+                        `本当にメンバー「<strong>${memberName}</strong>」をBANしますか？<br>${formHtml}`,
+                        'BANする',
+                        'キャンセル',
+                        'btn-danger'
+                    );
+
+                    if (confirmed) {
+                        const reason = document.getElementById('ban-reason').value;
+                        const deleteMessageDays = parseInt(document.getElementById('delete-message-days').value, 10);
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/members/${memberId}/ban`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ reason, deleteMessageDays })
+                        });
+                        if (result) {
+                            showToast(`${memberName} をBANしました。`);
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+        }
+
+        function renderModeration() {
+            const textChannels = currentGuildData.channels.filter(c => c.type === 0);
+            return `
+                <div class="management-section">
+                    <h3>メッセージ一括削除</h3>
+                    <form id="delete-message-form">
+                        <div class="form-group"><label for="dm-channel-id">チャンネル</label><select id="dm-channel-id" required>${textChannels.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}</select></div>
+                        <div class="form-group"><label for="dm-user-id">対象ユーザー (ID or 名前、任意)</label><input type="text" id="dm-user-id" placeholder="ユーザーIDまたは名前で絞り込み"></div>
+                        <div class="form-group"><label for="dm-count">削除するメッセージ件数 (最大100件)</label><input type="number" id="dm-count" min="1" max="100" value="50" required></div>
+                        <button type="submit" class="btn-danger">削除実行</button>
+                    </form>
+                </div>
+                <div class="management-section">
+                     <h3>ユーザーに警告</h3>
+                     <form id="warn-user-form">
+                        <div class="form-group"><label for="warn-user-id">対象ユーザーID</label><input type="text" id="warn-user-id" required></div>
+                        <div class="form-group"><label for="warn-reason">理由 (任意)</label><input type="text" id="warn-reason"></div>
+                        <button type="submit" class="btn-warning">警告を送信</button>                </form>
+                </div>`;
+        }
+
+        function selectLogView() {
+            showView('log-view');
+            window.location.hash = 'logs';
+        }
+
+        async function initializeDashboard() {
+            menuToggle.addEventListener('click', () => document.body.classList.contains('sidebar-open') ? closeSidebar() : openSidebar());
+            overlay.addEventListener('click', closeSidebar);
+            window.addEventListener('hashchange', handleRouteChange);
+            connectWebSocket();
+            const guilds = await fetchApi('/api/guilds');
+            if (!guilds) return;
+            allGuilds = guilds;
+            guildSelector.innerHTML = allGuilds.map(g => `
+                <div class="guild-tab" data-guild-id="${g.id}" title="${g.name}">
+                    <img src="${g.iconURL || 'https://cdn.discordapp.com/embed/avatars/0.png'}" alt="${g.name}">
+                </div>
+            `).join('');
+            guildSelector.querySelectorAll('.guild-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const guildId = tab.dataset.guildId;
+                    const targetView = window.location.hash.startsWith(`#${guildId}`) ? (window.location.hash.split('/')[1] || 'overview') : 'overview';
+                    window.location.hash = `${guildId}/${targetView}`;
+                });
+            });
+            handleRouteChange();
+            if (!window.location.hash) {
+                showView('welcome-view');
+            }
+        }
+
+        function handleRouteChange() {
+            const hash = window.location.hash.slice(1);
+            if (!hash) {
+                 showView('welcome-view');
+                 return;
+            }
+            if (hash === 'logs') {
+                 selectLogView();
+                 return;
+            }
+            const [guildId, view] = hash.split('/');
+            if (guildId && allGuilds.some(g => g.id === guildId)) {
+                 selectGuild(guildId);
+            }
+        }
+
+        // --- WebSocket & Toast (no changes) ---
+        function connectWebSocket() {
+            const protocol = window.location.protocol === 'https' ? 'wss' : 'ws';
+            const ws = new WebSocket(`${protocol}://${window.location.host}`);
+
+            ws.onopen = () => {
+                console.log('WebSocket connected');
+                logContainer.innerHTML += '<div class="log-entry">[WebSocket] 接続が確立されました。</div>';
+            };
+            ws.onclose = () => {
+                console.log('WebSocket closed. Reconnecting...');
+                logContainer.innerHTML += '<div class="log-entry error">[WebSocket] 接続が切れました。5秒後に再接続します...</div>';
+                setTimeout(connectWebSocket, 5000);
+            };
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+                 logContainer.innerHTML += `<div class="log-entry error">[WebSocket] エラーが発生しました。</div>`;
+            };
+            ws.onmessage = (event) => {
+                const { type, data } = JSON.parse(event.data);
+                const entry = document.createElement('div');
+                entry.className = `log-entry ${type}`;
+                entry.textContent = data;
+                
+                const isScrolledToBottom = logContainer.scrollHeight - logContainer.clientHeight <= logContainer.scrollTop + 5;
+                logContainer.appendChild(entry);
+                if (isScrolledToBottom) {
+                    logContainer.scrollTop = logContainer.scrollHeight;
+                }
+            };
+        }
+        function showToast(message, isError = false) {
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            Object.assign(toast.style, {
+                position: 'fixed', bottom: '20px', left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: isError ? 'var(--danger-color)' : 'var(--success-color)',
+                color: 'white', padding: '12px 24px', borderRadius: 'var(--border-radius)',
+                zIndex: '1001', boxShadow: 'var(--shadow-lg)', fontWeight: '600'
+            });
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // --- Pane HTML & Listeners (Re-usable parts) ---
+        function getBackupPaneHTML() {
+            // This function can be reused for the 'settings' view
+            return `
+                <div class="info-grid">
+                    <div class="management-section">
+                        <h3>新規バックアップ作成</h3>
+                        <form id="backup-create-form">
+                            <div class="form-group">
+                                <label for="backup-name">バックアップ名</label>
+                                <input type="text" id="backup-name" placeholder="例: my-backup-2025" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="backup-messages" name="backup-messages" checked><label for="backup-messages" style="display:inline; margin-left: 8px;">メッセージもバックアップする</label>
+                            </div>
+                            <button type="submit" class="btn-primary">作成実行</button>
+                        </form>
+                    </div>
+                    <div class="management-section">
+                        <h3>バックアップから復元</h3>
+                        <div class="restore-tabs" style="margin-bottom: 1em; border-bottom: 1px solid var(--background-tertiary); padding-bottom: 10px;">
+                           <button class="tab-button active" data-restore-type="manual">手動</button>
+                           <button class="tab-button" data-restore-type="auto">自動</button>
+                        </div>
+                        <form id="restore-form">
+                            <div class="form-group">
+                                <label for="restore-file-select">バックアップファイル</label>
+                                <select id="restore-file-select" required>
+                                    <option value="" disabled selected>復元するバックアップを選択...</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-danger">復元実行</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="management-section" style="margin-top: 1.5em;">
+                    <h3>既存のバックアップ</h3>
+                     <div class="backup-tabs" style="margin-bottom: 1em; border-bottom: 1px solid var(--background-tertiary); padding-bottom: 10px;">
+                        <button class="tab-button active" data-backup-type="manual">手動</button>
+                        <button class="tab-button" data-backup-type="auto">自動</button>
+                    </div>
+                    <table id="backups-table">
+                       <thead><tr><th>ファイル名</th><th>作成日時</th><th>状態</th><th>操作</th></tr></thead>
+                       <tbody></tbody>
+                    </table>
+                </div>
+                <div class="management-section" style="margin-top: 1.5em;">
+                    <h3>自動バックアップ設定</h3>
+                    <form id="schedule-add-form">
+                         <div class="form-group" style="display: flex; gap: 1em; align-items: flex-end; flex-wrap: wrap;">
+                            <div style="flex-grow: 1; min-width: 120px;"><label for="schedule-day">曜日</label><select id="schedule-day"><option value="*">毎日</option><option value="0">日</option><option value="1">月</option><option value="2">火</option><option value="3">水</option><option value="4">木</option><option value="5">金</option><option value="6">土</option></select></div>
+                            <div style="flex-grow: 1; min-width: 80px;"><label for="schedule-hour">時</label><input type="number" id="schedule-hour" min="0" max="23" required placeholder="0-23"></div>
+                            <div style="flex-grow: 1; min-width: 80px;"><label for="schedule-minute">分</label><input type="number" id="schedule-minute" min="0" max="59" required placeholder="0-59"></div>
+                            <button type="submit" class="btn-primary">スケジュール追加</button>
+                        </div>
+                    </form>
+                    <table id="schedules-table">
+                       <thead><tr><th>スケジュール (分 時 * * 曜日)</th><th>次回実行日時</th><th>操作</th></tr></thead>
+                       <tbody></tbody>
+                    </table>
+                </div>
+            `;
+        }
+        function attachBackupListeners() {
+            const guildId = currentGuildData.id;
+            
+            document.querySelectorAll('.backup-tabs .tab-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelector('.backup-tabs .tab-button.active').classList.remove('active');
+                    button.classList.add('active');
+                    fetchBackups(guildId, button.dataset.backupType);
+                });
+            });
+
+            document.querySelectorAll('.restore-tabs .tab-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelector('.restore-tabs .tab-button.active').classList.remove('active');
+                    button.classList.add('active');
+                    fetchRestoreOptions(guildId, button.dataset.restoreType);
+                });
+            });
+
+            document.getElementById('backup-create-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const result = await fetchApi(`/api/guilds/${guildId}/backups`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ backupName: document.getElementById('backup-name').value, backupMessages: document.getElementById('backup-messages').checked }) });
+                if (result) { 
+                    showToast('バックアップ作成を開始しました。'); 
+                    fetchBackups(guildId, 'manual'); 
+                    fetchRestoreOptions(guildId, 'manual');
+                }
+            });
+
+            document.getElementById('restore-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const fileName = document.getElementById('restore-file-select').value;
+                if (!fileName) {
+                    showToast('復元するバックアップを選択してください。', true);
+                    return;
+                }
+                const confirmed = await showCustomModal(
+                    'バックアップ復元確認',
+                    `本当にサーバーをバックアップ「<strong>${fileName}</strong>」から復元しますか？<br>この操作は元に戻せません。`,
+                    '復元する',
+                    'キャンセル',
+                    'btn-danger'
+                );
+                if (!confirmed) return;
+
+                const result = await fetchApi(`/api/guilds/${guildId}/restore`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fileName }) });
+                 if (result) showToast(`バックアップ「${fileName}」からの復元を開始しました。`);
+            });
+
+            document.getElementById('schedule-add-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const cronTime = `${document.getElementById('schedule-minute').value} ${document.getElementById('schedule-hour').value} * * ${document.getElementById('schedule-day').value}`;
+                const result = await fetchApi(`/api/guilds/${guildId}/schedules`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ cronTime }) });
+                if (result) { showToast('スケジュールを追加しました。'); fetchSchedules(guildId); }
+            });
+
+            fetchBackups(guildId, 'manual');
+            fetchSchedules(guildId);
+            fetchRestoreOptions(guildId, 'manual');
+        }
+
+        async function fetchBackups(guildId, type) {
+            const backups = await fetchApi(`/api/backups?guildId=${guildId}&type=${type}`);
+            const tableBody = document.getElementById('backups-table').querySelector('tbody');
+            
+            if (!backups) {
+                tableBody.innerHTML = '<tr><td colspan="4">バックアップの読み込みに失敗しました。</td></tr>';
+                return;
+            }
+            
+            tableBody.innerHTML = backups.length === 0 ? '<tr><td colspan="4">バックアップはありません。</td></tr>' : backups.map(b => `
+                <tr>
+                    <td>${b.fileName}</td><td>${new Date(b.createdAt).toLocaleString()}</td>
+                    <td style="font-weight:600; color: ${b.locked ? 'var(--warning-color)' : 'var(--success-color)'};">${b.locked ? 'ロック中' : '利用可能'}</td>
+                    <td>
+                        <button class="btn-danger" onclick="performBackupAction('${guildId}', 'delete', '${b.userId}', '${b.fileName}', '${type}')" data-tooltip="バックアップを削除">削除</button>
+                        <button class="btn-warning" onclick="performBackupAction('${guildId}', '${b.locked ? 'unlock' : 'lock'}', '${b.userId}', '${b.fileName}', '${type}')" data-tooltip="バックアップのロック/ロック解除">${b.locked ? 'ロック解除' : 'ロック'}</button>
+                    </td>
+                </tr>`).join('');
+        }
+
+        async function fetchRestoreOptions(guildId, type) {
+            const backups = await fetchApi(`/api/backups?guildId=${guildId}&type=${type}`);
+            const restoreSelect = document.getElementById('restore-file-select');
+            
+            if (!backups) {
+                restoreSelect.innerHTML = '<option value="" disabled selected>リストの読込失敗</option>';
+                return;
+            }
+
+            restoreSelect.innerHTML = '<option value="" disabled selected>復元するバックアップを選択...</option>';
+            backups.forEach(b => {
+                const option = document.createElement('option');
+                option.value = b.fileName;
+                option.textContent = `${b.fileName} (${new Date(b.createdAt).toLocaleString()}) ${b.locked ? ' (ロック中)' : ''}`;
+                option.disabled = b.locked;
+                restoreSelect.appendChild(option);
+            });
+        }
+
+        async function performBackupAction(guildId, action, userId, fileName, type) {
+            const confirmed = await showCustomModal(
+                `${action === 'delete' ? 'バックアップ削除' : 'バックアップロック変更'}確認`,
+                `本当にバックアップ「<strong>${fileName}</strong>」を${action === 'delete' ? '削除' : (action === 'lock' ? 'ロック' : 'ロック解除')}しますか？`,
+                action === 'delete' ? '削除する' : '変更する',
+                'キャンセル',
+                action === 'delete' ? 'btn-danger' : 'btn-warning'
+            );
+            if (!confirmed) return;
+
+            const result = await fetchApi('/api/backups/action', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, userId, fileName }) });
+            if (result) { 
+                showToast(`バックアップ「${fileName}」を${action}しました。`); 
+                fetchBackups(guildId, type);
+                const restoreType = document.querySelector('.restore-tabs .tab-button.active').dataset.restoreType;
+                fetchRestoreOptions(guildId, restoreType);
+            }
+        }
+        async function fetchSchedules(guildId) {
+            const schedules = await fetchApi(`/api/guilds/${guildId}/schedules`);
+            const tableBody = document.getElementById('schedules-table').querySelector('tbody');
+            if (!schedules) { tableBody.innerHTML = '<tr><td colspan="3">スケジュールの読み込みに失敗しました。</td></tr>'; return; }
+            tableBody.innerHTML = schedules.length === 0 ? '<tr><td colspan="3">スケジュールはありません。</td></tr>' : schedules.map(s => `
+                <tr>
+                    <td><code>${s.cronTime}</code></td><td>${new Date(s.nextRun).toLocaleString()}</td>
+                    <td><button class="btn-danger" onclick="deleteSchedule('${guildId}', '${s.cronTime}')" data-tooltip="スケジュールを削除">削除</button></td>
+                </tr>`).join('');
+        }
+        async function deleteSchedule(guildId, cronTime) {
+            const confirmed = await showCustomModal(
+                'スケジュール削除確認',
+                `本当にスケジュール「<strong>${cronTime}</strong>」を削除しますか？`,
+                '削除する',
+                'キャンセル',
+                'btn-danger'
+            );
+            if (!confirmed) return;
+
+            const result = await fetchApi(`/api/guilds/${guildId}/schedules`, { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ cronTime }) });
+            if (result) { showToast('スケジュールを削除しました。'); fetchSchedules(guildId); }
+        }
+        function getReactionRolePaneHTML() {
+            const { channels, roles } = currentGuildData;
+            const textChannels = channels.filter(c => c.type === 0);
+            return `
+                <div class="management-section">
+                    <h3>リアクションロール作成</h3>
+                    <form id="reaction-role-form">
+                        <div class="form-group">
+                            <label for="rr-channel-id">チャンネル</label>
+                            <select id="rr-channel-id" required>${textChannels.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}</select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rr-message-content">メッセージ内容 (Embed)</label>
+                            <textarea id="rr-message-content" rows="4" required></textarea>
+                        </div>
+                        <div id="rr-pairs-container" style="display: flex; flex-direction: column; gap: 1em;"></div>
+                        <div style="margin-top: 1.5em;">
+                            <button type="button" id="add-rr-pair-btn" class="btn-success" style="margin-right: 10px;" data-tooltip="絵文字とロールのペアを追加">ペアを追加</button>
+                            <button type="submit" class="btn-primary" data-tooltip="リアクションロールを作成">作成</button>
+                        </div>
+                    </form>
+                </div>`;
+        }
+        function attachReactionRoleListeners() {
+            const guildId = currentGuildData.id;
+            const roles = currentGuildData.roles;
+            const pairsContainer = document.getElementById('rr-pairs-container');
+            const addPair = () => {
+                const div = document.createElement('div');
+                div.className = 'rr-pair-group';
+                div.style.cssText = `
+                    display: flex; 
+                    gap: 1em; 
+                    align-items: center; 
+                    border: 1px solid var(--background-tertiary); 
+                    padding: 1em; 
+                    border-radius: var(--border-radius);
+                `;
+                div.innerHTML = `
+                    <div style="flex: 1;">
+                        <label>絵文字</label>
+                        <input type="text" class="rr-emoji" placeholder="例: 👍" required>
+                    </div>
+                    <div style="flex: 2;">
+                        <label>ロール</label>
+                        <select class="rr-role-id" required>${roles.map(r => `<option value="${r.id}">${r.name}</option>`).join('')}</select>
+                    </div>
+                    <button type="button" class="btn-danger remove-rr-pair-btn" style="align-self: flex-end;" data-tooltip="このペアを削除">削除</button>
+                `;
+                pairsContainer.appendChild(div);
+                div.querySelector('.remove-rr-pair-btn').addEventListener('click', () => div.remove());
+            };
+            document.getElementById('add-rr-pair-btn').addEventListener('click', addPair);
+            document.getElementById('reaction-role-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const body = { 
+                    channelId: document.getElementById('rr-channel-id').value, 
+                    messageContent: document.getElementById('rr-message-content').value, 
+                    emojis: Array.from(document.querySelectorAll('.rr-emoji')).map(i => i.value), 
+                    roleIds: Array.from(document.querySelectorAll('.rr-role-id')).map(s => s.value) 
+                };
+                if (body.emojis.length === 0) { 
+                    showToast('少なくとも1つの絵文字とロールのペアを追加してください。', true); 
+                    return; 
+                }
+                const result = await fetchApi(`/api/guilds/${guildId}/reaction-roles`, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify(body) 
+                });
+                if (result) showToast('リアクションロールを作成しました。');
+            });
+            addPair();
+        }
+        function getNgWordPaneHTML() {
+             return `
+                <div class="management-section">
+                    <h3>NGワード管理</h3>
+                    <form id="ngword-add-form"><div class="form-group"><label for="ngword-input">NGワード追加</label><input type="text" id="ngword-input" placeholder="NGワードを入力" required></div><button type="submit" class="btn-primary" data-tooltip="NGワードを追加">追加</button></form>
+                </div>
+                <div class="management-section" style="margin-top: 1.5em;">
+                    <h3>現在のNGワードリスト</h3>
+                    <table id="ngwords-table"><thead><tr><th>ワード</th><th>操作</th></tr></thead><tbody></tbody></table>
+                </div>`;
+        }
+        function attachNgWordListeners() {
+            const guildId = currentGuildData.id;
+            document.getElementById('ngword-add-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const input = document.getElementById('ngword-input');
+                const result = await fetchApi(`/api/guilds/${guildId}/ngwords`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ word: input.value }) });
+                if (result) { showToast(`NGワード「${input.value}」を追加しました。`); input.value = ''; fetchNgWords(guildId); }
+            });
+            fetchNgWords(guildId);
+        }
+        async function fetchNgWords(guildId) {
+            const words = await fetchApi(`/api/guilds/${guildId}/ngwords`);
+            const tableBody = document.getElementById('ngwords-table').querySelector('tbody');
+            if (!words) { tableBody.innerHTML = '<tr><td colspan="2">NGワードの読み込みに失敗しました。</td></tr>'; return; }
+            tableBody.innerHTML = words.length === 0 ? '<tr><td colspan="2">NGワードはありません。</td></tr>' : words.map(word => `<tr><td>${word}</td><td><button class="btn-danger" onclick="deleteNgWord('${guildId}', '${encodeURIComponent(word)}')" data-tooltip="NGワードを削除">削除</button></td></tr>`).join('');
+        }
+        function getDeleteMessagePaneHTML() {
+            const { channels } = currentGuildData;
+            const textChannels = channels.filter(c => c.type === 0);
+            return `
+                 <div class="management-section">
+                    <h3>メッセージ一括削除</h3>
+                    <form id="delete-message-form">
+                        <div class="form-group"><label for="dm-channel-id">チャンネル</label><select id="dm-channel-id" required>${textChannels.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}</select></div>
+                        <div class="form-group"><label for="dm-user-id">対象ユーザー (ID or 名前、任意)</label><input type="text" id="dm-user-id" placeholder="ユーザーIDまたは名前で絞り込み"></div>
+                        <div class="form-group"><label for="dm-count">削除するメッセージ件数 (最大100件)</label><input type="number" id="dm-count" min="1" max="100" value="50" required></div>
+                        <button type="submit" class="btn-danger" data-tooltip="メッセージを削除">削除実行</button>
+                    </form>
+                </div>`;
+        }
+        function attachDeleteMessageListeners() {
+            const guildId = currentGuildData.id;
+            document.getElementById('delete-message-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const result = await fetchApi(`/api/guilds/${guildId}/deletemessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ channelId: document.getElementById('dm-channel-id').value, userIdentifier: document.getElementById('dm-user-id').value, count: parseInt(document.getElementById('dm-count').value, 10) }) });
+                if (result) showToast(result.message);
+            });
+        }
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', initializeDashboard);
+    </script>
+</body>
+</html>
+        // --- State ---
+        let allGuilds = [];
+        let currentGuildData = null;
+        let currentView = 'overview';
+
+        // --- DOM Elements ---
+        const logLink = document.getElementById('log-link');
+        const guildSelector = document.getElementById('guild-selector');
+        const mainContent = document.getElementById('main-content');
+        const guildView = document.getElementById('guild-view');
+        const logView = document.getElementById('log-view');
+        const welcomeView = document.getElementById('welcome-view');
+        const logContainer = document.getElementById('log-container');
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarHeader = document.getElementById('sidebar-header');
+        const sidebarNav = document.getElementById('sidebar-nav');
+        const overlay = document.getElementById('overlay');
+
+        // Custom Modal Elements
+        const customModalOverlay = document.getElementById('custom-modal-overlay');
+        const customModalTitle = document.getElementById('custom-modal-title');
+        const customModalBody = document.getElementById('custom-modal-body');
+        const customModalConfirmButton = document.getElementById('custom-modal-confirm-button');
+        const customModalCancelButton = document.getElementById('custom-modal-cancel-button');
+        const customModalCloseButton = document.getElementById('custom-modal-close-button');
+
+        // --- View Management ---
+        function showView(viewId) {
+            document.querySelectorAll('#main-content .view').forEach(v => v.classList.remove('active'));
+            document.getElementById(viewId)?.classList.add('active');
+            logLink.classList.toggle('active', viewId === 'log-view');
+            if (viewId !== 'guild-view') {
+                document.querySelectorAll('.guild-tab').forEach(t => t.classList.remove('active'));
+                closeSidebar();
+                menuToggle.disabled = true;
+            } else {
+                menuToggle.disabled = false;
+            }
+        }
+
+        function openSidebar() { document.body.classList.add('sidebar-open'); }
+        function closeSidebar() { document.body.classList.remove('sidebar-open'); }
+
+        // --- Custom Modal Functions ---
+        let resolveModalPromise;
+        function showCustomModal(title, bodyHtml, confirmText = '確認', cancelText = 'キャンセル', confirmButtonClass = 'btn-danger') {
+            return new Promise(resolve => {
+                customModalTitle.textContent = title;
+                customModalBody.innerHTML = bodyHtml;
+                customModalConfirmButton.textContent = confirmText;
+                customModalCancelButton.textContent = cancelText;
+                customModalConfirmButton.className = confirmButtonClass;
+
+                customModalOverlay.style.display = 'flex';
+                resolveModalPromise = resolve;
+
+                const handleConfirm = () => {
+                    customModalOverlay.style.display = 'none';
+                    customModalConfirmButton.removeEventListener('click', handleConfirm);
+                    customModalCancelButton.removeEventListener('click', handleCancel);
+                    customModalCloseButton.removeEventListener('click', handleCancel);
+                    resolve(true);
+                };
+
+                const handleCancel = () => {
+                    customModalOverlay.style.display = 'none';
+                    customModalConfirmButton.removeEventListener('click', handleConfirm);
+                    customModalCancelButton.removeEventListener('click', handleCancel);
+                    customModalCloseButton.removeEventListener('click', handleCancel);
+                    resolve(false);
+                };
+
+                customModalConfirmButton.addEventListener('click', handleConfirm);
+                customModalCancelButton.addEventListener('click', handleCancel);
+                customModalCloseButton.addEventListener('click', handleCancel);
+            });
+        }
+
+        // --- API Functions ---
+        async function fetchApi(url, options) {
+            try {
+                // Display skeleton loader before fetch
+                // This part needs to be integrated more granularly based on where data is loaded
+                // For now, a simple global loader or per-section loader can be considered.
+                // For this iteration, I'll focus on the modal and responsive design.
+
+                const response = await fetch(url, options);
+                if (response.status === 401) {
+                    window.location.reload();
+                    return null;
+                }
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ error: '不明なエラーが発生しました。' }));
+                    throw new Error(errorData.error);
+                }
+                return response.status === 204 ? {} : await response.json();
+            } catch (error) {
+                showToast(error.message, true);
+                return null;
+            }
+        }
+
+        // --- HTML Generation ---
+        function generateServerInfoHTML(guild) {
+            const sortedRoles = [...guild.roles].sort((a, b) => b.position - a.position);
+
+            return `
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>サーバー情報</h3>
+                        <ul><li><strong>メンバー数:</strong> ${guild.memberCount}</li></ul>
+                    </div>
+                    <div class="info-card" id="channel-list-card">
+                        <h3>チャンネルリスト</h3>
+                        <div id="channel-list-content"></div>
+                    </div>
+                    <div class="info-card">
+                        <h3>ロール (${sortedRoles.length})</h3>
+                        <div style="display:flex; flex-wrap:wrap;">
+                            ${sortedRoles.map(r => {
+                                const hex = r.color;
+                                const bgColor = hex === '#000000' ? '#99aab5' : hex;
+                                const r_val = parseInt(bgColor.slice(1, 3), 16);
+                                const g_val = parseInt(bgColor.slice(3, 5), 16);
+                                const b_val = parseInt(bgColor.slice(5, 7), 16);
+                                const luminance = (0.299 * r_val + 0.587 * g_val + 0.114 * b_val);
+                                const textColor = luminance > 150 ? '#2e3338' : '#ffffff';
+                                return `<span class="role-pill" style="background-color:${bgColor}; color: ${textColor};">${r.name}</span>`;
+                            }).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderChannelList(guild) {
+            const allChannels = [...guild.channels].sort((a, b) => a.position - b.position);
+
+            const categories = allChannels.filter(c => c.type === 4).sort((a, b) => a.position - b.position);
+
+            const getChannelIcon = (channel) => {
+                let icon = '❓'; // Default for unknown types
+                switch(channel.type) {
+                    case 0: icon = '#'; break;        // GUILD_TEXT
+                    case 2: icon = '🔊'; break;        // GUILD_VOICE
+                    case 4: icon = '📁'; break;        // GUILD_CATEGORY (not directly listed, but for completeness)
+                    case 5: icon = '📢'; break;        // GUILD_NEWS
+                    case 10:                            // GUILD_NEWS_THREAD
+                    case 11:                            // GUILD_PUBLIC_THREAD
+                    case 12: icon = '💬'; break;       // GUILD_PRIVATE_THREAD
+                    case 13: icon = '🎤'; break;       // GUILD_STAGE_VOICE
+                    case 14: icon = '📖'; break;       // GUILD_DIRECTORY
+                    case 15: icon = '📰'; break;       // GUILD_FORUM
+                    case 16: icon = '🖼️'; break;       // GUILD_MEDIA
+                }
+                return icon;
+            };
+
+            const buildChannelItemHTML = (channel) => {
+                const icon = getChannelIcon(channel);
+                return `<li class="channel-item"><div>${icon} ${channel.name}</div></li>`;
+            };
+
+            let channelListHTML = '';
+
+            // 1. Render channels without category first
+            const topLevelChannels = allChannels.filter(c => (c.parentId === null || c.parentId === undefined) && c.type !== 4);
+            if (topLevelChannels.length > 0) {
+                channelListHTML += `
+                    <div class="channel-group-uncategorized">
+                        <div class="channel-category-name" data-category-id="uncategorized">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                            カテゴリなしチャンネル
+                        </div>
+                        <ul class="channel-list-group" id="channel-list-uncategorized" style="display: block;">
+                            ${topLevelChannels.map(buildChannelItemHTML).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            // 2. Render categorized channels
+            categories.forEach(cat => {
+                const channelsInCategory = allChannels.filter(c => c.parentId === cat.id)
+                                                      .sort((a, b) => {
+                                                          if (a.type !== b.type) {
+                                                              return a.type - b.type;
+                                                          }
+                                                          return a.position - b.position;
+                                                      });
+
+                if (channelsInCategory.length > 0) {
+                    channelListHTML += `
+                        <div class="channel-category-group">
+                            <div class="channel-category-name" data-category-id="${cat.id}">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/></svg>
+                                ${cat.name}
+                            </div>
+                            <ul class="channel-indent channel-list-group" id="channel-list-${cat.id}" style="display: block;">
+                                ${channelsInCategory.map(buildChannelItemHTML).join('')}
+                            </ul>
+                        </div>
+                    `;
+                }
+            });
+
+            const channelListContent = document.getElementById('channel-list-content');
+            if (channelListContent) {
+                channelListContent.innerHTML = channelListHTML;
+            }
+        }
+        
+        // --- Main Functions ---
+        async function selectGuild(guildId) {
+            const hashParts = window.location.hash.slice(1).split('/');
+            currentView = hashParts[1] || 'overview';
+            if (!guildId) return;
+            showView('guild-view');
+            window.location.hash = `${guildId}/${currentView}`;
+            document.querySelectorAll('.guild-tab').forEach(t => t.classList.toggle('active', t.dataset.guildId === guildId));
+            guildView.innerHTML = "<div class='management-section'><h3>読み込み中...</h3></div>";
+            const guildData = await fetchApi(`/api/guilds/${guildId}`);
+            if (!guildData) {
+                guildView.innerHTML = "<h2>サーバー情報の読み込みに失敗しました。</h2>";
+                return;
+            }
+            currentGuildData = guildData;
+            updateSidebar();
+            renderGuildView(currentView);
+        }
+
+        function updateSidebar() {
+            if (!currentGuildData) return;
+            sidebarHeader.innerHTML = `<img src="${currentGuildData.iconURL}" alt="${currentGuildData.name}"><h2>${currentGuildData.name}</h2>`;
+            sidebarNav.innerHTML = `<ul>
+                <li><a href="#${currentGuildData.id}/overview" data-view="overview">サーバー概要</a></li>
+                <li><a href="#${currentGuildData.id}/channels" data-view="channels">チャンネル管理</a></li>
+                <li><a href="#${currentGuildData.id}/roles" data-view="roles">ロール管理</a></li>
+                <li><a href="#${currentGuildData.id}/members" data-view="members">メンバー管理</a></li>
+                <li><a href="#${currentGuildData.id}/moderation" data-view="moderation">モデレーション</a></li>
+                <li><a href="#${currentGuildData.id}/settings" data-view="settings">ボット設定</a></li>
+            </ul>`;
+            sidebarNav.querySelectorAll('a').forEach(a => a.addEventListener('click', e => {
+                e.preventDefault();
+                const view = e.currentTarget.dataset.view;
+                window.location.hash = `${currentGuildData.id}/${view}`;
+            }));
+        }
+
+        function renderGuildView(view) {
+            if (!currentGuildData) return;
+            currentView = view;
+            sidebarNav.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.dataset.view === view));
+            switch(view) {
+                case 'overview':
+                    guildView.innerHTML = generateServerInfoHTML(currentGuildData);
+                    renderChannelList(currentGuildData);
+                    break;
+                case 'channels':
+                    renderChannelManagement();
+                    break;
+                case 'roles':
+                    renderRoleManagement();
+                    break;
+                case 'members':
+                    renderMemberManagement();
+                    break;
+                case 'moderation':
+                    renderModeration();
+                    break;
+                case 'settings':
+                    guildView.innerHTML = getBackupPaneHTML();
+                    attachBackupListeners();
+                    break;
+                default:
+                    guildView.innerHTML = generateServerInfoHTML(currentGuildData);
+                    renderChannelList(currentGuildData);
+            }
+            closeSidebar();
+        }
+
+        async function renderChannelManagement() {
+            const channels = currentGuildData.channels;
+            guildView.innerHTML = `<div class="management-section"><h3>チャンネル管理</h3>
+                <table id="channel-management-table"><thead><tr><th>名前</th><th>タイプ</th><th>操作</th></tr></thead><tbody>
+                ${channels.map(ch => `<tr><td>${ch.name}</td><td>${ch.type === 0 ? 'テキスト' : ch.type === 2 ? 'ボイス' : 'その他'}</td><td><div class="action-buttons"><button class="btn-primary" data-channel-id="${ch.id}" data-action="edit-channel">編集</button><button class="btn-danger" data-channel-id="${ch.id}" data-action="delete-channel">削除</button></div></td></tr>`).join('')}
+                </tbody></table></div>`;
+            attachChannelManagementListeners();
+        }
+
+        function attachChannelManagementListeners() {
+            document.querySelectorAll('#channel-management-table button[data-action="edit-channel"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const channelId = e.target.dataset.channelId;
+                    const channel = currentGuildData.channels.find(c => c.id === channelId);
+                    if (!channel) return showToast('チャンネルが見つかりません。', true);
+
+                    const formHtml = `
+                        <div class="form-group">
+                            <label for="edit-channel-name">チャンネル名</label>
+                            <input type="text" id="edit-channel-name" value="${channel.name}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-channel-topic">チャンネルトピック (テキストチャンネルのみ)</label>
+                            <textarea id="edit-channel-topic" rows="3">${channel.topic || ''}</textarea>
+                        </div>
+                    `;
+                    const confirmed = await showCustomModal(
+                        `チャンネル「${channel.name}」を編集`,
+                        formHtml,
+                        '保存',
+                        'キャンセル',
+                        'btn-primary'
+                    );
+
+                    if (confirmed) {
+                        const newName = document.getElementById('edit-channel-name').value;
+                        const newTopic = document.getElementById('edit-channel-topic').value;
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/channels/${channelId}`, {
+                            method: 'PATCH',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name: newName, topic: newTopic })
+                        });
+                        if (result) {
+                            showToast('チャンネルを更新しました。');
+                            // Refresh guild data and re-render channel management
+                            selectGuild(currentGuildData.id); 
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('#channel-management-table button[data-action="delete-channel"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const channelId = e.target.dataset.channelId;
+                    const channel = currentGuildData.channels.find(c => c.id === channelId);
+                    if (!channel) return showToast('チャンネルが見つかりません。', true);
+
+                    const confirmed = await showCustomModal(
+                        'チャンネル削除確認',
+                        `本当にチャンネル「<strong>${channel.name}</strong>」を削除しますか？<br>この操作は元に戻せません。`,
+                        '削除する',
+                        'キャンセル',
+                        'btn-danger'
+                    );
+                    if (confirmed) {
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/channels/${channelId}`, {
+                            method: 'DELETE'
+                        });
+                        if (result) {
+                            showToast('チャンネルを削除しました。');
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+        }
+
+        async function renderRoleManagement() {
+            const roles = currentGuildData.roles.filter(r => r.name !== '@everyone').sort((a,b) => b.position - a.position);
+            guildView.innerHTML = `<div class="management-section"><h3>ロール管理</h3>
+                <table id="role-management-table"><thead><tr><th>ロール</th><th>ID</th><th>操作</th></tr></thead><tbody id="roles-sortable-body">
+                ${roles.map(r => `<tr data-role-id="${r.id}"><td><span class="color-dot" style="background-color:${r.color};"></span>${r.name}</td><td>${r.id}</td><td><div class="action-buttons"><button class="btn-primary" data-role-id="${r.id}" data-action="edit-role" data-tooltip="ロールを編集">編集</button><button class="btn-danger" data-role-id="${r.id}" data-action="delete-role" data-tooltip="ロールを削除">削除</button></div></td></tr>`).join('')}
+                </tbody></table></div>`;
+            attachRoleManagementListeners();
+
+            const el = document.getElementById('roles-sortable-body');
+            Sortable.create(el, {
+                animation: 150,
+                onEnd: async function (evt) {
+                    const newOrder = Array.from(el.children).map(row => row.dataset.roleId);
+                    const result = await fetchApi(`/api/guilds/${currentGuildData.id}/roles/reorder`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ roleIds: newOrder })
+                    });
+                    if (result) {
+                        showToast('ロールの順序を更新しました。');
+                        // Re-fetch guild data to update local cache and re-render
+                        selectGuild(currentGuildData.id);
+                    }
+                },
+            });
+        }
+
+        function attachRoleManagementListeners() {
+            document.querySelectorAll('#role-management-table button[data-action="edit-role"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const roleId = e.target.dataset.roleId;
+                    const role = currentGuildData.roles.find(r => r.id === roleId);
+                    if (!role) return showToast('ロールが見つかりません。', true);
+
+                    const formHtml = `
+                        <div class="form-group">
+                            <label for="edit-role-name">ロール名</label>
+                            <input type="text" id="edit-role-name" value="${role.name}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-role-color">色 (HEXコード)</label>
+                            <input type="color" id="edit-role-color" value="${role.color}">
+                        </div>
+                    `;
+                    const confirmed = await showCustomModal(
+                        `ロール「${role.name}」を編集`,
+                        formHtml,
+                        '保存',
+                        'キャンセル',
+                        'btn-primary'
+                    );
+
+                    if (confirmed) {
+                        const newName = document.getElementById('edit-role-name').value;
+                        const newColor = document.getElementById('edit-role-color').value;
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/roles/${roleId}`, {
+                            method: 'PATCH',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name: newName, color: newColor })
+                        });
+                        if (result) {
+                            showToast('ロールを更新しました。');
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('#role-management-table button[data-action="delete-role"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const roleId = e.target.dataset.roleId;
+                    const role = currentGuildData.roles.find(r => r.id === roleId);
+                    if (!role) return showToast('ロールが見つかりません。', true);
+
+                    const confirmed = await showCustomModal(
+                        'ロール削除確認',
+                        `本当にロール「<strong>${role.name}</strong>」を削除しますか？<br>この操作は元に戻せません。`,
+                        '削除する',
+                        'キャンセル',
+                        'btn-danger'
+                    );
+                    if (confirmed) {
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/roles/${roleId}`, {
+                            method: 'DELETE'
+                        });
+                        if (result) {
+                            showToast('ロールを削除しました。');
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+        }
+
+        async function renderMemberManagement() {
+            guildView.innerHTML = `<div class="management-section"><h3>メンバー管理</h3><p class="skeleton-loader" style="height: 20px; width: 80%;"></p><p class="skeleton-loader" style="height: 20px; width: 90%;"></p></div>`;
+            const members = await fetchApi(`/api/guilds/${currentGuildData.id}/members`);
+            if(!members) return;
+            guildView.innerHTML = `<div class="management-section"><h3>メンバー管理</h3>
+                <table id="member-management-table"><thead><tr><th>ユーザー</th><th>参加日</th><th>操作</th></tr></thead><tbody>
+                ${members.map(m => `<tr><td><img src="${m.avatarURL}" style="width:32px; height:32px; border-radius:50%; vertical-align:middle; margin-right:10px;">${m.username}</td><td>${new Date(m.joinedAt).toLocaleDateString()}</td><td><div class="action-buttons"><button class="btn-warning" data-member-id="${m.id}" data-member-name="${m.username}" data-action="kick-member">キック</button><button class="btn-danger" data-member-id="${m.id}" data-member-name="${m.username}" data-action="ban-member">BAN</button></div></td></tr>`).join('')}
+                </tbody></table></div>`;
+            attachMemberManagementListeners();
+        }
+
+        function attachMemberManagementListeners() {
+            document.querySelectorAll('#member-management-table button[data-action="kick-member"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const memberId = e.target.dataset.memberId;
+                    const memberName = e.target.dataset.memberName;
+                    const confirmed = await showCustomModal(
+                        'メンバーキック確認',
+                        `本当にメンバー「<strong>${memberName}</strong>」をキックしますか？`,
+                        'キックする',
+                        'キャンセル',
+                        'btn-warning'
+                    );
+                    if (confirmed) {
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/members/${memberId}/kick`, {
+                            method: 'POST'
+                        });
+                        if (result) {
+                            showToast(`${memberName} をキックしました。`);
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('#member-management-table button[data-action="ban-member"]').forEach(button => {
+                button.addEventListener('click', async (e) => {
+                    const memberId = e.target.dataset.memberId;
+                    const memberName = e.target.dataset.memberName;
+                    const formHtml = `
+                        <div class="form-group">
+                            <label for="ban-reason">理由 (任意)</label>
+                            <input type="text" id="ban-reason" placeholder="例: 荒らし行為">
+                        </div>
+                        <div class="form-group">
+                            <label for="delete-message-days">メッセージ削除期間 (日数)</label>
+                            <input type="number" id="delete-message-days" min="0" max="7" value="0">
+                        </div>
+                    `;
+                    const confirmed = await showCustomModal(
+                        `メンバー「${memberName}」をBAN確認`,
+                        `本当にメンバー「<strong>${memberName}</strong>」をBANしますか？<br>${formHtml}`,
+                        'BANする',
+                        'キャンセル',
+                        'btn-danger'
+                    );
+
+                    if (confirmed) {
+                        const reason = document.getElementById('ban-reason').value;
+                        const deleteMessageDays = parseInt(document.getElementById('delete-message-days').value, 10);
+                        const result = await fetchApi(`/api/guilds/${currentGuildData.id}/members/${memberId}/ban`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ reason, deleteMessageDays })
+                        });
+                        if (result) {
+                            showToast(`${memberName} をBANしました。`);
+                            selectGuild(currentGuildData.id);
+                        }
+                    }
+                });
+            });
+        }
+
+        function renderModeration() {
+            const textChannels = currentGuildData.channels.filter(c => c.type === 0);
+            guildView.innerHTML = `
+                <div class="management-section">
+                    <h3>メッセージ一括削除</h3>
+                    <form id="delete-message-form">
+                        <div class="form-group"><label for="dm-channel-id">チャンネル</label><select id="dm-channel-id" required>${textChannels.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}</select></div>
+                        <div class="form-group"><label for="dm-user-id">対象ユーザー (ID or 名前、任意)</label><input type="text" id="dm-user-id" placeholder="ユーザーIDまたは名前で絞り込み"></div>
+                        <div class="form-group"><label for="dm-count">削除するメッセージ件数 (最大100件)</label><input type="number" id="dm-count" min="1" max="100" value="50" required></div>
+                        <button type="submit" class="btn-danger">削除実行</button>
+                    </form>
+                </div>
+                <div class="management-section">
+                     <h3>ユーザーに警告</h3>
+                     <form id="warn-user-form">
+                        <div class="form-group"><label for="warn-user-id">対象ユーザーID</label><input type="text" id="warn-user-id" required></div>
+                        <div class="form-group"><label for="warn-reason">理由 (任意)</label><input type="text" id="warn-reason"></div>
+                        <button type="submit" class="btn-warning">警告を送信</button>                </form>
+                </div>`;
+            document.getElementById('delete-message-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const result = await fetchApi(`/api/guilds/${currentGuildData.id}/deletemessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ channelId: document.getElementById('dm-channel-id').value, userIdentifier: document.getElementById('dm-user-id').value, count: parseInt(document.getElementById('dm-count').value, 10) }) });
+                if(result) showToast(result.message);
+            });
+            document.getElementById('warn-user-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const result = await fetchApi(`/api/guilds/${currentGuildData.id}/warn`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ userId: document.getElementById('warn-user-id').value, reason: document.getElementById('warn-reason').value, }) });
+                if(result) showToast('警告を送信しました。');
+            });
+        }
+
+        function selectLogView() {
+            showView('log-view');
+            window.location.hash = 'logs';
+        }
+
+        async function initializeDashboard() {
+            menuToggle.addEventListener('click', () => document.body.classList.contains('sidebar-open') ? closeSidebar() : openSidebar());
+            overlay.addEventListener('click', closeSidebar);
+            window.addEventListener('hashchange', handleRouteChange);
+            connectWebSocket();
+            const guilds = await fetchApi('/api/guilds');
+            if (!guilds) return;
+            allGuilds = guilds;
+            guildSelector.innerHTML = allGuilds.map(g => `
+                <div class="guild-tab" data-guild-id="${g.id}" title="${g.name}">
+                    <img src="${g.iconURL || 'https://cdn.discordapp.com/embed/avatars/0.png'}" alt="${g.name}">
+                </div>
+            `).join('');
+            guildSelector.querySelectorAll('.guild-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const guildId = tab.dataset.guildId;
+                    const targetView = window.location.hash.startsWith(`#${guildId}`) ? (window.location.hash.split('/')[1] || 'overview') : 'overview';
+                    window.location.hash = `${guildId}/${targetView}`;
+                });
+            });
+            handleRouteChange();
+            if (!window.location.hash) {
+                showView('welcome-view');
+            }
+        }
+
+        function handleRouteChange() {
+            const hash = window.location.hash.slice(1);
+            if (!hash) {
+                 showView('welcome-view');
+                 return;
+            }
+            if (hash === 'logs') {
+                 selectLogView();
+                 return;
+            }
+            const [guildId, view] = hash.split('/');
+            if (guildId && allGuilds.some(g => g.id === guildId)) {
+                 selectGuild(guildId);
+            }
+        }
+
+        // --- WebSocket & Toast (no changes) ---
+        function connectWebSocket() {
+            const protocol = window.location.protocol === 'https' ? 'wss' : 'ws';
+            const ws = new WebSocket(`${protocol}://${window.location.host}`);
+
+            ws.onopen = () => {
+                console.log('WebSocket connected');
+                logContainer.innerHTML += '<div class="log-entry">[WebSocket] 接続が確立されました。</div>';
+            };
+            ws.onclose = () => {
+                console.log('WebSocket closed. Reconnecting...');
+                logContainer.innerHTML += '<div class="log-entry error">[WebSocket] 接続が切れました。5秒後に再接続します...</div>';
+                setTimeout(connectWebSocket, 5000);
+            };
+            ws.onerror = (error) => {
+                console.error('WebSocket error:', error);
+                 logContainer.innerHTML += `<div class="log-entry error">[WebSocket] エラーが発生しました。</div>`;
+            };
+            ws.onmessage = (event) => {
+                const { type, data } = JSON.parse(event.data);
+                const entry = document.createElement('div');
+                entry.className = `log-entry ${type}`;
+                entry.textContent = data;
+                
+                const isScrolledToBottom = logContainer.scrollHeight - logContainer.clientHeight <= logContainer.scrollTop + 5;
+                logContainer.appendChild(entry);
+                if (isScrolledToBottom) {
+                    logContainer.scrollTop = logContainer.scrollHeight;
+                }
+            };
+        }
+        function showToast(message, isError = false) {
+            const toast = document.createElement('div');
+            toast.textContent = message;
+            Object.assign(toast.style, {
+                position: 'fixed', bottom: '20px', left: '50%',
+                transform: 'translateX(-50%)',
+                backgroundColor: isError ? 'var(--danger-color)' : 'var(--success-color)',
+                color: 'white', padding: '12px 24px', borderRadius: 'var(--border-radius)',
+                zIndex: '1001', boxShadow: 'var(--shadow-lg)', fontWeight: '600'
+            });
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // --- Pane HTML & Listeners (Re-usable parts) ---
+        function getBackupPaneHTML() {
+            // This function can be reused for the 'settings' view
+            return `
+                <div class="info-grid">
+                    <div class="management-section">
+                        <h3>新規バックアップ作成</h3>
+                        <form id="backup-create-form">
+                            <div class="form-group">
+                                <label for="backup-name">バックアップ名</label>
+                                <input type="text" id="backup-name" placeholder="例: my-backup-2025" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" id="backup-messages" name="backup-messages" checked><label for="backup-messages" style="display:inline; margin-left: 8px;">メッセージもバックアップする</label>
+                            </div>
+                            <button type="submit" class="btn-primary">作成実行</button>
+                        </form>
+                    </div>
+                    <div class="management-section">
+                        <h3>バックアップから復元</h3>
+                        <div class="restore-tabs" style="margin-bottom: 1em; border-bottom: 1px solid var(--background-tertiary); padding-bottom: 10px;">
+                           <button class="tab-button active" data-restore-type="manual">手動</button>
+                           <button class="tab-button" data-restore-type="auto">自動</button>
+                        </div>
+                        <form id="restore-form">
+                            <div class="form-group">
+                                <label for="restore-file-select">バックアップファイル</label>
+                                <select id="restore-file-select" required>
+                                    <option value="" disabled selected>復元するバックアップを選択...</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-danger">復元実行</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="management-section" style="margin-top: 1.5em;">
+                    <h3>既存のバックアップ</h3>
+                     <div class="backup-tabs" style="margin-bottom: 1em; border-bottom: 1px solid var(--background-tertiary); padding-bottom: 10px;">
+                        <button class="tab-button active" data-backup-type="manual">手動</button>
+                        <button class="tab-button" data-backup-type="auto">自動</button>
+                    </div>
+                    <table id="backups-table">
+                       <thead><tr><th>ファイル名</th><th>作成日時</th><th>状態</th><th>操作</th></tr></thead>
+                       <tbody></tbody>
+                    </table>
+                </div>
+                <div class="management-section" style="margin-top: 1.5em;">
+                    <h3>自動バックアップ設定</h3>
+                    <form id="schedule-add-form">
+                         <div class="form-group" style="display: flex; gap: 1em; align-items: flex-end; flex-wrap: wrap;">
+                            <div style="flex-grow: 1; min-width: 120px;"><label for="schedule-day">曜日</label><select id="schedule-day"><option value="*">毎日</option><option value="0">日</option><option value="1">月</option><option value="2">火</option><option value="3">水</option><option value="4">木</option><option value="5">金</option><option value="6">土</option></select></div>
+                            <div style="flex-grow: 1; min-width: 80px;"><label for="schedule-hour">時</label><input type="number" id="schedule-hour" min="0" max="23" required placeholder="0-23"></div>
+                            <div style="flex-grow: 1; min-width: 80px;"><label for="schedule-minute">分</label><input type="number" id="schedule-minute" min="0" max="59" required placeholder="0-59"></div>
+                            <button type="submit" class="btn-primary">スケジュール追加</button>
+                        </div>
+                    </form>
+                    <table id="schedules-table">
+                       <thead><tr><th>スケジュール (分 時 * * 曜日)</th><th>次回実行日時</th><th>操作</th></tr></thead>
+                       <tbody></tbody>
+                    </table>
+                </div>
+            `;
+        }
+        function attachBackupListeners() {
+            const guildId = currentGuildData.id;
+            
+            document.querySelectorAll('.backup-tabs .tab-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelector('.backup-tabs .tab-button.active').classList.remove('active');
+                    button.classList.add('active');
+                    fetchBackups(guildId, button.dataset.backupType);
+                });
+            });
+
+            document.querySelectorAll('.restore-tabs .tab-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelector('.restore-tabs .tab-button.active').classList.remove('active');
+                    button.classList.add('active');
+                    fetchRestoreOptions(guildId, button.dataset.restoreType);
+                });
+            });
+
+            document.getElementById('backup-create-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const result = await fetchApi(`/api/guilds/${guildId}/backups`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ backupName: document.getElementById('backup-name').value, backupMessages: document.getElementById('backup-messages').checked }) });
+                if (result) { 
+                    showToast('バックアップ作成を開始しました。'); 
+                    fetchBackups(guildId, 'manual'); 
+                    fetchRestoreOptions(guildId, 'manual');
+                }
+            });
+
+            document.getElementById('restore-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const fileName = document.getElementById('restore-file-select').value;
+                if (!fileName) {
+                    showToast('復元するバックアップを選択してください。', true);
+                    return;
+                }
+                const confirmed = await showCustomModal(
+                    'バックアップ復元確認',
+                    `本当にサーバーをバックアップ「<strong>${fileName}</strong>」から復元しますか？<br>この操作は元に戻せません。`,
+                    '復元する',
+                    'キャンセル',
+                    'btn-danger'
+                );
+                if (!confirmed) return;
+
+                const result = await fetchApi(`/api/guilds/${guildId}/restore`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fileName }) });
+                 if (result) showToast(`バックアップ「${fileName}」からの復元を開始しました。`);
+            });
+
+            document.getElementById('schedule-add-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const cronTime = `${document.getElementById('schedule-minute').value} ${document.getElementById('schedule-hour').value} * * ${document.getElementById('schedule-day').value}`;
+                const result = await fetchApi(`/api/guilds/${guildId}/schedules`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ cronTime }) });
+                if (result) { showToast('スケジュールを追加しました。'); fetchSchedules(guildId); }
+            });
+
+            fetchBackups(guildId, 'manual');
+            fetchSchedules(guildId);
+            fetchRestoreOptions(guildId, 'manual');
+        }
+
+        async function fetchBackups(guildId, type) {
+            const backups = await fetchApi(`/api/backups?guildId=${guildId}&type=${type}`);
+            const tableBody = document.getElementById('backups-table').querySelector('tbody');
+            
+            if (!backups) {
+                tableBody.innerHTML = '<tr><td colspan="4">バックアップの読み込みに失敗しました。</td></tr>';
+                return;
+            }
+            
+            tableBody.innerHTML = backups.length === 0 ? '<tr><td colspan="4">バックアップはありません。</td></tr>' : backups.map(b => `
+                <tr>
+                    <td>${b.fileName}</td><td>${new Date(b.createdAt).toLocaleString()}</td>
+                    <td style="font-weight:600; color: ${b.locked ? 'var(--warning-color)' : 'var(--success-color)'};">${b.locked ? 'ロック中' : '利用可能'}</td>
+                    <td>
+                        <button class="btn-danger" onclick="performBackupAction('${guildId}', 'delete', '${b.userId}', '${b.fileName}', '${type}')">削除</button>
+                        <button class="btn-warning" onclick="performBackupAction('${guildId}', '${b.locked ? 'unlock' : 'lock'}', '${b.userId}', '${b.fileName}', '${type}')">${b.locked ? 'ロック解除' : 'ロック'}</button>
+                    </td>
+                </tr>`).join('');
+        }
+
+        async function fetchRestoreOptions(guildId, type) {
+            const backups = await fetchApi(`/api/backups?guildId=${guildId}&type=${type}`);
+            const restoreSelect = document.getElementById('restore-file-select');
+            
+            if (!backups) {
+                restoreSelect.innerHTML = '<option value="" disabled selected>リストの読込失敗</option>';
+                return;
+            }
+
+            restoreSelect.innerHTML = '<option value="" disabled selected>復元するバックアップを選択...</option>';
+            backups.forEach(b => {
+                const option = document.createElement('option');
+                option.value = b.fileName;
+                option.textContent = `${b.fileName} (${new Date(b.createdAt).toLocaleString()}) ${b.locked ? ' (ロック中)' : ''}`;
+                option.disabled = b.locked;
+                restoreSelect.appendChild(option);
+            });
+        }
+
+        async function performBackupAction(guildId, action, userId, fileName, type) {
+            const confirmed = await showCustomModal(
+                `${action === 'delete' ? 'バックアップ削除' : 'バックアップロック変更'}確認`,
+                `本当にバックアップ「<strong>${fileName}</strong>」を${action === 'delete' ? '削除' : (action === 'lock' ? 'ロック' : 'ロック解除')}しますか？`,
+                action === 'delete' ? '削除する' : '変更する',
+                'キャンセル',
+                action === 'delete' ? 'btn-danger' : 'btn-warning'
+            );
+            if (!confirmed) return;
+
+            const result = await fetchApi('/api/backups/action', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action, userId, fileName }) });
+            if (result) { 
+                showToast(`バックアップ「${fileName}」を${action}しました。`); 
+                fetchBackups(guildId, type);
+                const restoreType = document.querySelector('.restore-tabs .tab-button.active').dataset.restoreType;
+                fetchRestoreOptions(guildId, restoreType);
+            }
+        }
+        async function fetchSchedules(guildId) {
+            const schedules = await fetchApi(`/api/guilds/${guildId}/schedules`);
+            const tableBody = document.getElementById('schedules-table').querySelector('tbody');
+            if (!schedules) { tableBody.innerHTML = '<tr><td colspan="3">スケジュールの読み込みに失敗しました。</td></tr>'; return; }
+            tableBody.innerHTML = schedules.length === 0 ? '<tr><td colspan="3">スケジュールはありません。</td></tr>' : schedules.map(s => `
+                <tr>
+                    <td><code>${s.cronTime}</code></td><td>${new Date(s.nextRun).toLocaleString()}</td>
+                    <td><button class="btn-danger" onclick="deleteSchedule('${guildId}', '${s.cronTime}')">削除</button></td>
+                </tr>`).join('');
+        }
+        async function deleteSchedule(guildId, cronTime) {
+            const confirmed = await showCustomModal(
+                'スケジュール削除確認',
+                `本当にスケジュール「<strong>${cronTime}</strong>」を削除しますか？`,
+                '削除する',
+                'キャンセル',
+                'btn-danger'
+            );
+            if (!confirmed) return;
+
+            const result = await fetchApi(`/api/guilds/${guildId}/schedules`, { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ cronTime }) });
+            if (result) { showToast('スケジュールを削除しました。'); fetchSchedules(guildId); }
+        }
+        function getReactionRolePaneHTML() {
+            const { channels, roles } = currentGuildData;
+            const textChannels = channels.filter(c => c.type === 0);
+            return `
+                <div class="management-section">
+                    <h3>リアクションロール作成</h3>
+                    <form id="reaction-role-form">
+                        <div class="form-group">
+                            <label for="rr-channel-id">チャンネル</label>
+                            <select id="rr-channel-id" required>${textChannels.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}</select>
+                        </div>
+                        <div class="form-group">
+                            <label for="rr-message-content">メッセージ内容 (Embed)</label>
+                            <textarea id="rr-message-content" rows="4" required></textarea>
+                        </div>
+                        <div id="rr-pairs-container" style="display: flex; flex-direction: column; gap: 1em;"></div>
+                        <div style="margin-top: 1.5em;">
+                            <button type="button" id="add-rr-pair-btn" class="btn-success" style="margin-right: 10px;">ペアを追加</button>
+                            <button type="submit" class="btn-primary">作成</button>
+                        </div>
+                    </form>
+                </div>`;
+        }
+        function attachReactionRoleListeners() {
+            const guildId = currentGuildData.id;
+            const roles = currentGuildData.roles;
+            const pairsContainer = document.getElementById('rr-pairs-container');
+            const addPair = () => {
+                const div = document.createElement('div');
+                div.className = 'rr-pair-group';
+                div.style.cssText = `
+                    display: flex; 
+                    gap: 1em; 
+                    align-items: center; 
+                    border: 1px solid var(--background-tertiary); 
+                    padding: 1em; 
+                    border-radius: var(--border-radius);
+                `;
+                div.innerHTML = `
+                    <div style="flex: 1;">
+                        <label>絵文字</label>
+                        <input type="text" class="rr-emoji" placeholder="例: 👍" required>
+                    </div>
+                    <div style="flex: 2;">
+                        <label>ロール</label>
+                        <select class="rr-role-id" required>${roles.map(r => `<option value="${r.id}">${r.name}</option>`).join('')}</select>
+                    </div>
+                    <button type="button" class="btn-danger remove-rr-pair-btn" style="align-self: flex-end;">削除</button>
+                `;
+                pairsContainer.appendChild(div);
+                div.querySelector('.remove-rr-pair-btn').addEventListener('click', () => div.remove());
+            };
+            document.getElementById('add-rr-pair-btn').addEventListener('click', addPair);
+            document.getElementById('reaction-role-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const body = { 
+                    channelId: document.getElementById('rr-channel-id').value, 
+                    messageContent: document.getElementById('rr-message-content').value, 
+                    emojis: Array.from(document.querySelectorAll('.rr-emoji')).map(i => i.value), 
+                    roleIds: Array.from(document.querySelectorAll('.rr-role-id')).map(s => s.value) 
+                };
+                if (body.emojis.length === 0) { 
+                    showToast('少なくとも1つの絵文字とロールのペアを追加してください。', true); 
+                    return; 
+                }
+                const result = await fetchApi(`/api/guilds/${guildId}/reaction-roles`, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify(body) 
+                });
+                if (result) showToast('リアクションロールを作成しました。');
+            });
+            addPair();
+        }
+        function getNgWordPaneHTML() {
+             return `
+                <div class="management-section">
+                    <h3>NGワード管理</h3>
+                    <form id="ngword-add-form"><div class="form-group"><label for="ngword-input">NGワード追加</label><input type="text" id="ngword-input" placeholder="NGワードを入力" required></div><button type="submit" class="btn-primary">追加</button></form>
+                </div>
+                <div class="management-section" style="margin-top: 1.5em;">
+                    <h3>現在のNGワードリスト</h3>
+                    <table id="ngwords-table"><thead><tr><th>ワード</th><th>操作</th></tr></thead><tbody></tbody></table>
+                </div>`;
+        }
+        function attachNgWordListeners() {
+            const guildId = currentGuildData.id;
+            document.getElementById('ngword-add-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const input = document.getElementById('ngword-input');
+                const result = await fetchApi(`/api/guilds/${guildId}/ngwords`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ word: input.value }) });
+                if (result) { showToast(`NGワード「${input.value}」を追加しました。`); input.value = ''; fetchNgWords(guildId); }
+            });
+            fetchNgWords(guildId);
+        }
+        async function fetchNgWords(guildId) {
+            const words = await fetchApi(`/api/guilds/${guildId}/ngwords`);
+            const tableBody = document.getElementById('ngwords-table').querySelector('tbody');
+            if (!words) { tableBody.innerHTML = '<tr><td colspan="2">NGワードの読み込みに失敗しました。</td></tr>'; return; }
+            tableBody.innerHTML = words.length === 0 ? '<tr><td colspan="2">NGワードはありません。</td></tr>' : words.map(word => `<tr><td>${word}</td><td><button class="btn-danger" onclick="deleteNgWord('${guildId}', '${encodeURIComponent(word)}')">削除</button></td></tr>`).join('');
+        }
+        function getDeleteMessagePaneHTML() {
+            const { channels } = currentGuildData;
+            const textChannels = channels.filter(c => c.type === 0);
+            return `
+                 <div class="management-section">
+                    <h3>メッセージ一括削除</h3>
+                    <form id="delete-message-form">
+                        <div class="form-group"><label for="dm-channel-id">チャンネル</label><select id="dm-channel-id" required>${textChannels.map(c => `<option value="${c.id}">${c.name}</option>`).join('')}</select></div>
+                        <div class="form-group"><label for="dm-user-id">対象ユーザー (任意)</label><input type="text" id="dm-user-id" placeholder="ユーザーIDまたは名前で絞り込み"></div>
+                        <div class="form-group"><label for="dm-count">削除するメッセージ件数 (最大100件)</label><input type="number" id="dm-count" min="1" max="100" value="50" required></div>
+                        <button type="submit" class="btn-danger">削除実行</button>
+                    </form>
+                </div>`;
+        }
+        function attachDeleteMessageListeners() {
+            const guildId = currentGuildData.id;
+            document.getElementById('delete-message-form').addEventListener('submit', async e => {
+                e.preventDefault();
+                const result = await fetchApi(`/api/guilds/${guildId}/deletemessage`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ channelId: document.getElementById('dm-channel-id').value, userIdentifier: document.getElementById('dm-user-id').value, count: parseInt(document.getElementById('dm-count').value, 10) }) });
+                if (result) showToast(result.message);
+            });
+        }
+
+        // --- Initial Load ---
+        document.addEventListener('DOMContentLoaded', initializeDashboard);
+    </script>
+</body>
+</html>

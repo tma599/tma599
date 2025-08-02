@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Botダッシュボード</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- UI animation added -->
+  </head>
+  <body>
+    <!-- UI animation added -->
+    <div id="page-loader">
+      <div class="bouncer">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+
+    <div id="top-bar">
+      <button id="hamburger-menu" style="display: none">&#9776;</button>
+      <a href="#logs" id="log-link">
+        <svg class="icon" viewBox="0 0 24 24">
+          <path
+            d="M21.41,11.58l-9-9C12.05,2.22,11.55,2,11,2H4C2.9,2,2,2.9,2,4v7c0,0.55,0.22,1.05,0.59,1.42l9,9c0.36,0.36,0.86,0.58,1.41,0.58s1.05-0.22,1.41-0.59l7-7C22.17,13.66,22.17,12.34,21.41,11.58z M13,20.01L4,11V4h7l9,9L13,20.01z"
+          />
+          <circle cx="6.5" cy="6.5" r="1.5" />
+        </svg>
+        リアルタイムログ
+      </a>
+      <div id="guild-selector"></div>
+    </div>
+
+    <div id="admin-sidebar">
+      <h3>管理者メニュー</h3>
+      <div id="admin-commands"></div>
+    </div>
+    <div id="sidebar-overlay"></div>
+
+    <div id="main-content">
+      <div id="guild-view" class="view">
+        <div id="server-info-container"></div>
+        <div id="command-container"></div>
+      </div>
+      <div id="log-view" class="view"><div id="log-container"></div></div>
+      <div id="welcome-view" class="view">
+        <div class="info-card" style="text-align: center; padding: 4em 2em">
+          <h2>ダッシュボードへようこそ</h2>
+          <p>
+            上のメニューからサーバーを選択して管理を開始するか、リアルタイムログを表示してください。
+          </p>
+        </div>
+      </div>
+      <div id="chat-view" class="view">
+        <div id="chat-header"></div>
+        <div id="chat-messages"></div>
+        <div id="chat-input">
+          <input type="text" id="chat-message-input" placeholder="メッセージを送信..." />
+          <button id="chat-send-button">送信</button>
+        </div>
+      </div>
+      <div id="audit-log-view" class="view"></div>
+      <div id="cicd-view" class="view"></div>
+    </div>
+
+    <script src="/public/js/dashboard.js"></script>
+  </body>
+</html>
