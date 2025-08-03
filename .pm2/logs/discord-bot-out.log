@@ -13762,3 +13762,176 @@
 [WebSocket] Client disconnected
 [WebSocket] Client connected
 [WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[WebSocket] Client disconnected
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[Voice] ServrePilot・サーバーパイロット#5945 joined voice channel 雑談1 in ServerPilot 公式サーバー
+[Voice] ServrePilot・サーバーパイロット#5945 left voice channel 雑談1 in ServerPilot 公式サーバー
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client connected
+[Voice] ServrePilot・サーバーパイロット#5945 joined voice channel 雑談1 in ServerPilot 公式サーバー
+[Voice] ServrePilot・サーバーパイロット#5945 left voice channel 雑談1 in ServerPilot 公式サーバー
+[WebSocket] Client disconnected
+[session-file-store] Deleting expired sessions
+[Voice] nekozyake7 joined voice channel 雑談 in そねさば！
+[Voice] ci0l joined voice channel 雑談 in そねさば！
+[Voice] nekozyake7 left voice channel 雑談 in そねさば！
+[Voice] nekozyake7 joined voice channel 雑談 in そねさば！
+[Voice] sachi_1019_85967 joined voice channel 雑談 in そねさば！
+[Voice] sachi_1019_85967 left voice channel 雑談 in そねさば！
+[Voice] naruseee02 joined voice channel 雑談 in そねさば！
+[Voice] naruseee02 left voice channel 雑談 in そねさば！
+[Voice] naruseee02 joined voice channel 雑談 in そねさば！
+[Voice] snqj joined voice channel 雑談 in そねさば！
+[Voice] naruseee02 left voice channel 雑談 in そねさば！
+[Voice] naruseee02 joined voice channel 雑談 in そねさば！
+[Voice] naruseee02 left voice channel 雑談 in そねさば！
+[Voice] snqj left voice channel 雑談 in そねさば！
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[WebSocket] Client disconnected
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client connected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Voice] sachi_1019_85967 joined voice channel 雑談 in そねさば！
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[WebSocket] Client disconnected
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[WebSocket] Client connected
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected

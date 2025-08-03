@@ -1,7 +1,7 @@
 {
   "cookie": {
-    "originalMaxAge": 86399993,
-    "expires": "2025-08-04T11:16:17.545Z",
+    "originalMaxAge": 86399989,
+    "expires": "2025-08-04T14:14:23.171Z",
     "httpOnly": true,
     "path": "/"
   },
@@ -780,5 +780,5 @@
       "fetchedAt": "2025-08-03T10:07:11.091Z"
     }
   },
-  "__lastAccess": 1754219777554
+  "__lastAccess": 1754230463188
 }

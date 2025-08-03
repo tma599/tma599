@@ -822,6 +822,33 @@ router.get('/guilds/:guildId/channels/:channelId/messages', async (req, res) => 
         avatarURL: msg.author.displayAvatarURL(),
       },
       timestamp: msg.createdAt,
+      embeds: msg.embeds.map((embed) => ({
+        title: embed.title,
+        description: embed.description,
+        url: embed.url,
+        color: embed.color,
+        hexColor: embed.hexColor,
+        author: embed.author ? { name: embed.author.name, iconURL: embed.author.iconURL } : null,
+        fields: embed.fields.map((field) => ({
+          name: field.name,
+          value: field.value,
+          inline: field.inline,
+        })),
+        image: embed.image ? { url: embed.image.url } : null,
+        thumbnail: embed.thumbnail ? { url: embed.thumbnail.url } : null,
+        footer: embed.footer ? { text: embed.footer.text, iconURL: embed.footer.iconURL } : null,
+        timestamp: embed.timestamp,
+      })),
+      attachments: msg.attachments.map((attachment) => ({
+        id: attachment.id,
+        url: attachment.url,
+        proxyURL: attachment.proxyURL,
+        filename: attachment.name,
+        size: attachment.size,
+        contentType: attachment.contentType,
+        width: attachment.width,
+        height: attachment.height,
+      })),
     }));
 
     // Always return in ascending order (oldest first)
@@ -1165,7 +1192,7 @@ router.post('/guilds/:guildId/voice/deafen', (req, res) => {
 
 router.get('/guilds/:guildId/voice-members/:channelId', async (req, res) => {
   try {
-    const { guildId } = req.params;
+    const { guildId, channelId } = req.params; // ここを修正
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -1220,74 +1247,3 @@ router.get('/guilds/:guildId/bot-voice-state', (req, res) => {
 });
 
 module.exports = router;
-
-// --- CI/CD Endpoint ---
-
-async function runCommand(command, args, log) {
-  return new Promise((resolve, reject) => {
-    log(`\n$ ${command} ${args.join(' ')}`);
-    const child = spawn(command, args, { stdio: ['pipe', 'pipe', 'pipe'] });
-
-    child.stdout.on('data', (data) => log(data.toString()));
-    child.stderr.on('data', (data) => log(data.toString()));
-
-    child.on('close', (code) => {
-      if (code === 0) {
-        log(`\nProcess finished with exit code 0.`);
-        resolve();
-      } else {
-        log(`\nProcess failed with exit code ${code}.`);
-        reject(new Error(`Exit code ${code}`));
-      }
-    });
-    child.on('error', (err) => {
-      log(`\nFailed to start process: ${err.message}`);
-      reject(err);
-    });
-  });
-}
-
-router.post('/ci/run', async (req, res) => {
-  const { type } = req.body;
-  const log = (data) => wsServer.broadcastCiCdLog(data);
-
-  res.status(202).json({ message: `Task \"${type}\" started.` });
-
-  try {
-    log(`--- Starting task: ${type} at ${new Date().toISOString()} ---`);
-
-    const runCi = async () => {
-      log('\n--- Running CI tasks ---');
-      await runCommand('git', ['add', '.'], log);
-      await runCommand(
-        'git',
-        ['commit', '-m', `CI: Automatic commit at ${new Date().toISOString()}`],
-        log
-      );
-      await runCommand('git', ['push'], log);
-      await runCommand('npm', ['test'], log);
-      log('\n--- CI tasks completed successfully ---');
-    };
-
-    const runCd = async () => {
-      log('\n--- Running CD tasks ---');
-      await runCommand('git', ['pull', 'origin', 'main'], log);
-      await runCommand('npm', ['install'], log);
-      await runCommand('pm2', ['restart', 'all'], log); // Assuming pm2 manages the app
-      log('\n--- CD tasks completed successfully ---');
-    };
-
-    if (type === 'CI') {
-      await runCi();
-    } else if (type === 'CD') {
-      await runCd();
-    } else if (type === 'CI/CD') {
-      await runCi();
-      await runCd();
-    }
-
-    log(`\n--- Task \"${type}\" finished successfully. ---`);
-  } catch (error) {
-    log(`\n--- Task \"${type}\" failed: ${error.message} ---`);
-  }
-});

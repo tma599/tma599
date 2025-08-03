@@ -1,0 +1,30 @@
+[
+  {
+    "sessionId": "8f2514d7-a869-45ea-99ca-cdae38ad5226",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/homeの大容量のファイルは？",
+    "timestamp": "2025-08-03T13:00:42.134Z"
+  },
+  {
+    "sessionId": "8f2514d7-a869-45ea-99ca-cdae38ad5226",
+    "messageId": 1,
+    "type": "user",
+    "message": "Android ndkのやつ全部消去して",
+    "timestamp": "2025-08-03T13:01:30.050Z"
+  },
+  {
+    "sessionId": "8f2514d7-a869-45ea-99ca-cdae38ad5226",
+    "messageId": 2,
+    "type": "user",
+    "message": "他にはなにかある？",
+    "timestamp": "2025-08-03T13:02:04.665Z"
+  },
+  {
+    "sessionId": "8f2514d7-a869-45ea-99ca-cdae38ad5226",
+    "messageId": 3,
+    "type": "user",
+    "message": "nvmと、gitの内部パックを削除して",
+    "timestamp": "2025-08-03T13:03:18.991Z"
+  }
+]

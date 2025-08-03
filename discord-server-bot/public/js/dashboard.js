@@ -420,8 +420,56 @@ async function fetchAndRenderMessages(guildId, channelId, options = {}) {
 
 function renderMessages(messages, options = {}) {
   const messagesHtml = messages
-    .map(
-      (msg) => `
+    .map((msg) => {
+      // Sanitize content to prevent HTML injection
+      const sanitizedContent = msg.content
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+
+      // Embeds
+      const embedsHtml = (msg.embeds || [])
+        .map(
+          (embed) => `
+        <div class="chat-embed" style="border-left-color: ${embed.hexColor || 'var(--background-tertiary)'};">
+          ${embed.author ? `<div class="embed-author">${embed.author.name}</div>` : ''}
+          ${embed.title ? `<div class="embed-title">${embed.title}</div>` : ''}
+          ${embed.description ? `<div class="embed-description">${embed.description}</div>` : ''}
+          ${
+            embed.fields && embed.fields.length > 0
+              ? `<div class="embed-fields">${embed.fields
+                  .map(
+                    (field) =>
+                      `<div class="embed-field ${field.inline ? 'inline' : ''}"><strong>${field.name}</strong><p>${field.value}</p></div>`
+                  )
+                  .join('')}</div>`
+              : ''
+          }
+          ${embed.footer ? `<div class="embed-footer">${embed.footer.text}</div>` : ''}
+        </div>
+      `
+        )
+        .join('');
+
+      // Attachments (Images)
+      const imageAttachments = (msg.attachments || []).filter((att) =>
+        att.contentType?.startsWith('image/')
+      );
+      let attachmentsHtml = '';
+      if (imageAttachments.length > 0) {
+        const imageUrls = imageAttachments.map((att) => att.url);
+        attachmentsHtml = `
+          <div class="attachments-container" id="attachments-${msg.id}">
+            <button class="show-attachments-btn" data-message-id="${msg.id}" data-urls='${JSON.stringify(imageUrls)}'>
+              画像を表示 (${imageAttachments.length}件)
+            </button>
+          </div>
+        `;
+      }
+
+      return `
         <div class="chat-message" data-message-id="${msg.id}">
             <img src="${msg.author.avatarURL}" alt="${msg.author.username}" class="chat-avatar">
             <div class="chat-message-content">
@@ -429,22 +477,57 @@ function renderMessages(messages, options = {}) {
                     <span class="chat-username">${msg.author.username}</span>
                     <span class="chat-timestamp">${new Date(msg.timestamp).toLocaleString()}</span>
                 </div>
-                <div class="chat-message-body">${msg.content}</div>
+                <div class="chat-message-body">${sanitizedContent}</div>
+                ${embedsHtml}
+                ${attachmentsHtml}
             </div>
         </div>
-    `
-    )
+    `;
+    })
     .join('');
+
+  const shouldScroll =
+    options.isNew ||
+    (options.append &&
+      chatMessages.scrollHeight - chatMessages.clientHeight <= chatMessages.scrollTop + 5);
 
   if (options.isNew) {
     chatMessages.innerHTML = messagesHtml;
   } else if (options.prepend) {
+    const oldScrollHeight = chatMessages.scrollHeight;
+    const oldScrollTop = chatMessages.scrollTop;
     chatMessages.insertAdjacentHTML('afterbegin', messagesHtml);
+    chatMessages.scrollTop = oldScrollTop + (chatMessages.scrollHeight - oldScrollHeight);
   } else {
-    // Append by default
     chatMessages.insertAdjacentHTML('beforeend', messagesHtml);
   }
+
+  if (shouldScroll) {
+    setTimeout(() => {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 0);
+  }
 }
+
+// Add event delegation for showing attachments
+chatMessages.addEventListener('click', (event) => {
+  if (event.target.classList.contains('show-attachments-btn')) {
+    const button = event.target;
+    const messageId = button.dataset.messageId;
+    const urls = JSON.parse(button.dataset.urls);
+    const container = document.getElementById(`attachments-${messageId}`);
+
+    if (container) {
+      const imagesHtml = urls
+        .map(
+          (url) =>
+            `<a href="${url}" target="_blank"><img src="${url}" class="message-image" alt="attachment"></a>`
+        )
+        .join('');
+      container.innerHTML = imagesHtml;
+    }
+  }
+});
 
 async function sendMessage(guildId, channelId) {
   const content = chatMessageInput.value.trim();
@@ -1307,19 +1390,6 @@ function generateVoiceControlPanelHTML(channelName) {
           <span>スピーカーミュート</span>
         </button>
       </div>
-      <div class="voice-streaming-section">
-          <h4>音声ストリーミング (開発中)</h4>
-          <div class="voice-control-grid">
-              <button id="listen-stream-btn" class="voice-control-button" disabled>
-                  ${icons.stream}
-                  <span>受信</span>
-              </button>
-              <button id="talk-stream-btn" class="voice-control-button" disabled>
-                  ${icons.mic}
-                  <span>送信</span>
-              </button>
-          </div>
-      </div>
     </div>
   `;
 }
@@ -1480,17 +1550,4 @@ function attachVoiceControlListeners(guildId, channelId) {
       );
     }
   });
-}
-
-async function banMember(guildId, memberId) {
-  if (!confirm('本当にこのメンバーをBANしますか？')) return;
-  const result = await fetchApi(`/api/guilds/${guildId}/members/${memberId}/ban`, {
-    method: 'POST',
-  });
-  if (result) {
-    showToast('メンバーをBANしました。');
-    document.getElementById('member-info-container').innerHTML =
-      '<p>メンバーがBANされました。リストから再選択してください。</p>';
-    fetchMembers(guildId, document.getElementById('member-search').value);
-  }
 }
