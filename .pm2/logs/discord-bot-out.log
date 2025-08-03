@@ -12773,3 +12773,992 @@
 メッセージID: 1401404079736885290
 メッセージURL: https://discord.com/channels/1284122089787228163/1284132763766620190/1401404079736885290
 --------------------------------------------------
+--------------------------------------------------
+[メッセージ削除検知]
+送信者: KuwaMusic#2284 (ID: 808716367305769020)
+チャンネル: #music (ID: 1284132763766620190)
+削除されたメッセージ内容: [内容なし]
+メッセージID: 1401404449083232390
+メッセージURL: https://discord.com/channels/1284122089787228163/1284132763766620190/1401404449083232390
+--------------------------------------------------
+[コマンド実行] ユーザー: nigenkun (ID: 1068465891743899698) | コマンド: /reactionrole  | サーバー: ServerPilot 公式サーバー (ID: 1399359221694206005)
+[リアクションロール] ユーザー nigenkun にロール member を付与しました。
+[リアクションロール] ユーザー nigenkun からロール member を削除しました。
+[リアクションロール] ユーザー nigenkun にロール member を付与しました。
+[WebSocket] Client connected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[session-file-store] Deleting expired sessions
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Web] Restart requested by nigenkun
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+--------------------------------------------------
+[メッセージ削除検知]
+送信者: naruseee02 (ID: 1217027904194482177)
+チャンネル: #共有リンク (ID: 1284123009501888553)
+削除されたメッセージ内容: 女好き
+メッセージID: 1401440081612374026
+メッセージURL: https://discord.com/channels/1284122089787228163/1284123009501888553/1401440081612374026
+--------------------------------------------------
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[WebSocket] Client connected
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[Web] Restart requested by nigenkun
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+--------------------------------------------------
+[メッセージ編集検知]
+ユーザー: nekozyake7 (ID: 1086918231761104938)
+チャンネル: #自己紹介
+編集前の内容: お前らだろ！1
+編集後の内容: お前らだろ！w
+メッセージURL: https://discord.com/channels/1284122089787228163/1314953695313788949/1401443761338187879
+--------------------------------------------------
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Web] Reload requested by nigenkun
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Voice connection for guild 1399359221694206005 disconnected permanently.
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Web] Restart requested by nigenkun
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Web] Restart requested by nigenkun
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Web] Restart requested by nigenkun
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Web] Reload requested by nigenkun
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  override existing env vars with { override: true })
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client connected
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Web] Restart requested by nigenkun
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] Self-mute set to true in guild 1399359221694206005.
+[VoiceManager] Self-mute set to false in guild 1399359221694206005.
+[VoiceManager] Self-deaf set to true in guild 1399359221694206005.
+[VoiceManager] Self-deaf set to false in guild 1399359221694206005.
+[VoiceManager] Left voice channel in guild 1399359221694206005.
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Web] Restart requested by nigenkun
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] New user tma59 joined, subscribing.
+[VoiceManager] Cleaned up listeners for guild 1399359221694206005.
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Cleaned up listeners for guild 1399359221694206005.
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[Web] Restart requested by nigenkun
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[VoiceManager] Voice connection is ready for guild 1399359221694206005!
+[VoiceManager] New user tma59 joined, subscribing.
+[VoiceManager] New user tma59 joined, subscribing.
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[VoiceManager] Cleaned up listeners for guild 1399359221694206005.
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  write to custom object with { processEnv: myObject })
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client disconnected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`)
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  suppress all logs with { quiet: true })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[Voice] ServrePilot・サーバーパイロット#5945 left voice channel 雑談1 in ServerPilot 公式サーバー
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild)
+[Web] Dashboard is running at http://localhost:3000
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[Voice] ServrePilot・サーバーパイロット#5945 joined voice channel 雑談1 in ServerPilot 公式サーバー
+[Voice] ServrePilot・サーバーパイロット#5945 left voice channel 雑談1 in ServerPilot 公式サーバー
+[WebSocket] Client disconnected
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[WebSocket] Client connected
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected

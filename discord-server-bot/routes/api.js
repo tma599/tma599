@@ -11,6 +11,12 @@ const { reactionRoles, saveReactionRoles } = require('../models/reactionRoles');
 const { ngWords, saveNgWords, normalizeJapanese } = require('../models/ngwords');
 const { PermissionsBitField, ChannelType, AuditLogEvent } = require('discord.js');
 const { execFile, spawn } = require('child_process');
+const {
+  joinVoiceChannel,
+  getVoiceConnection,
+  VoiceConnectionStatus,
+  entersState,
+} = require('@discordjs/voice');
 
 const wsServer = require('../ws/server');
 
@@ -181,6 +187,16 @@ router.get('/guilds/:guildId', (req, res) => {
       const perms = channel.permissionsFor(everyoneRole);
       const isPrivate = !perms.has(PermissionsBitField.Flags.ViewChannel);
 
+      // Get voice channel members if it's a voice channel
+      let voiceMembers = [];
+      if (channel.type === ChannelType.GuildVoice) {
+        voiceMembers = channel.members.map((member) => ({
+          id: member.id,
+          displayName: member.displayName,
+          avatarURL: member.user.displayAvatarURL(),
+        }));
+      }
+
       return {
         id: channel.id,
         name: channel.name,
@@ -188,6 +204,7 @@ router.get('/guilds/:guildId', (req, res) => {
         isPrivate: isPrivate,
         parentId: channel.parentId,
         position: channel.position,
+        voiceMembers: voiceMembers, // Add voice members here
       };
     });
 
@@ -284,7 +301,7 @@ router.patch('/guilds/:guildId/roles/:roleId', async (req, res) => {
 
 router.delete('/guilds/:guildId/roles/:roleId', async (req, res) => {
   try {
-    const { guildId, roleId } = req.params;
+    const { guildId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -685,7 +702,7 @@ router.get('/guilds/:guildId/members/:memberId', async (req, res) => {
 
 router.patch('/guilds/:guildId/members/:memberId/nickname', async (req, res) => {
   try {
-    const { guildId, memberId } = req.params;
+    const { guildId } = req.params;
     const { nickname } = req.body;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
@@ -703,7 +720,7 @@ router.patch('/guilds/:guildId/members/:memberId/nickname', async (req, res) => 
 
 router.post('/guilds/:guildId/members/:memberId/roles', async (req, res) => {
   try {
-    const { guildId, memberId } = req.params;
+    const { guildId } = req.params;
     const { roleId } = req.body;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
@@ -721,7 +738,7 @@ router.post('/guilds/:guildId/members/:memberId/roles', async (req, res) => {
 
 router.delete('/guilds/:guildId/members/:memberId/roles/:roleId', async (req, res) => {
   try {
-    const { guildId, memberId, roleId } = req.params;
+    const { guildId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -738,7 +755,7 @@ router.delete('/guilds/:guildId/members/:memberId/roles/:roleId', async (req, re
 
 router.post('/guilds/:guildId/members/:memberId/kick', async (req, res) => {
   try {
-    const { guildId, memberId } = req.params;
+    const { guildId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -755,7 +772,7 @@ router.post('/guilds/:guildId/members/:memberId/kick', async (req, res) => {
 
 router.post('/guilds/:guildId/members/:memberId/ban', async (req, res) => {
   try {
-    const { guildId, memberId } = req.params;
+    const { guildId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -826,7 +843,7 @@ router.get('/guilds/:guildId/audit-logs', async (req, res) => {
     }
 
     let userId = user;
-    if (user && !/^\d{17,19}$/.test(user)) {
+    if (user && !/^\\d{17,19}$/.test(user)) {
       const members = await guild.members.fetch({ query: user });
       const member = members.first();
       userId = member ? member.id : '0'; // 見つからない場合は誰もマッチしないIDをセット
@@ -857,7 +874,7 @@ router.get('/guilds/:guildId/audit-logs', async (req, res) => {
 
 router.post('/guilds/:guildId/channels/:channelId/messages', async (req, res) => {
   try {
-    const { guildId, channelId } = req.params;
+    const { guildId } = req.params;
     const { content } = req.body;
 
     if (!content) {
@@ -944,7 +961,7 @@ router.patch('/guilds/:guildId/channels/:channelId', async (req, res) => {
 
 router.delete('/guilds/:guildId/channels/:channelId', async (req, res) => {
   try {
-    const { guildId, channelId } = req.params;
+    const { guildId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -990,6 +1007,215 @@ router.post('/guilds/:guildId/channels/positions', async (req, res) => {
   } catch (error) {
     console.error(`[Web] Error setting channel positions:`, error);
     res.status(500).json({ error: 'チャンネルの順序の更新に失敗しました。' });
+  }
+});
+
+// --- CI/CD Endpoint ---
+
+async function runCommand(command, args, log) {
+  return new Promise((resolve, reject) => {
+    log(`\n$ ${command} ${args.join(' ')}`);
+    const child = spawn(command, args, { stdio: ['pipe', 'pipe', 'pipe'] });
+
+    child.stdout.on('data', (data) => log(data.toString()));
+    child.stderr.on('data', (data) => log(data.toString()));
+
+    child.on('close', (code) => {
+      if (code === 0) {
+        log(`\nProcess finished with exit code 0.`);
+        resolve();
+      } else {
+        log(`\nProcess failed with exit code ${code}.`);
+        reject(new Error(`Exit code ${code}`));
+      }
+    });
+    child.on('error', (err) => {
+      log(`\nFailed to start process: ${err.message}`);
+      reject(err);
+    });
+  });
+}
+
+router.post('/ci/run', async (req, res) => {
+  const { type } = req.body;
+  const log = (data) => wsServer.broadcastCiCdLog(data);
+
+  res.status(202).json({ message: `Task \"${type}\" started.` });
+
+  try {
+    log(`--- Starting task: ${type} at ${new Date().toISOString()} ---`);
+
+    const runCi = async () => {
+      log('\n--- Running CI tasks ---');
+      await runCommand('git', ['add', '.'], log);
+      await runCommand(
+        'git',
+        ['commit', '-m', `CI: Automatic commit at ${new Date().toISOString()}`],
+        log
+      );
+      await runCommand('git', ['push'], log);
+      await runCommand('npm', ['test'], log);
+      log('\n--- CI tasks completed successfully ---');
+    };
+
+    const runCd = async () => {
+      log('\n--- Running CD tasks ---');
+      await runCommand('git', ['pull', 'origin', 'main'], log);
+      await runCommand('npm', ['install'], log);
+      await runCommand('pm2', ['restart', 'all'], log); // Assuming pm2 manages the app
+      log('\n--- CD tasks completed successfully ---');
+    };
+
+    if (type === 'CI') {
+      await runCi();
+    } else if (type === 'CD') {
+      await runCd();
+    } else if (type === 'CI/CD') {
+      await runCi();
+      await runCd();
+    }
+
+    log(`\n--- Task \"${type}\" finished successfully. ---`);
+  } catch (error) {
+    log(`\n--- Task \"${type}\" failed: ${error.message} ---`);
+  }
+});
+
+// --- Voice Channel Endpoints ---
+
+router.post('/guilds/:guildId/voice/join', async (req, res) => {
+  try {
+    const { guildId } = req.params;
+    const { channelId } = req.body;
+    const guild = req.client.guilds.cache.get(guildId);
+
+    if (!guild) return res.status(404).json({ error: 'Guild not found' });
+    const channel = guild.channels.cache.get(channelId);
+    if (!channel || channel.type !== ChannelType.GuildVoice) {
+      return res.status(404).json({ error: 'Voice channel not found' });
+    }
+
+    const connection = joinVoiceChannel({
+      channelId: channel.id,
+      guildId: guild.id,
+      adapterCreator: guild.voiceAdapterCreator,
+      selfMute: true, // Join muted by default
+      selfDeaf: false, // Explicitly set selfDeaf to false
+    });
+
+    // The bot is now in the channel, we don't need to wait for the Ready state
+    // as it was causing timeout issues.
+    // await entersState(connection, VoiceConnectionStatus.Ready, 30e3);
+
+    res.json({ success: true, message: `Joined ${channel.name}` });
+  } catch (error) {
+    console.error(`[Web] Error joining voice channel:`, error);
+    res.status(500).json({ error: 'Failed to join voice channel.' });
+  }
+});
+
+router.post('/guilds/:guildId/voice/leave', (req, res) => {
+  try {
+    const { guildId } = req.params;
+    const connection = getVoiceConnection(guildId);
+
+    if (connection) {
+      connection.destroy();
+      res.json({ success: true, message: 'Left voice channel' });
+    } else {
+      res.status(404).json({ error: 'Not in a voice channel' });
+    }
+  } catch (error) {
+    console.error(`[Web] Error leaving voice channel:`, error);
+    res.status(500).json({ error: 'Failed to leave voice channel.' });
+  }
+});
+
+router.post('/guilds/:guildId/voice/mute', (req, res) => {
+  const { guildId } = req.params;
+  const { mute } = req.body;
+  const connection = getVoiceConnection(guildId);
+
+  if (connection) {
+    connection.receiver.voiceConnection.rejoin({
+      ...connection.joinConfig,
+      selfMute: mute,
+    });
+    res.json({ success: true, message: `Mute state set to ${mute}` });
+  } else {
+    res.status(404).json({ error: 'Not in a voice channel' });
+  }
+});
+
+router.post('/guilds/:guildId/voice/deafen', (req, res) => {
+  const { guildId } = req.params;
+  const { deafen } = req.body;
+  const connection = getVoiceConnection(guildId);
+
+  if (connection) {
+    connection.receiver.voiceConnection.rejoin({
+      ...connection.joinConfig,
+      selfDeaf: deafen,
+    });
+    res.json({ success: true, message: `Deafen state set to ${deafen}` });
+  } else {
+    res.status(404).json({ error: 'Not in a voice channel' });
+  }
+});
+
+router.get('/guilds/:guildId/voice-members/:channelId', async (req, res) => {
+  try {
+    const { guildId } = req.params;
+    const guild = req.client.guilds.cache.get(guildId);
+    if (!guild) return res.status(404).json({ error: 'Guild not found' });
+
+    const channel = guild.channels.cache.get(channelId);
+    if (!channel || channel.type !== ChannelType.GuildVoice) {
+      return res.status(404).json({ error: 'Voice channel not found' });
+    }
+
+    const members = channel.members.map((member) => ({
+      id: member.id,
+      displayName: member.displayName,
+      avatarURL: member.user.displayAvatarURL(),
+    }));
+
+    res.json(members);
+  } catch (error) {
+    console.error(`[Web] Error fetching voice channel members:`, error);
+    res.status(500).json({ error: 'Failed to fetch voice channel members.' });
+  }
+});
+
+router.get('/guilds/:guildId/bot-voice-state', (req, res) => {
+  try {
+    const { guildId } = req.params;
+    const guild = req.client.guilds.cache.get(guildId);
+    if (!guild) return res.status(404).json({ error: 'Guild not found' });
+
+    const botMember = guild.members.cache.get(req.client.user.id);
+    if (!botMember || !botMember.voice.channel) {
+      return res.json({ inVoiceChannel: false });
+    }
+
+    const connection = getVoiceConnection(guildId);
+    const selfMute = botMember.voice.selfMute;
+    const selfDeaf = botMember.voice.selfDeaf;
+
+    res.json({
+      inVoiceChannel: true,
+      channelId: botMember.voice.channel.id,
+      channelName: botMember.voice.channel.name,
+      selfMute: selfMute,
+      selfDeaf: selfDeaf,
+      connected:
+        !!connection &&
+        connection.state.status !== VoiceConnectionStatus.Disconnected &&
+        connection.state.status !== VoiceConnectionStatus.Destroyed,
+    });
+  } catch (error) {
+    console.error(`[Web] Error fetching bot voice state:`, error);
+    res.status(500).json({ error: 'Failed to fetch bot voice state.' });
   }
 });
 

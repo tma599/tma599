@@ -6662,5 +6662,523 @@
     "type": "user",
     "message": "usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 lint> eslint ./data/data/com.termux/files/home/discord-server-bot/public/js/dashboard.js     8:7   warning  'mainContent' is assigned a value but never used          no-unused-vars     9:7   warning  'guildView' is assigned a value but never used            no-unused-vars    10:7   warning  'logView' is assigned a value but never used              no-unused-vars    11:7   warning  'welcomeView' is assigned a value but never used          no-unused-vars    19:7   warning  'chatView' is assigned a value but never used             no-unused-vars   923:11  warning  'overwritesContainer' is assigned a value but never used  no-unused-vars   979:16  warning  'deleteChannel' is defined but never used                 no-unused-vars  1207:16  warning  'deleteRole' is defined but never used                    no-unused-vars  1343:16  warning  'performBackupAction' is defined but never used           no-unused-vars  1361:16  warning  'deleteSchedule' is defined but never used                no-unused-vars  1368:23  warning  'roles' is assigned a value but never used                no-unused-vars  1429:16  warning  'deleteNgWord' is defined but never used                  no-unused-vars/data/data/com.termux/files/home/index.js   3:7   warning  'fsp' is assigned a value but never used                  no-unused-vars   5:7   warning  'cron' is assigned a value but never used                 no-unused-vars  14:3   warning  'PermissionsBitField' is assigned a value but never used  no-unused-vars  15:3   warning  'ChannelType' is assigned a value but never used          no-unused-vars  18:9   warning  'getBackupDir' is assigned a value but never used         no-unused-vars  18:23  warning  'executeBackup' is assigned a value but never used        no-unused-vars  19:9   warning  'backupSchedules' is assigned a value but never used      no-unused-vars  19:26  warning  'saveSchedules' is assigned a value but never used        no-unused-vars  36:7   warning  'schedulesFilePath' is assigned a value but never used    no-unused-vars/data/data/com.termux/files/home/models/backupSchedules.js  12:13  warning  'task' is assigned a value but never used  no-unused-vars✖ 22 problems (0 errors, 22 warnings)> discord-server-bot@1.0.0 format> prettier --write ..config/configstore/update-notifier-@google/gemini-cli.json 142ms.eslintrc.json 11ms (unchanged).gemini/google_accounts.json 7ms.gemini/oauth_creds.json 6ms.gemini/settings.json 3ms.gemini/tmp/be36aa850ed33336ee9b50e53a9026eb7feb9c91da12c0a4057f4cc20da851ec/logs.json 478ms.github/workflows/ci.yml 101ms (unchanged)",
     "timestamp": "2025-08-02T20:50:27.975Z"
+  },
+  {
+    "sessionId": "48637ce7-c431-4e72-a989-c2edb389316e",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botのバックアップを/data/data/com.termux/files/homeに作成して",
+    "timestamp": "2025-08-03T03:37:02.422Z"
+  },
+  {
+    "sessionId": "48637ce7-c431-4e72-a989-c2edb389316e",
+    "messageId": 1,
+    "type": "user",
+    "message": "バックアップ名は別の似できない？",
+    "timestamp": "2025-08-03T04:31:18.350Z"
+  },
+  {
+    "sessionId": "48637ce7-c431-4e72-a989-c2edb389316e",
+    "messageId": 2,
+    "type": "user",
+    "message": "バックアップ名は別の似できない？",
+    "timestamp": "2025-08-03T04:31:52.257Z"
+  },
+  {
+    "sessionId": "48637ce7-c431-4e72-a989-c2edb389316e",
+    "messageId": 3,
+    "type": "user",
+    "message": "discord-bot.ｌａｔｅｓｔにして",
+    "timestamp": "2025-08-03T04:32:46.813Z"
+  },
+  {
+    "sessionId": "48637ce7-c431-4e72-a989-c2edb389316e",
+    "messageId": 4,
+    "type": "user",
+    "message": "そのバックアップを/data/data/com.termux/files/homeに保存して",
+    "timestamp": "2025-08-03T04:38:21.351Z"
+  },
+  {
+    "sessionId": "1ef8767f-5a51-4afc-90e0-ec990e9e79ba",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botに、webダッシュボードのファイルがあるから全部読みこんで",
+    "timestamp": "2025-08-03T05:19:30.746Z"
+  },
+  {
+    "sessionId": "1ef8767f-5a51-4afc-90e0-ec990e9e79ba",
+    "messageId": 1,
+    "type": "user",
+    "message": "/auth",
+    "timestamp": "2025-08-03T05:19:41.472Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botに、webダッシュボードのファイルがあるから全部読みこんで、内容も",
+    "timestamp": "2025-08-03T05:20:51.647Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 1,
+    "type": "user",
+    "message": "index.jsは？",
+    "timestamp": "2025-08-03T05:22:36.333Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 2,
+    "type": "user",
+    "message": "ねね、とある機能を追加してほしいんだけど、なぜか画面が真っ白になるバグが高確率で発生するから、くれぐれも細心の注意を払ってね",
+    "timestamp": "2025-08-03T05:23:27.996Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 3,
+    "type": "user",
+    "message": "まずさ、メインメニューに、チャンネルリストあるじゃん？それのさ、ボイスチャンネル押したら、botをvcに参加させて、bot経由でvcの他人の発言を聞き取ったり、自分が発言したりとか、ミュート機能とかの追加できる？",
+    "timestamp": "2025-08-03T05:24:40.864Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 4,
+    "type": "user",
+    "message": "いや、vcに関しては、もう音声をそのまま受信して、それをスマホのスピーカーから出るようにするのと、自分の声とかを直接送れるように、",
+    "timestamp": "2025-08-03T05:26:36.118Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 5,
+    "type": "user",
+    "message": "0|discord- | /data/data/com.termux/files/home/discord-server-bot/routes/api.js:11120|discord- |       log('0|discord- |           ^0|discord- |0|discord- | SyntaxError: Invalid or unexpected token0|discord- |     at wrapSafe (node:internal/modules/cjs/loader:1624:18)0|discord- |     at Module._compile (node:internal/modules/cjs/loader:1666:20)0|discord- |     at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)0|discord- |     at Module.load (node:internal/modules/cjs/loader:1427:32)0|discord- |     at Module._load (node:internal/modules/cjs/loader:1250:12)0|discord- |     at TracingChannel.traceSync (node:diagnostics_channel:322:14)0|discord- |     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)0|discord- |     at Module.require (node:internal/modules/cjs/loader:1449:12)0|discord- |     at Hook._require.Module.require (/data/data/com.termux/files/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)0|discord- |     at require (node:internal/modules/helpers:135:16)",
+    "timestamp": "2025-08-03T05:30:12.476Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 6,
+    "type": "user",
+    "message": "0|discord-bot  | /data/data/com.termux/files/home/discord-server-bot/routes/api.js:11130|discord-bot  |       log('0|discord-bot  |           ^0|discord-bot  | SyntaxError: Invalid or unexpected token0|discord-bot  |     at wrapSafe (node:internal/modules/cjs/loader:1624:18)0|discord-bot  |     at Module._compile (node:internal/modules/cjs/loader:1666:20)0|discord-bot  |     at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)0|discord-bot  |     at Module.load (node:internal/modules/cjs/loader:1427:32)0|discord-bot  |     at Module._load (node:internal/modules/cjs/loader:1250:12)0|discord-bot  |     at TracingChannel.traceSync (node:diagnostics_channel:322:14)0|discord-bot  |     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)0|discord-bot  |     at Module.require (node:internal/modules/cjs/loader:1449:12)0|discord-bot  |     at Hook._require.Module.require (/data/data/com.termux/files/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)0|discord-bot  |     at require (node:internal/modules/helpers:135:16)",
+    "timestamp": "2025-08-03T05:32:21.874Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 7,
+    "type": "user",
+    "message": "ボイスチャンネルクリックしても何も起きないな",
+    "timestamp": "2025-08-03T05:35:50.040Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 8,
+    "type": "user",
+    "message": "よし、接続と切断できるようになった",
+    "timestamp": "2025-08-03T05:44:51.682Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 9,
+    "type": "user",
+    "message": "VoiceManager] Voice connection failed to become ready: AbortError: The operation was aborted    at AbortSignal.abortListener (node:events:994:14)    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:827:20)    at AbortSignal.dispatchEvent (node:internal/event_target:762:26)    at runAbort (node:internal/abort_controller:488:10)    at abortSignal (node:internal/abort_controller:459:3)    at AbortController.abort (node:internal/abort_controller:507:5)    at Timeout.<anonymous> (/data/data/com.termux/files/home/node_modules/@discordjs/voice/dist/index.js:2536:39)    at listOnTimeout (node:internal/timers:608:17)    at process.processTimers (node:internal/timers:543:7) {  code: 'ABORT_ERR',  [cause]: DOMException [AbortError]: This operation was aborted      at new DOMException (node:internal/per_context/domexception:77:18)      at AbortController.abort (node:internal/abort_controller:506:18)      at Timeout.<anonymous> (/data/data/com.termux/files/home/node_modules/@discordjs/voice/dist/index.js:2536:39)      at listOnTimeout (node:internal/timers:608:17)      at process.processTimers (node:internal/timers:543:7)}[Web-VC] Error joining voice channel: Error: Could not connect to the voice channel.    at Object.join (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:60:11)    at async /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1002:5[VoiceManager] Voice connection failed to become ready: AbortError: The operation was aborted    at AbortSignal.abortListener (node:events:994:14)    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:827:20)    at AbortSignal.dispatchEvent (node:internal/event_target:762:26)    at runAbort (node:internal/abort_controller:488:10)    at abortSignal (node:internal/abort_controller:459:3)    at AbortController.abort (node:internal/abort_controller:507:5)    at Timeout.<anonymous> (/data/data/com.termux/files/home/node_modules/@discordjs/voice/dist/index.js:2536:39)    at listOnTimeout (node:internal/timers:608:17)    at process.processTimers (node:internal/timers:543:7) {  code: 'ABORT_ERR',  [cause]: DOMException [AbortError]: This operation was aborted      at new DOMException (node:internal/per_context/domexception:77:18)      at AbortController.abort (node:internal/abort_controller:506:18)      at Timeout.<anonymous> (/data/data/com.termux/files/home/node_modules/@discordjs/voice/dist/index.js:2536:39)      at listOnTimeout (node:internal/timers:608:17)      at process.processTimers (node:internal/timers:543:7)}[Web-VC] Error joining voice channel: Error: Could not connect to the voice channel.    at Object.join (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:60:11)    at async /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1002:5 ミュート切り替え機能がないのと、デフォルトで、スピーカーミュートなってるから、デフォルトでミュートにして",
+    "timestamp": "2025-08-03T05:51:00.649Z"
+  },
+  {
+    "sessionId": "d0a34e1c-1e90-4e73-bc8b-ce97f35c71ff",
+    "messageId": 10,
+    "type": "user",
+    "message": "えっと、ボイスチャンネルクリックしても何も起きない",
+    "timestamp": "2025-08-03T05:56:15.863Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botのwebダッシュボードの、チャンネルリストのボイスチャンネルをタップしたら、bot経由でvcに入って、それで発言を受信して、スピーカーに流すとか、自分の発言をマイクが拾ってbot経由でvcに出力させる機能があると思うんだけど、なぜかボイスチャンネル押してもなんも反応しないよんな、あと修正とか追加すると、画面がずっとロード中になる時があるから、くれぐれも気をつけてね",
+    "timestamp": "2025-08-03T06:02:18.289Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 1,
+    "type": "user",
+    "message": "できればファイル上書きじゃなくて、部分変更にしてほしい",
+    "timestamp": "2025-08-03T06:07:54.985Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 2,
+    "type": "user",
+    "message": "ボイスチャンネル押しても、接続しますか？が出ない",
+    "timestamp": "2025-08-03T06:10:31.506Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 3,
+    "type": "user",
+    "message": "一応言っとくけど、自分スマホだから、タップしたときに、接続しますか？って表示させるようにして、",
+    "timestamp": "2025-08-03T06:13:52.941Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 4,
+    "type": "user",
+    "message": "すまん、やっぱタッチのとこクリックに戻して",
+    "timestamp": "2025-08-03T06:16:27.850Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 5,
+    "type": "user",
+    "message": "モデル変更されて中断されたよ",
+    "timestamp": "2025-08-03T06:17:26.504Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 6,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-03T06:17:50.067Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 7,
+    "type": "user",
+    "message": "VoiceManager] Voice connection failed to become ready: AbortError: The operation was aborted    at AbortSignal.abortListener (node:events:994:14)    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:827:20)    at AbortSignal.dispatchEvent (node:internal/event_target:762:26)    at runAbort (node:internal/abort_controller:488:10)    at abortSignal (node:internal/abort_controller:459:3)    at AbortController.abort (node:internal/abort_controller:507:5)    at Timeout.<anonymous> (/data/data/com.termux/files/home/node_modules/@discordjs/voice/dist/index.js:2536:39)    at listOnTimeout (node:internal/timers:608:17)    at process.processTimers (node:internal/timers:543:7) {  code: 'ABORT_ERR',  [cause]: DOMException [AbortError]: This operation was aborted      at new DOMException (node:internal/per_context/domexception:77:18)      at AbortController.abort (node:internal/abort_controller:506:18)      at Timeout.<anonymous> (/data/data/com.termux/files/home/node_modules/@discordjs/voice/dist/index.js:2536:39)      at listOnTimeout (node:internal/timers:608:17)      at process.processTimers (node:internal/timers:543:7)}[Web-VC] Error joining voice channel: Error: Could not connect to the voice channel.    at Object.join (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:61:11)    at async /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1002:5",
+    "timestamp": "2025-08-03T06:19:48.220Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 8,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-03T06:20:56.401Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 9,
+    "type": "user",
+    "message": "vcには接続できたけど、マイクミュートと、切断機能がない、ボイスチャンネルをクリックしたら、専用のメニューに飛ばして、そこて一通りの操作ができるようにできない？",
+    "timestamp": "2025-08-03T06:29:03.521Z"
+  },
+  {
+    "sessionId": "5bf2d543-38ce-4502-bf36-a0f534ae5345",
+    "messageId": 10,
+    "type": "user",
+    "message": "なんか中断されたけど",
+    "timestamp": "2025-08-03T06:32:26.832Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 0,
+    "type": "user",
+    "message": "/auth",
+    "timestamp": "2025-08-03T06:34:51.814Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 1,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botのwebダッシュボードについてなんだけど、",
+    "timestamp": "2025-08-03T06:35:38.143Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 2,
+    "type": "user",
+    "message": "それでさ、ボイスチャンネルをクリックしたら、参加できるようになってるけど、それさ、ボイスチャンネルをクリックしたら専用のメニューに飛ばして、そこで、vcの一通りの操作ができるようにしてくれない？前提条件として、自分はスマホで、修正や追加するなら、ちゃんとコードを確認してね、コードに少しでもエラー起きたらwebダッシュボードがずっとロード中になるから",
+    "timestamp": "2025-08-03T06:37:21.586Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 3,
+    "type": "user",
+    "message": "ミュート機能とスピーカーミュート機能も、あとvcの発言の受信&スピーカーで流すと、自分の声をvcで発言できるかも確認して",
+    "timestamp": "2025-08-03T06:39:55.196Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 4,
+    "type": "user",
+    "message": "うん、",
+    "timestamp": "2025-08-03T06:40:40.128Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 5,
+    "type": "user",
+    "message": "ミュートとスピーカーミュートは表示されたけど、使えないね、ログあるから送るわ",
+    "timestamp": "2025-08-03T06:44:39.357Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 6,
+    "type": "user",
+    "message": "TypeError: voiceManager.setMute is not a function    at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1024:33    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)    at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)    at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)    at processParams (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:664:3)TypeError: voiceManager.setMute is not a function    at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1024:33    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)    at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)    at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)    at processParams (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:664:3)",
+    "timestamp": "2025-08-03T06:46:17.572Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 7,
+    "type": "user",
+    "message": "TypeError: Cannot read properties of undefined (reading 'setSelfDeaf')    at Object.setDeaf (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:89:31)    at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1035:33    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)    at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)    at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14) あと、webダッシュボードのボイスチャンネルの名前のとこの右側に、vcに参加してるユーザーのアイコンが表示されるようにしてほしい",
+    "timestamp": "2025-08-03T06:49:32.229Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 8,
+    "type": "user",
+    "message": "TypeError: botMember.voice.setSelfMute is not a function    at Object.setMute (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:86:21)    at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1024:33    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)    at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)    at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)TypeError: botMember.voice.setSelfDeaf is not a function    at Object.setDeaf (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:100:21)    at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1035:33    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)    at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)    at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)[VoiceManager] Voice connection failed to become ready: AbortError: The operation was aborted    at AbortSignal.abortListener (node:events:994:14)    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:827:20)    at AbortSignal.dispatchEvent (node:internal/event_target:762:26)    at runAbort (node:internal/abort_controller:488:10)    at abortSignal (node:internal/abort_controller:459:3)    at AbortController.abort (node:internal/abort_controller:507:5)    at Timeout.<anonymous> (/data/data/com.termux/files/home/node_modules/@discordjs/voice/dist/index.js:2536:39)    at listOnTimeout (node:internal/timers:608:17)    at process.processTimers (node:internal/timers:543:7) {  code: 'ABORT_ERR',  [cause]: DOMException [AbortError]: This operation was aborted      at new DOMException (node:internal/per_context/domexc",
+    "timestamp": "2025-08-03T06:57:18.762Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 9,
+    "type": "user",
+    "message": "えっとね、vcはいってる人を表示させるとこは、メインメニューの、ボイスチャンネルの名前のとこの、右に空白あるからそこね？",
+    "timestamp": "2025-08-03T08:19:19.038Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 10,
+    "type": "user",
+    "message": "あ、後ミュートしたら、なぜか解除できない",
+    "timestamp": "2025-08-03T08:21:45.198Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 11,
+    "type": "user",
+    "message": "cloud not set mute state. not in a voice channel state is already set.って出てくる、あとチャンネルリストのとこのボイスチャンネル名の右にvcはいってる人表示されない",
+    "timestamp": "2025-08-03T08:30:47.533Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 12,
+    "type": "user",
+    "message": "サーバーミュートにしてるのが原因か、？サーバーミュートじゃないほうでミュートできない？",
+    "timestamp": "2025-08-03T08:34:31.709Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 13,
+    "type": "user",
+    "message": "0|discord-bot  | ReferenceError: setSelfMute is not defined0|discord-bot  |     at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:128:3)0|discord-bot  |     at Module._compile (node:internal/modules/cjs/loader:1692:14)0|discord-bot  |     at Module._extensions..js (node:internal/modules/cjs/loader:1824:10)0|discord-bot  |     at Module.load (node:internal/modules/cjs/loader:1427:32)0|discord-bot  |     at Module._load (node:internal/modules/cjs/loader:1250:12)0|discord-bot  |     at TracingChannel.traceSync (node:diagnostics_channel:322:14)0|discord-bot  |     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)0|discord-bot  |     at Module.require (node:internal/modules/cjs/loader:1449:12)0|discord-bot  |     at Hook._require.Module.require (/data/data/com.termux/files/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)",
+    "timestamp": "2025-08-03T08:56:05.720Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 14,
+    "type": "user",
+    "message": "TypeError: Cannot read properties of undefined (reading 'setSelfMute')    at Object.setSelfMute (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:79:26)    at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1035:33    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)    at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)    at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)TypeError: Cannot read properties of undefined (reading 'setSelfDeaf')    at Object.setSelfDeaf (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:89:26)    at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1046:33    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)    at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)    at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)",
+    "timestamp": "2025-08-03T08:59:44.550Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 15,
+    "type": "user",
+    "message": "TypeError: member.voice.setSelfMute is not a function    at Object.setSelfMute (/data/data/com.termux/files/home/discord-server-bot/utils/voiceManager.js:77:18)    at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1031:33    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)    at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)    at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)    at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)    at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)    at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)",
+    "timestamp": "2025-08-03T09:03:28.003Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 16,
+    "type": "user",
+    "message": "よし来たー、じゃあ次はvcの発言受信&スピーカーに流す&自分の発言送信やな",
+    "timestamp": "2025-08-03T09:09:03.934Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 17,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-03T09:10:01.401Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 18,
+    "type": "user",
+    "message": "えっとね、声聞き取れないのと、スマホだからコンソールログみれない",
+    "timestamp": "2025-08-03T09:22:08.060Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 19,
+    "type": "user",
+    "message": "デバッグログのエリア無くね？ログもなんも表示されんし、1回コード確認したら？",
+    "timestamp": "2025-08-03T09:27:40.213Z"
+  },
+  {
+    "sessionId": "60ea0c5a-48e9-4ab1-b512-5f6d1c387515",
+    "messageId": 20,
+    "type": "user",
+    "message": "画面ずっとロード中になった、一つ前に戻すかエラーコードを確認して、それか関数とか",
+    "timestamp": "2025-08-03T09:34:19.067Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/homeに、なんとかlatest.tar.gzがあると思うんよ",
+    "timestamp": "2025-08-03T09:40:54.100Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 1,
+    "type": "user",
+    "message": "それをさ、/data/data/com.termux/files/home/discord-server-botに上書きしてくれない？",
+    "timestamp": "2025-08-03T09:41:13.117Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 2,
+    "type": "user",
+    "message": "えっとね、/data/data/com.termux/files/home/discord-server-botを削除して、展開できない？",
+    "timestamp": "2025-08-03T09:42:28.164Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 3,
+    "type": "user",
+    "message": "えっとね、/data/data/com.termux/files/home/discord-server-botにwebダッシュボードがあるんだけど、そこにさのは、チャンネルリストのとこのボイスチャンネルをクリックしたら、専用のメニューに飛ばして、そこで、その選択したボイスチャンネルに参加、切断、ミュート&ミュート解除、スピーカーミュート&スピーカーミュート解除、それで、vcの発言を受信して、スマホのスピーカーに流す&自分の声をvcに送信をやってほしい、ちなみにミスとか起きるとずっと画面がロード中になって、webダッシュボードが開かなくなることあるから気をつけてね、後前提条件として自分はスマホね",
+    "timestamp": "2025-08-03T09:48:08.330Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 4,
+    "type": "user",
+    "message": "うん、ちゃんとスマホでと使いやすい、操作性のいいメニューと操作性にしてね",
+    "timestamp": "2025-08-03T09:49:53.433Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 5,
+    "type": "user",
+    "message": "うん、ちゃんとスマホでと使いやすい、UIいいメニューと良い操作性にしてね",
+    "timestamp": "2025-08-03T09:50:13.932Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 6,
+    "type": "user",
+    "message": "うん、ちゃんとスマホでと使いやすい、いいuiと良い操作性にしてね",
+    "timestamp": "2025-08-03T09:50:39.141Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 7,
+    "type": "user",
+    "message": "うん、ちゃんとスマホでも使いやすい、いいui/uxと良い操作性にしてね",
+    "timestamp": "2025-08-03T09:50:53.896Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 8,
+    "type": "user",
+    "message": "なんかロード長いから、1回中断させといたけど、どう？",
+    "timestamp": "2025-08-03T09:56:46.279Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 9,
+    "type": "user",
+    "message": "Voice-viewはもうあるのでは？",
+    "timestamp": "2025-08-03T09:57:44.730Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 10,
+    "type": "user",
+    "message": "}[Web] Error joining voice channel: AbortError: The operation was aborted    at AbortSignal.abortListener (node:events:994:14)    at [nodejs.internal.kHybridDispatch] (node:internal/event_target:827:20)    at AbortSignal.dispatchEvent (node:internal/event_target:762:26)    at runAbort (node:internal/abort_controller:488:10)    at abortSignal (node:internal/abort_controller:459:3)    at AbortController.abort (node:internal/abort_controller:507:5)    at Timeout.<anonymous> (/data/data/com.termux/files/home/node_modules/@discordjs/voice/dist/index.js:2536:39)    at listOnTimeout (node:internal/timers:608:17)    at process.processTimers (node:internal/timers:543:7) {  code: 'ABORT_ERR',  [cause]: DOMException [AbortError]: This operation was aborted      at new DOMException (node:internal/per_context/domexception:77:18)      at AbortController.abort (node:internal/abort_controller:506:18)      at Timeout.<anonymous> (/data/data/com.termux/files/home/node_modules/@discordjs/voice/dist/index.js:2536:39)      at listOnTimeout (node:internal/timers:608:17)      at process.processTimers (node:internal/timers:543:7)}  一応vcには入ってるんだけど一応修正と、botがvcはいった時の状態は、ミュートで、(uiのミュート部分もミュート状態に)　あと、vc参加した時の参加しましたみたいな表示がされないのと、メインメニューのボイスチャンネルの、ボイスチャンネル名の右に空白あるから、そこにvc参加してる人のアイコンを表示（リアルタイム更新）と、ボイスチャンネル専用メニューにも同じのを",
+    "timestamp": "2025-08-03T10:13:08.509Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 11,
+    "type": "user",
+    "message": "モデル変更で中断されたよ",
+    "timestamp": "2025-08-03T10:22:41.799Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 12,
+    "type": "user",
+    "message": "できた？",
+    "timestamp": "2025-08-03T10:28:32.124Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 13,
+    "type": "user",
+    "message": "えっと、まずメインメニューのとこのボイスチャンネルのとこのボイスチャンネル名の右に参加してる人のアイコンが表示されてないのと、初手ミュートにはなってるけど、なぜかスピーカーミュートにもなっている、後ボイスチャンネル専用メニューの方のアイコンが見にくい（でかい&四角い）から、discordで表示されるあアイコンに近づけてほしいのと、botが元からvcはいってたら、参加とか押さなくても、操作が一通りできるよいにしてほしい",
+    "timestamp": "2025-08-03T10:37:37.968Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 14,
+    "type": "user",
+    "message": "えっと、まずメインメニューのとこのボイスチャンネルのとこのボイスチャンネル名の右に参加してる人のアイコンが表示されてないのと、初手ミュートにはなってるけど、なぜかスピーカーミュートにもなっている、後ボイスチャンネル専用メニューの方のアイコンが見にくい（でかい&四角い）から、discordで表示されるあアイコンに近づけてほしいのと、botが元からvcはいってたら、参加とか押さなくても、操作が一通りできるよいにしてほしい",
+    "timestamp": "2025-08-03T10:40:01.076Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 15,
+    "type": "user",
+    "message": "ん？更新できたの？",
+    "timestamp": "2025-08-03T10:41:02.359Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 16,
+    "type": "user",
+    "message": "ReadFile discord-server-bot/routes/api.jsしただけじゃね？…",
+    "timestamp": "2025-08-03T10:42:01.287Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 17,
+    "type": "user",
+    "message": "ん、dashboard.jsの変更中断されたけど",
+    "timestamp": "2025-08-03T10:49:40.443Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 18,
+    "type": "user",
+    "message": "[Web] Error fetching voice channel members: ReferenceError: channelId is not defined",
+    "timestamp": "2025-08-03T10:55:21.240Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 19,
+    "type": "user",
+    "message": "あ",
+    "timestamp": "2025-08-03T10:55:43.382Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 20,
+    "type": "user",
+    "message": "あ",
+    "timestamp": "2025-08-03T10:56:15.173Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 21,
+    "type": "user",
+    "message": "うーん、スマホだから、コードの確認をして解決してほしい",
+    "timestamp": "2025-08-03T10:57:15.028Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 22,
+    "type": "user",
+    "message": "readfileしかしてなくない？",
+    "timestamp": "2025-08-03T10:58:45.757Z"
+  },
+  {
+    "sessionId": "edc4a693-7c63-4ee6-b563-c790b2fd17af",
+    "messageId": 23,
+    "type": "user",
+    "message": "[Web] Error fetching voice channel members: ReferenceError: channelId is not defined at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1168:50 at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17) at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13) at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11) at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17) at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15 at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14) at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14) at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14) [Web] Error fetching voice channel members: ReferenceError: channelId is not defined at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1168:50 at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17) at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13) at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11) at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17) at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15 at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14) at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14) at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14) [Web] Error fetching voice channel members: ReferenceError: channelId is not defined at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1168:50 at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17) at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13) at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11) at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17) at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15 at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14) at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14) at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14) [Web] Error fetching voice channel members: ReferenceError: channelId is not defined at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1168:50 at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17) at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13) at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11) at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17) at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:15 at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14) at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14) at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)　補足：ReferenceError: channelId is not defined なので、channelId を使う前に定義・受け渡しされているか確認してください。",
+    "timestamp": "2025-08-03T11:06:00.419Z"
   }
 ]

@@ -881,3 +881,115 @@ th {
     height: auto;
   }
 }
+
+/* --- Voice Channel Controls -- */
+
+.voice-channel-header {
+  padding-bottom: 1em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid var(--background-tertiary);
+}
+
+.voice-channel-header h3 {
+  margin: 0;
+  font-size: 1.4em;
+  color: var(--header-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.voice-control-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.voice-control-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  background-color: var(--background-tertiary);
+  color: var(--text-normal);
+  border: 2px solid transparent;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    transform 0.1s;
+}
+
+.voice-control-button:hover {
+  background-color: #3e3e5b;
+  border-color: var(--primary-color);
+}
+
+.voice-control-button:active {
+  transform: scale(0.95);
+}
+
+.voice-control-button svg {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+}
+
+.voice-control-button[data-muted='true'],
+.voice-control-button[data-deafened='true'] {
+  background-color: var(--danger-color);
+  color: var(--white-color);
+}
+
+.voice-streaming-section {
+  margin-top: 2em;
+  padding-top: 1.5em;
+  border-top: 1px solid var(--background-tertiary);
+}
+
+.voice-streaming-section h4 {
+  font-size: 1.1em;
+  color: var(--text-muted);
+  margin-bottom: 1em;
+}
+
+.voice-control-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: var(--background-tertiary);
+}
+
+@media (max-width: 480px) {
+  .voice-control-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .voice-control-button {
+    padding: 15px 5px;
+    font-size: 0.9em;
+  }
+
+  .voice-control-button svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Voice Channel Member Avatars */
+.voice-channel-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-left: 10px; /* Adjust as needed */
+}
+
+.member-avatar-small {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--background-tertiary);
+}
