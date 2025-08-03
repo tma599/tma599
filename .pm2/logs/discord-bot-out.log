@@ -12728,3 +12728,48 @@
 [WebSocket] Client connected
 [WebSocket] Client disconnected
 [WebSocket] Client connected
+[WebSocket] Client disconnected
+[session-file-store] Deleting expired sessions
+[dotenv@17.2.0] injecting env (4) from .env (tip: ⚙️  enable debug logging with { debug: true })
+[Web] Dashboard is running at http://localhost:3000
+[dotenv@17.2.0] injecting env (4) from .env (tip: 🔐 encrypt with dotenvx: https://dotenvx.com)
+[Web] Dashboard is running at http://localhost:3000
+--------------------------------------------------
+[起動] ServrePilot・サーバーパイロット#5945 が起動しました。
+[起動] 各種モジュールを初期化します。
+[NGワードモデル] Kuromojiの初期化を開始します...
+[NGワードモデル] Kuromojiの準備ができました。
+[NGワード] NGワードリストを読み込み、古い形式から新しい形式へのデータ移行を完了しました。ファイルを更新します。
+[起動] 保存されているバックアップスケジュールを読み込みました。
+[起動] 保存されているリアクションロール設定を読み込みました。
+[起動] スラッシュコマンドを登録します。
+[起動] ギルド "すぺーの世界🌍" にスラッシュコマンドを登録しました。
+[起動] ギルド "サバイバル専用メモサーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "そねさば！" にスラッシュコマンドを登録しました。
+[起動] ギルド "ServerPilot 公式サーバー" にスラッシュコマンドを登録しました。
+[起動] ギルド "tma59のサーバー" にスラッシュコマンドを登録しました。
+[起動] スラッシュコマンドの登録が完了しました。
+--------------------------------------------------
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+[WebSocket] Client connected
+[WebSocket] Client disconnected
+--------------------------------------------------
+[メッセージ削除検知]
+送信者: KuwaMusic#2284 (ID: 808716367305769020)
+チャンネル: #music (ID: 1284132763766620190)
+削除されたメッセージ内容: [内容なし]
+メッセージID: 1401404014335098892
+メッセージURL: https://discord.com/channels/1284122089787228163/1284132763766620190/1401404014335098892
+--------------------------------------------------
+[コマンド実行] ユーザー: nigenkun (ID: 1068465891743899698) | コマンド: /reactionrole  | サーバー: ServerPilot 公式サーバー (ID: 1399359221694206005)
+--------------------------------------------------
+[メッセージ削除検知]
+送信者: KuwaMusic#2284 (ID: 808716367305769020)
+チャンネル: #music (ID: 1284132763766620190)
+削除されたメッセージ内容: [内容なし]
+メッセージID: 1401404079736885290
+メッセージURL: https://discord.com/channels/1284122089787228163/1284132763766620190/1401404079736885290
+--------------------------------------------------
