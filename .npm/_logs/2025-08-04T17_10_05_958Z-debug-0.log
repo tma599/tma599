@@ -7,11 +7,11 @@
 6 silly config load:file:/data/data/com.termux/files/usr/etc/npmrc
 7 verbose title npm audit
 8 verbose argv "audit"
-9 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2025-08-04T17_02_30_847Z-
-10 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2025-08-04T17_02_30_847Z-debug-0.log
+9 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2025-08-04T17_10_05_958Z-
+10 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2025-08-04T17_10_05_958Z-debug-0.log
 11 silly logfile start cleaning logs, removing 1 files
-12 silly packumentCache heap:937689088 maxSize:234422272 maxEntrySize:117211136
-13 silly logfile done cleaning log files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:937689088 maxSize:234422272 maxEntrySize:117211136
 14 silly audit bulk request {
 14 silly audit   '@ampproject/remapping': [ '2.3.0' ],
 14 silly audit   '@babel/code-frame': [ '7.27.1' ],
@@ -524,7 +524,7 @@
 14 silly audit   'yargs-parser': [ '21.1.1' ],
 14 silly audit   zlibjs: [ '0.3.1' ]
 14 silly audit }
-15 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 896ms
+15 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 638ms
 16 silly audit report {}
 17 verbose cwd /data/data/com.termux/files/home/discord-server-bot
 18 verbose os Linux 5.4.259-perf-g98b987981a60

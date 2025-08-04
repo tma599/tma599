@@ -8706,5 +8706,40 @@
     "type": "user",
     "message": "> discord-server-bot@1.0.0 test> jestNo tests found, exiting with code 1Run with `--passWithNoTests` to exit with code 0In /data/data/com.termux/files/home/discord-server-bot  49 files checked.  testMatch: **/__tests__/**/*.?([mc])[jt]s?(x), **/?(*.)+(spec|test).?([mc])[jt]s?(x) - 0 matches  testPathIgnorePatterns: /node_modules/ - 49 matches  testRegex:  - 0 matchesPattern:  - 0 matcheshusky - pre-commit script failed (code 1)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
     "timestamp": "2025-08-04T17:03:08.295Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 14,
+    "type": "user",
+    "message": "> discord-server-bot@1.0.0 test> jest --passWithNoTestsNo tests found, exiting with code 0",
+    "timestamp": "2025-08-04T17:04:46.534Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 15,
+    "type": "user",
+    "message": "今のが、最後の行なんだけど成功しているの？",
+    "timestamp": "2025-08-04T17:05:16.735Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 16,
+    "type": "user",
+    "message": "ちなみに、jestをやるとどうなるの？",
+    "timestamp": "2025-08-04T17:06:01.926Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 17,
+    "type": "user",
+    "message": "今回の、Ciはコードを自動修正してくれてる？",
+    "timestamp": "2025-08-04T17:06:50.113Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 18,
+    "type": "user",
+    "message": "ログがここに表示されます...--- Starting task: CD at 2025-08-04T17:08:01.353Z ------ Running CD tasks ---$ git pull origin mainERROR: We're doing an SSH key audit.Reason: unverified automatically (private key found in a public repository)Please visit https://github.com/settings/keys/128324485 to approve this key so we know it's safe.Fingerprint:SHA256:9PZGGHMcOUSrro/27uZbg5JXnDU/bg0IhErXFIjoYZ4fatal: Could not read from remote repository.Please make sure you have the correct access rightsand the repository exists.Process failed with exit code 1.--- Task \"CD\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T17:08:20.781Z"
   }
 ]

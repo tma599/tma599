@@ -7,8 +7,8 @@
 6 silly config load:file:/data/data/com.termux/files/usr/etc/npmrc
 7 verbose title npm run format
 8 verbose argv "run" "format"
-9 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2025-08-04T17_02_37_426Z-
-10 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2025-08-04T17_02_37_426Z-debug-0.log
+9 verbose logfile logs-max:10 dir:/data/data/com.termux/files/home/.npm/_logs/2025-08-04T17_10_12_559Z-
+10 verbose logfile /data/data/com.termux/files/home/.npm/_logs/2025-08-04T17_10_12_559Z-debug-0.log
 11 silly logfile start cleaning logs, removing 1 files
 12 silly logfile done cleaning log files
 13 verbose cwd /data/data/com.termux/files/home/discord-server-bot
