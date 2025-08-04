@@ -80,24 +80,10 @@ function broadcastCiCdLog(data) {
   });
 }
 
-function broadcastVoiceStateUpdate(guildId, channelId, userId) {
-  if (!wss) return;
-  const message = JSON.stringify({
-    type: 'VOICE_STATE_UPDATE',
-    data: { guildId, channelId, userId },
-  });
-  wss.clients.forEach((client) => {
-    if (client.readyState === WebSocket.OPEN) {
-      client.send(message);
-    }
-  });
-}
-
 module.exports = {
   init,
   broadcastLog,
   broadcastGuildUpdate,
   broadcastNewMessage,
   broadcastCiCdLog,
-  broadcastVoiceStateUpdate,
 };

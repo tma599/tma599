@@ -882,200 +882,87 @@ th {
   }
 }
 
-/* --- Voice Channel Controls -- */
-
-.voice-channel-header {
-  padding-bottom: 1em;
-  margin-bottom: 1.5em;
-  border-bottom: 1px solid var(--background-tertiary);
+.embed-image,
+.embed-thumbnail {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
-.voice-channel-header h3 {
-  margin: 0;
-  font-size: 1.4em;
-  color: var(--header-primary);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.chat-attachments {
+  margin-top: 10px;
 }
 
-.voice-control-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
-}
-
-.voice-control-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 10px;
-  font-size: 1em;
-  font-weight: 600;
-  border-radius: var(--border-radius);
+.attachment-placeholder {
   background-color: var(--background-tertiary);
-  color: var(--text-normal);
-  border: 2px solid transparent;
-  transition:
-    background-color 0.2s,
-    border-color 0.2s,
-    transform 0.1s;
-}
-
-.voice-control-button:hover {
-  background-color: #3e3e5b;
-  border-color: var(--primary-color);
-}
-
-.voice-control-button:active {
-  transform: scale(0.95);
-}
-
-.voice-control-button svg {
-  width: 32px;
-  height: 32px;
-  margin-bottom: 10px;
-}
-
-.voice-control-button[data-muted='true'],
-.voice-control-button[data-deafened='true'] {
-  background-color: var(--danger-color);
-  color: var(--white-color);
-}
-
-.voice-streaming-section {
-  margin-top: 2em;
-  padding-top: 1.5em;
-  border-top: 1px solid var(--background-tertiary);
-}
-
-.voice-streaming-section h4 {
-  font-size: 1.1em;
+  border: 1px dashed var(--text-muted);
   color: var(--text-muted);
-  margin-bottom: 1em;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.voice-control-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background-color: var(--background-tertiary);
-}
-
-@media (max-width: 480px) {
-  .voice-control-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .voice-control-button {
-    padding: 15px 5px;
-    font-size: 0.9em;
-  }
-
-  .voice-control-button svg {
-    width: 28px;
-    height: 28px;
-  }
-}
-
-/* Voice Channel Member Avatars */
-.voice-channel-members {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-left: 10px; /* Adjust as needed */
-}
-
-.member-avatar-small {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid var(--background-tertiary);
-}
-
-/* Embed Styles */
 .chat-embed {
   background-color: var(--background-primary);
-  border-left: 4px solid var(--primary-color); /* Dynamic color from embed.hexColor */
-  padding: 10px;
-  border-radius: 4px;
+  border-left: 4px solid var(--primary-color);
+  padding: 10px 15px;
+  border-radius: 5px;
   margin-top: 10px;
-  font-size: 0.9em;
-}
-
-.embed-author {
-  font-weight: 600;
-  color: var(--header-primary);
-  margin-bottom: 5px;
 }
 
 .embed-title {
-  font-weight: 700;
+  font-weight: bold;
   color: var(--header-primary);
   margin-bottom: 5px;
 }
 
 .embed-description {
-  color: var(--text-normal);
+  font-size: 0.9em;
   margin-bottom: 10px;
 }
 
 .embed-fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.embed-field-name {
+  font-weight: bold;
+  color: var(--text-muted);
+}
+
+.chat-reactions {
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 5px;
 }
 
-.embed-field {
-  flex: 1 1 auto; /* Allow fields to grow and shrink */
-  min-width: 150px; /* Minimum width for a field */
+.reaction-button {
+  background-color: var(--background-tertiary);
+  border-radius: 16px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
 }
 
-.embed-field.inline {
-  flex: 0 1 auto; /* Inline fields take up less space */
-}
-
-.embed-field strong {
-  display: block;
-  color: var(--text-muted);
-  margin-bottom: 3px;
-}
-
-.embed-footer {
-  font-size: 0.7em;
-  color: var(--text-muted);
-  margin-top: 10px;
-  border-top: 1px solid var(--background-tertiary);
-  padding-top: 5px;
-}
-
-/* Image Attachment Styles */
-.attachments-container {
-  margin-top: 10px;
-}
-
-.show-attachments-btn {
+.reaction-button.reacted {
   background-color: var(--primary-color);
-  color: var(--white-color);
-  padding: 8px 15px;
-  border-radius: 5px;
-  cursor: pointer;
+  color: var(--background-primary);
+  border-color: var(--primary-color);
+}
+
+.reaction-emoji img {
+  width: 16px;
+  height: 16px;
+}
+
+.reaction-count {
+  font-size: 0.85em;
   font-weight: 600;
-  border: none;
-  transition: background-color 0.2s;
-}
-
-.show-attachments-btn:hover {
-  background-color: #4aaac2; /* Darker shade of primary-color */
-}
-
-.message-image {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-  margin-top: 5px;
-  display: block; /* Ensures image takes its own line */
-  border: 1px solid var(--background-tertiary);
 }

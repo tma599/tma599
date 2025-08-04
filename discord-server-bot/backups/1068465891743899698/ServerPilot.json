@@ -1,0 +1,231 @@
+{
+  "serverName": "ServerPilot 公式サーバー",
+  "serverId": "1399359221694206005",
+  "createdAt": "2025-08-04T14:34:55.607Z",
+  "createdBy": "1068465891743899698",
+  "locked": true,
+  "roles": [
+    {
+      "name": "ServerPilot",
+      "color": "#0013ff",
+      "permissions": "8",
+      "hoist": false,
+      "mentionable": false,
+      "position": 3,
+      "members": ["1394519643028455485"]
+    },
+    {
+      "name": "管理者",
+      "color": "#ff0000",
+      "permissions": "2199023255551",
+      "hoist": false,
+      "mentionable": false,
+      "position": 2,
+      "members": ["1068465891743899698", "1239871189212463104"]
+    },
+    {
+      "name": "member.!",
+      "color": "#dff156",
+      "permissions": "1071698529857",
+      "hoist": false,
+      "mentionable": false,
+      "position": 1,
+      "members": ["1068465891743899698", "1239871189212463104"]
+    }
+  ],
+  "channels": [
+    {
+      "name": "テキストチャンネル",
+      "type": 4,
+      "parent": null,
+      "position": 0,
+      "messages": []
+    },
+    {
+      "name": "雑談1",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 0,
+      "messages": []
+    },
+    {
+      "name": "聞き専1",
+      "type": 0,
+      "parent": "ボイスチャンネル",
+      "position": 0,
+      "messages": []
+    },
+    {
+      "name": "雑談1",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 0,
+      "messages": []
+    },
+    {
+      "name": "rules",
+      "type": 0,
+      "parent": null,
+      "position": 0,
+      "messages": []
+    },
+    {
+      "name": "バク報告",
+      "type": 15,
+      "parent": "Bot報告",
+      "position": 0,
+      "messages": []
+    },
+    {
+      "name": "ボイスチャンネル",
+      "type": 4,
+      "parent": null,
+      "position": 1,
+      "messages": []
+    },
+    {
+      "name": "雑談2",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 1,
+      "messages": []
+    },
+    {
+      "name": "聞き専2",
+      "type": 0,
+      "parent": "ボイスチャンネル",
+      "position": 1,
+      "messages": []
+    },
+    {
+      "name": "画像-動画",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 1,
+      "messages": []
+    },
+    {
+      "name": "moderator-only",
+      "type": 0,
+      "parent": null,
+      "position": 1,
+      "messages": []
+    },
+    {
+      "name": "意見・要望",
+      "type": 15,
+      "parent": "Bot報告",
+      "position": 1,
+      "messages": []
+    },
+    {
+      "name": "ゲーム1",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 2,
+      "messages": []
+    },
+    {
+      "name": "リンク共有",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 2,
+      "messages": []
+    },
+    {
+      "name": "developer-news",
+      "type": 0,
+      "parent": null,
+      "position": 2,
+      "messages": []
+    },
+    {
+      "name": "Bot報告",
+      "type": 4,
+      "parent": null,
+      "position": 2,
+      "messages": []
+    },
+    {
+      "name": "ゲーム2",
+      "type": 2,
+      "parent": "ボイスチャンネル",
+      "position": 3,
+      "messages": []
+    },
+    {
+      "name": "募集",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 3,
+      "messages": []
+    },
+    {
+      "name": "bot",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 4,
+      "messages": []
+    },
+    {
+      "name": "bot-test1",
+      "type": 0,
+      "parent": "テキストチャンネル",
+      "position": 5,
+      "messages": []
+    }
+  ],
+  "bans": [],
+  "emojis": [
+    {
+      "name": "emoji_1",
+      "id": "1399445705076248626",
+      "url": "https://cdn.discordapp.com/emojis/1399445705076248626.png"
+    }
+  ],
+  "stickers": [],
+  "invites": [
+    {
+      "code": "MfsgJ5MW",
+      "inviterId": "1068465891743899698",
+      "uses": 1,
+      "maxUses": 0
+    },
+    {
+      "code": "pKWpxdsz",
+      "inviterId": "1068465891743899698",
+      "uses": 0,
+      "maxUses": 0
+    }
+  ],
+  "autoModRules": [
+    {
+      "name": "Block Mention Spam",
+      "id": "1030554520465440818",
+      "eventType": 1,
+      "triggerType": 5,
+      "triggerMetadata": {
+        "keywordFilter": [],
+        "regexPatterns": [],
+        "presets": [],
+        "allowList": [],
+        "mentionTotalLimit": 20,
+        "mentionRaidProtectionEnabled": true
+      },
+      "actions": [
+        {
+          "type": 1,
+          "metadata": {
+            "durationSeconds": null,
+            "channelId": null,
+            "customMessage": null
+          }
+        }
+      ],
+      "enabled": true,
+      "exemptRoles": [],
+      "exemptChannels": []
+    }
+  ],
+  "scheduledEvents": []
+}

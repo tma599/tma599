@@ -11,12 +11,6 @@ const { reactionRoles, saveReactionRoles } = require('../models/reactionRoles');
 const { ngWords, saveNgWords, normalizeJapanese } = require('../models/ngwords');
 const { PermissionsBitField, ChannelType, AuditLogEvent } = require('discord.js');
 const { execFile, spawn } = require('child_process');
-const {
-  joinVoiceChannel,
-  getVoiceConnection,
-  VoiceConnectionStatus,
-  entersState,
-} = require('@discordjs/voice');
 
 const wsServer = require('../ws/server');
 
@@ -187,16 +181,6 @@ router.get('/guilds/:guildId', (req, res) => {
       const perms = channel.permissionsFor(everyoneRole);
       const isPrivate = !perms.has(PermissionsBitField.Flags.ViewChannel);
 
-      // Get voice channel members if it's a voice channel
-      let voiceMembers = [];
-      if (channel.type === ChannelType.GuildVoice) {
-        voiceMembers = channel.members.map((member) => ({
-          id: member.id,
-          displayName: member.displayName,
-          avatarURL: member.user.displayAvatarURL(),
-        }));
-      }
-
       return {
         id: channel.id,
         name: channel.name,
@@ -204,7 +188,6 @@ router.get('/guilds/:guildId', (req, res) => {
         isPrivate: isPrivate,
         parentId: channel.parentId,
         position: channel.position,
-        voiceMembers: voiceMembers, // Add voice members here
       };
     });
 
@@ -301,7 +284,7 @@ router.patch('/guilds/:guildId/roles/:roleId', async (req, res) => {
 
 router.delete('/guilds/:guildId/roles/:roleId', async (req, res) => {
   try {
-    const { guildId } = req.params;
+    const { guildId, roleId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -702,7 +685,7 @@ router.get('/guilds/:guildId/members/:memberId', async (req, res) => {
 
 router.patch('/guilds/:guildId/members/:memberId/nickname', async (req, res) => {
   try {
-    const { guildId } = req.params;
+    const { guildId, memberId } = req.params;
     const { nickname } = req.body;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
@@ -720,7 +703,7 @@ router.patch('/guilds/:guildId/members/:memberId/nickname', async (req, res) => 
 
 router.post('/guilds/:guildId/members/:memberId/roles', async (req, res) => {
   try {
-    const { guildId } = req.params;
+    const { guildId, memberId } = req.params;
     const { roleId } = req.body;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
@@ -738,7 +721,7 @@ router.post('/guilds/:guildId/members/:memberId/roles', async (req, res) => {
 
 router.delete('/guilds/:guildId/members/:memberId/roles/:roleId', async (req, res) => {
   try {
-    const { guildId } = req.params;
+    const { guildId, memberId, roleId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -755,7 +738,7 @@ router.delete('/guilds/:guildId/members/:memberId/roles/:roleId', async (req, re
 
 router.post('/guilds/:guildId/members/:memberId/kick', async (req, res) => {
   try {
-    const { guildId } = req.params;
+    const { guildId, memberId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -772,7 +755,7 @@ router.post('/guilds/:guildId/members/:memberId/kick', async (req, res) => {
 
 router.post('/guilds/:guildId/members/:memberId/ban', async (req, res) => {
   try {
-    const { guildId } = req.params;
+    const { guildId, memberId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -822,32 +805,22 @@ router.get('/guilds/:guildId/channels/:channelId/messages', async (req, res) => 
         avatarURL: msg.author.displayAvatarURL(),
       },
       timestamp: msg.createdAt,
-      embeds: msg.embeds.map((embed) => ({
-        title: embed.title,
-        description: embed.description,
-        url: embed.url,
-        color: embed.color,
-        hexColor: embed.hexColor,
-        author: embed.author ? { name: embed.author.name, iconURL: embed.author.iconURL } : null,
-        fields: embed.fields.map((field) => ({
-          name: field.name,
-          value: field.value,
-          inline: field.inline,
-        })),
-        image: embed.image ? { url: embed.image.url } : null,
-        thumbnail: embed.thumbnail ? { url: embed.thumbnail.url } : null,
-        footer: embed.footer ? { text: embed.footer.text, iconURL: embed.footer.iconURL } : null,
-        timestamp: embed.timestamp,
+      attachments: msg.attachments.map((a) => ({
+        url: a.url,
+        proxyURL: a.proxyURL,
+        filename: a.name,
+        contentType: a.contentType,
+        size: a.size,
+        width: a.width,
+        height: a.height,
       })),
-      attachments: msg.attachments.map((attachment) => ({
-        id: attachment.id,
-        url: attachment.url,
-        proxyURL: attachment.proxyURL,
-        filename: attachment.name,
-        size: attachment.size,
-        contentType: attachment.contentType,
-        width: attachment.width,
-        height: attachment.height,
+      embeds: msg.embeds,
+      reactions: msg.reactions.cache.map((reaction) => ({
+        emoji: reaction.emoji.id
+          ? `${reaction.emoji.name}:${reaction.emoji.id}`
+          : reaction.emoji.name,
+        count: reaction.count,
+        reacted: reaction.users.cache.has(req.user.id),
       })),
     }));
 
@@ -858,6 +831,86 @@ router.get('/guilds/:guildId/channels/:channelId/messages', async (req, res) => 
     res.status(500).json({ error: 'Failed to fetch messages.' });
   }
 });
+
+router.all(
+  '/guilds/:guildId/channels/:channelId/messages/:messageId/reactions',
+  async (req, res) => {
+    try {
+      const { guildId, channelId, messageId } = req.params;
+      const { emoji } = req.body;
+      const user = req.user.username;
+      const botId = req.client.user.id; // BotのIDを取得
+
+      console.log(
+        `[Web Reaction] Request: ${req.method} for emoji ${emoji} from user ${user} on behalf of bot ${botId}`
+      );
+
+      if (!emoji) {
+        return res.status(400).json({ error: 'Emoji is required.' });
+      }
+
+      const guild = req.client.guilds.cache.get(guildId);
+      if (!guild) return res.status(404).json({ error: 'Guild not found' });
+
+      const channel = guild.channels.cache.get(channelId);
+      if (!channel || channel.type !== ChannelType.GuildText) {
+        return res.status(404).json({ error: 'Text channel not found' });
+      }
+
+      const message = await channel.messages.fetch(messageId);
+      if (!message) return res.status(404).json({ error: 'Message not found' });
+
+      const targetReaction = message.reactions.cache.find(
+        (r) => (r.emoji.id ? `${r.emoji.name}:${r.emoji.id}` : r.emoji.name) === emoji
+      );
+
+      if (req.method === 'DELETE') {
+        if (targetReaction) {
+          const users = await targetReaction.users.fetch();
+          if (users.has(botId)) {
+            // Botがリアクションしているか確認
+            await targetReaction.users.remove(botId); // Botのリアクションを削除
+            console.log(`[Web Reaction] Success: Bot removed reaction ${emoji}`);
+          } else {
+            console.log(`[Web Reaction] Info: Bot tried to remove a reaction it didn't have.`);
+          }
+        } else {
+          console.log(`[Web Reaction] Info: Tried to remove a non-existent reaction.`);
+        }
+      } else {
+        // POST
+        await message.react(emoji);
+        console.log(`[Web Reaction] Success: Bot added reaction ${emoji}`);
+      }
+
+      const updatedMessage = await channel.messages.fetch(messageId);
+      const updatedReactions = [];
+      for (const reaction of updatedMessage.reactions.cache.values()) {
+        const users = await reaction.users.fetch();
+        updatedReactions.push({
+          emoji: reaction.emoji.id
+            ? `${reaction.emoji.name}:${reaction.emoji.id}`
+            : reaction.emoji.name,
+          count: reaction.count,
+          reacted: users.has(botId), // Botがリアクションしているかどうかの状態を返す
+        });
+      }
+
+      res.json({ success: true, reactions: updatedReactions });
+    } catch (error) {
+      console.error(`[Web Reaction] Error toggling reaction:`, error);
+      if (error.code === 10014) {
+        // Unknown Emoji
+        return res.status(400).json({ error: 'Invalid or unknown emoji.' });
+      }
+      if (error.code === 10008) {
+        // Unknown Message
+        return res.status(404).json({ error: 'Message not found.' });
+      }
+      res.status(500).json({ error: 'Failed to toggle reaction.' });
+    }
+  }
+);
 
 router.get('/guilds/:guildId/audit-logs', async (req, res) => {
   try {
@@ -870,7 +923,7 @@ router.get('/guilds/:guildId/audit-logs', async (req, res) => {
     }
 
     let userId = user;
-    if (user && !/^\\d{17,19}$/.test(user)) {
+    if (user && !/^\d{17,19}$/.test(user)) {
       const members = await guild.members.fetch({ query: user });
       const member = members.first();
       userId = member ? member.id : '0'; // 見つからない場合は誰もマッチしないIDをセット
@@ -901,7 +954,7 @@ router.get('/guilds/:guildId/audit-logs', async (req, res) => {
 
 router.post('/guilds/:guildId/channels/:channelId/messages', async (req, res) => {
   try {
-    const { guildId } = req.params;
+    const { guildId, channelId } = req.params;
     const { content } = req.body;
 
     if (!content) {
@@ -988,7 +1041,7 @@ router.patch('/guilds/:guildId/channels/:channelId', async (req, res) => {
 
 router.delete('/guilds/:guildId/channels/:channelId', async (req, res) => {
   try {
-    const { guildId } = req.params;
+    const { guildId, channelId } = req.params;
     const guild = req.client.guilds.cache.get(guildId);
     if (!guild) return res.status(404).json({ error: 'Guild not found' });
 
@@ -1037,12 +1090,17 @@ router.post('/guilds/:guildId/channels/positions', async (req, res) => {
   }
 });
 
+module.exports = router;
+
 // --- CI/CD Endpoint ---
 
 async function runCommand(command, args, log) {
   return new Promise((resolve, reject) => {
     log(`\n$ ${command} ${args.join(' ')}`);
-    const child = spawn(command, args, { stdio: ['pipe', 'pipe', 'pipe'] });
+    const child = spawn(command, args, {
+      cwd: path.join(__dirname, '..'),
+      stdio: ['pipe', 'pipe', 'pipe'],
+    });
 
     child.stdout.on('data', (data) => log(data.toString()));
     child.stderr.on('data', (data) => log(data.toString()));
@@ -1089,7 +1147,7 @@ router.post('/ci/run', async (req, res) => {
       log('\n--- Running CD tasks ---');
       await runCommand('git', ['pull', 'origin', 'main'], log);
       await runCommand('npm', ['install'], log);
-      await runCommand('pm2', ['restart', 'all'], log); // Assuming pm2 manages the app
+      await runCommand('pm2', ['restart', 'discord-bot'], log);
       log('\n--- CD tasks completed successfully ---');
     };
 
@@ -1107,143 +1165,3 @@ router.post('/ci/run', async (req, res) => {
     log(`\n--- Task \"${type}\" failed: ${error.message} ---`);
   }
 });
-
-// --- Voice Channel Endpoints ---
-
-router.post('/guilds/:guildId/voice/join', async (req, res) => {
-  try {
-    const { guildId } = req.params;
-    const { channelId } = req.body;
-    const guild = req.client.guilds.cache.get(guildId);
-
-    if (!guild) return res.status(404).json({ error: 'Guild not found' });
-    const channel = guild.channels.cache.get(channelId);
-    if (!channel || channel.type !== ChannelType.GuildVoice) {
-      return res.status(404).json({ error: 'Voice channel not found' });
-    }
-
-    const connection = joinVoiceChannel({
-      channelId: channel.id,
-      guildId: guild.id,
-      adapterCreator: guild.voiceAdapterCreator,
-      selfMute: true, // Join muted by default
-      selfDeaf: false, // Explicitly set selfDeaf to false
-    });
-
-    // The bot is now in the channel, we don't need to wait for the Ready state
-    // as it was causing timeout issues.
-    // await entersState(connection, VoiceConnectionStatus.Ready, 30e3);
-
-    res.json({ success: true, message: `Joined ${channel.name}` });
-  } catch (error) {
-    console.error(`[Web] Error joining voice channel:`, error);
-    res.status(500).json({ error: 'Failed to join voice channel.' });
-  }
-});
-
-router.post('/guilds/:guildId/voice/leave', (req, res) => {
-  try {
-    const { guildId } = req.params;
-    const connection = getVoiceConnection(guildId);
-
-    if (connection) {
-      connection.destroy();
-      res.json({ success: true, message: 'Left voice channel' });
-    } else {
-      res.status(404).json({ error: 'Not in a voice channel' });
-    }
-  } catch (error) {
-    console.error(`[Web] Error leaving voice channel:`, error);
-    res.status(500).json({ error: 'Failed to leave voice channel.' });
-  }
-});
-
-router.post('/guilds/:guildId/voice/mute', (req, res) => {
-  const { guildId } = req.params;
-  const { mute } = req.body;
-  const connection = getVoiceConnection(guildId);
-
-  if (connection) {
-    connection.receiver.voiceConnection.rejoin({
-      ...connection.joinConfig,
-      selfMute: mute,
-    });
-    res.json({ success: true, message: `Mute state set to ${mute}` });
-  } else {
-    res.status(404).json({ error: 'Not in a voice channel' });
-  }
-});
-
-router.post('/guilds/:guildId/voice/deafen', (req, res) => {
-  const { guildId } = req.params;
-  const { deafen } = req.body;
-  const connection = getVoiceConnection(guildId);
-
-  if (connection) {
-    connection.receiver.voiceConnection.rejoin({
-      ...connection.joinConfig,
-      selfDeaf: deafen,
-    });
-    res.json({ success: true, message: `Deafen state set to ${deafen}` });
-  } else {
-    res.status(404).json({ error: 'Not in a voice channel' });
-  }
-});
-
-router.get('/guilds/:guildId/voice-members/:channelId', async (req, res) => {
-  try {
-    const { guildId, channelId } = req.params; // ここを修正
-    const guild = req.client.guilds.cache.get(guildId);
-    if (!guild) return res.status(404).json({ error: 'Guild not found' });
-
-    const channel = guild.channels.cache.get(channelId);
-    if (!channel || channel.type !== ChannelType.GuildVoice) {
-      return res.status(404).json({ error: 'Voice channel not found' });
-    }
-
-    const members = channel.members.map((member) => ({
-      id: member.id,
-      displayName: member.displayName,
-      avatarURL: member.user.displayAvatarURL(),
-    }));
-
-    res.json(members);
-  } catch (error) {
-    console.error(`[Web] Error fetching voice channel members:`, error);
-    res.status(500).json({ error: 'Failed to fetch voice channel members.' });
-  }
-});
-
-router.get('/guilds/:guildId/bot-voice-state', (req, res) => {
-  try {
-    const { guildId } = req.params;
-    const guild = req.client.guilds.cache.get(guildId);
-    if (!guild) return res.status(404).json({ error: 'Guild not found' });
-
-    const botMember = guild.members.cache.get(req.client.user.id);
-    if (!botMember || !botMember.voice.channel) {
-      return res.json({ inVoiceChannel: false });
-    }
-
-    const connection = getVoiceConnection(guildId);
-    const selfMute = botMember.voice.selfMute;
-    const selfDeaf = botMember.voice.selfDeaf;
-
-    res.json({
-      inVoiceChannel: true,
-      channelId: botMember.voice.channel.id,
-      channelName: botMember.voice.channel.name,
-      selfMute: selfMute,
-      selfDeaf: selfDeaf,
-      connected:
-        !!connection &&
-        connection.state.status !== VoiceConnectionStatus.Disconnected &&
-        connection.state.status !== VoiceConnectionStatus.Destroyed,
-    });
-  } catch (error) {
-    console.error(`[Web] Error fetching bot voice state:`, error);
-    res.status(500).json({ error: 'Failed to fetch bot voice state.' });
-  }
-});
-
-module.exports = router;

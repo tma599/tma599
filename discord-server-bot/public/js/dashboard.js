@@ -176,9 +176,7 @@ function renderChannelList(guild) {
     }
   };
   const buildChannelItemHTML = (channel) =>
-    `<li data-channel-id="${channel.id}" data-channel-name="${channel.name}" class="${
-      channel.type === 0 ? 'text-channel' : channel.type === 2 ? 'voice-channel' : ''
-    }"><div>${getChannelIcon(channel)} ${channel.name}</div><div class="voice-channel-members" data-channel-id="${channel.id}"></div></li>`;
+    `<li data-channel-id="${channel.id}" data-channel-name="${channel.name}" class="${channel.type === 0 ? 'text-channel' : ''}"><div>${getChannelIcon(channel)} ${channel.name}</div></li>`;
   let channelListHTML = '';
   const topLevelChannels = allChannels.filter((c) => !c.parentId && c.type !== 4);
   if (topLevelChannels.length > 0) {
@@ -198,18 +196,6 @@ function renderChannelList(guild) {
       selectChannel(guild.id, item.dataset.channelId, item.dataset.channelName);
     });
   });
-  document.querySelectorAll('.voice-channel').forEach((item) => {
-    item.addEventListener('click', () => {
-      selectVoiceChannel(guild.id, item.dataset.channelId, item.dataset.channelName);
-    });
-  });
-
-  // After rendering channels, fetch and render voice members for each voice channel
-  allChannels
-    .filter((c) => c.type === 2)
-    .forEach((vc) => {
-      fetchAndRenderVoiceMembers(guild.id, vc.id);
-    });
 }
 
 function generateCommandTabsHTML() {
@@ -401,6 +387,8 @@ async function fetchAndRenderMessages(guildId, channelId, options = {}) {
     });
     if (options.before) {
       chatMessages.scrollTop = chatMessages.scrollHeight - currentScrollHeight;
+    } else if (options.isNewSearch && !options.date) {
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
   } else {
     const message = options.before
@@ -421,53 +409,51 @@ async function fetchAndRenderMessages(guildId, channelId, options = {}) {
 function renderMessages(messages, options = {}) {
   const messagesHtml = messages
     .map((msg) => {
-      // Sanitize content to prevent HTML injection
-      const sanitizedContent = msg.content
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
+      const attachmentHtml =
+        msg.attachments.length > 0
+          ? `<div class="chat-attachments">
+           <button class="attachment-placeholder" data-attachments='${JSON.stringify(msg.attachments)}'>
+             画像 (${msg.attachments.length}件)
+           </button>
+         </div>`
+          : '';
 
-      // Embeds
-      const embedsHtml = (msg.embeds || [])
-        .map(
-          (embed) => `
-        <div class="chat-embed" style="border-left-color: ${embed.hexColor || 'var(--background-tertiary)'};">
-          ${embed.author ? `<div class="embed-author">${embed.author.name}</div>` : ''}
+      const embedHtml =
+        msg.embeds.length > 0
+          ? msg.embeds
+              .map(
+                (embed) => `
+        <div class="chat-embed">
+          ${embed.author ? `<div class="embed-author"><img src="${embed.author.iconURL}" class="embed-author-icon">${embed.author.name}</div>` : ''}
           ${embed.title ? `<div class="embed-title">${embed.title}</div>` : ''}
           ${embed.description ? `<div class="embed-description">${embed.description}</div>` : ''}
-          ${
-            embed.fields && embed.fields.length > 0
-              ? `<div class="embed-fields">${embed.fields
-                  .map(
-                    (field) =>
-                      `<div class="embed-field ${field.inline ? 'inline' : ''}"><strong>${field.name}</strong><p>${field.value}</p></div>`
-                  )
-                  .join('')}</div>`
-              : ''
-          }
-          ${embed.footer ? `<div class="embed-footer">${embed.footer.text}</div>` : ''}
+          <div class="embed-fields">
+            ${embed.fields ? embed.fields.map((field) => `<div class="embed-field"><div class="embed-field-name">${field.name}</div><div class="embed-field-value">${field.value}</div></div>`).join('') : ''}
+          </div>
+          ${embed.image ? `<img src="${embed.image.url}" class="embed-image">` : ''}
+          ${embed.thumbnail ? `<img src="${embed.thumbnail.url}" class="embed-thumbnail">` : ''}
+           ${embed.footer ? `<div class="embed-footer"><img src="${embed.footer.iconURL}" class="embed-footer-icon">${embed.footer.text}</div>` : ''}
         </div>
       `
-        )
-        .join('');
+              )
+              .join('')
+          : '';
 
-      // Attachments (Images)
-      const imageAttachments = (msg.attachments || []).filter((att) =>
-        att.contentType?.startsWith('image/')
-      );
-      let attachmentsHtml = '';
-      if (imageAttachments.length > 0) {
-        const imageUrls = imageAttachments.map((att) => att.url);
-        attachmentsHtml = `
-          <div class="attachments-container" id="attachments-${msg.id}">
-            <button class="show-attachments-btn" data-message-id="${msg.id}" data-urls='${JSON.stringify(imageUrls)}'>
-              画像を表示 (${imageAttachments.length}件)
-            </button>
-          </div>
-        `;
-      }
+      const reactionHtml =
+        msg.reactions.length > 0
+          ? `<div class="chat-reactions">
+           ${msg.reactions
+             .map(
+               (reaction) => `
+             <button class="reaction-button ${reaction.reacted ? 'reacted' : ''}" data-emoji="${reaction.emoji}">
+               <span class="reaction-emoji">${reaction.emoji.includes(':') ? `<img src="https://cdn.discordapp.com/emojis/${reaction.emoji.split(':')[1]}.png">` : reaction.emoji}</span>
+               <span class="reaction-count">${reaction.count}</span>
+             </button>
+           `
+             )
+             .join('')}
+         </div>`
+          : '';
 
       return `
         <div class="chat-message" data-message-id="${msg.id}">
@@ -477,54 +463,69 @@ function renderMessages(messages, options = {}) {
                     <span class="chat-username">${msg.author.username}</span>
                     <span class="chat-timestamp">${new Date(msg.timestamp).toLocaleString()}</span>
                 </div>
-                <div class="chat-message-body">${sanitizedContent}</div>
-                ${embedsHtml}
-                ${attachmentsHtml}
+                <div class="chat-message-body">${msg.content}</div>
+                ${attachmentHtml}
+                ${embedHtml}
+                ${reactionHtml}
             </div>
         </div>
     `;
     })
     .join('');
 
-  const shouldScroll =
-    options.isNew ||
-    (options.append &&
-      chatMessages.scrollHeight - chatMessages.clientHeight <= chatMessages.scrollTop + 5);
-
   if (options.isNew) {
     chatMessages.innerHTML = messagesHtml;
   } else if (options.prepend) {
-    const oldScrollHeight = chatMessages.scrollHeight;
-    const oldScrollTop = chatMessages.scrollTop;
     chatMessages.insertAdjacentHTML('afterbegin', messagesHtml);
-    chatMessages.scrollTop = oldScrollTop + (chatMessages.scrollHeight - oldScrollHeight);
   } else {
     chatMessages.insertAdjacentHTML('beforeend', messagesHtml);
   }
-
-  if (shouldScroll) {
-    setTimeout(() => {
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-    }, 0);
-  }
 }
 
-// Add event delegation for showing attachments
-chatMessages.addEventListener('click', (event) => {
-  if (event.target.classList.contains('show-attachments-btn')) {
-    const button = event.target;
-    const messageId = button.dataset.messageId;
-    const urls = JSON.parse(button.dataset.urls);
-    const container = document.getElementById(`attachments-${messageId}`);
+chatMessages.addEventListener('click', async (e) => {
+  const attachmentPlaceholder = e.target.closest('.attachment-placeholder');
+  if (attachmentPlaceholder) {
+    const attachments = JSON.parse(attachmentPlaceholder.dataset.attachments);
+    const container = attachmentPlaceholder.parentElement;
+    container.innerHTML = attachments
+      .map(
+        (a) =>
+          `<img src="${a.url}" class="chat-attachment-image" style="max-width: 400px; max-height: 300px; border-radius: 8px; margin-top: 5px;">`
+      )
+      .join('');
+    return;
+  }
 
-    if (container) {
-      const imagesHtml = urls
+  const reactionButton = e.target.closest('.reaction-button');
+  if (reactionButton) {
+    const messageId = reactionButton.closest('.chat-message').dataset.messageId;
+    const emoji = reactionButton.dataset.emoji;
+    const guildId = currentGuildData.id;
+    const channelId = chatHeader.dataset.channelId;
+    const hasReacted = reactionButton.classList.contains('reacted');
+
+    const result = await fetchApi(
+      `/api/guilds/${guildId}/channels/${channelId}/messages/${messageId}/reactions`,
+      {
+        method: hasReacted ? 'DELETE' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ emoji }),
+      }
+    );
+
+    if (result && result.success) {
+      const reactionContainer = reactionButton.parentElement;
+      const newReactionHtml = result.reactions
         .map(
-          (url) =>
-            `<a href="${url}" target="_blank"><img src="${url}" class="message-image" alt="attachment"></a>`
+          (reaction) => `
+           <button class="reaction-button ${reaction.reacted ? 'reacted' : ''}" data-emoji="${reaction.emoji}">
+             <span class="reaction-emoji">${reaction.emoji.includes(':') ? `<img src="https://cdn.discordapp.com/emojis/${reaction.emoji.split(':')[1]}.png">` : reaction.emoji}</span>
+             <span class="reaction-count">${reaction.count}</span>
+           </button>
+         `
         )
         .join('');
-      container.innerHTML = imagesHtml;
+      reactionContainer.innerHTML = newReactionHtml;
     }
   }
 });
@@ -737,7 +738,6 @@ function connectWebSocket() {
     const { type, data } = JSON.parse(event.data);
 
     if (type === 'NEW_MESSAGE') {
-      // Check if the message is for the currently active channel
       const currentChannelId = chatHeader.dataset.channelId;
       if (currentChannelId && data.channelId === currentChannelId) {
         const isScrolledToBottom =
@@ -763,20 +763,739 @@ function connectWebSocket() {
           cicdLogContainer.scrollTop = cicdLogContainer.scrollHeight;
         }
       }
-    } else if (type === 'VOICE_STATE_UPDATE') {
-      // Handle voice state updates
-      // Re-render voice members for the affected channel
-      const currentVoiceChannelId = document.getElementById('voice-view').querySelector('h3')
-        .dataset.channelId; // Assuming channelId is stored in h3 dataset
-      if (data.channelId === currentVoiceChannelId) {
-        fetchAndRenderVoiceMembers(data.guildId, data.channelId);
+    } else {
+      const entry = document.createElement('div');
+      entry.className = `log-entry ${type}`;
+      entry.textContent = data;
+      const isLogScrolledToBottom =
+        logContainer.scrollHeight - logContainer.clientHeight <= logContainer.scrollTop + 5;
+      logContainer.appendChild(entry);
+      if (isLogScrolledToBottom) logContainer.scrollTop = logContainer.scrollHeight;
+    }
+  };
+}
+
+async function fetchAndRenderAuditLogs(guildId) {
+  const user = document.getElementById('audit-log-user').value;
+  const action = document.getElementById('audit-log-action').value;
+  const tableBody = document.getElementById('audit-log-table').querySelector('tbody');
+  tableBody.innerHTML = '<tr><td colspan="5">読み込み中...</td></tr>';
+
+  const logs = await fetchApi(`/api/guilds/${guildId}/audit-logs?user=${user}&action=${action}`);
+
+  if (!logs) {
+    tableBody.innerHTML = '<tr><td colspan="5">監査ログの読み込みに失敗しました。</td></tr>';
+    return;
+  }
+
+  if (logs.length === 0) {
+    tableBody.innerHTML = '<tr><td colspan="5">表示する監査ログはありません。</td></tr>';
+    return;
+  }
+
+  const actionTranslations = {
+    GuildUpdate: 'サーバー更新',
+    ChannelCreate: 'チャンネル作成',
+    ChannelUpdate: 'チャンネル更新',
+    ChannelDelete: 'チャンネル削除',
+    ChannelOverwriteCreate: 'チャンネル権限作成',
+    ChannelOverwriteUpdate: 'チャンネル権限更新',
+    ChannelOverwriteDelete: 'チャンネル権限削除',
+    MemberKick: 'メンバーをキック',
+    MemberPrune: 'メンバーを除名',
+    MemberBanAdd: 'メンバーをBAN',
+    MemberBanRemove: 'メンバーのBANを解除',
+    MemberUpdate: 'メンバー更新',
+    MemberRoleUpdate: 'メンバーのロール更新',
+    MemberMove: 'メンバーを移動',
+    MemberDisconnect: 'メンバーを切断',
+    BotAdd: 'Bot追加',
+    RoleCreate: 'ロール作成',
+    RoleUpdate: 'ロール更新',
+    RoleDelete: 'ロール削除',
+    InviteCreate: '招待作成',
+    InviteUpdate: '招待更新',
+    InviteDelete: '招待削除',
+    WebhookCreate: 'Webhook作成',
+    WebhookUpdate: 'Webhook更新',
+    WebhookDelete: 'Webhook削除',
+    EmojiCreate: '絵文字作成',
+    EmojiUpdate: '絵文字更新',
+    EmojiDelete: '絵文字削除',
+    MessageDelete: 'メッセージ削除',
+    MessageBulkDelete: 'メッセージ一括削除',
+    MessagePin: 'メッセージをピン留め',
+    MessageUnpin: 'メッセージのピン留め解除',
+    IntegrationCreate: '連携作成',
+    IntegrationUpdate: '連携更新',
+    IntegrationDelete: '連携削除',
+    StageInstanceCreate: 'ステージインスタンス作成',
+    StageInstanceUpdate: 'ステージインスタンス更新',
+    StageInstanceDelete: 'ステージインスタンス削除',
+    StickerCreate: 'スタンプ作成',
+    StickerUpdate: 'スタンプ更新',
+    StickerDelete: 'スタンプ削除',
+    GuildScheduledEventCreate: 'イベント作成',
+    GuildScheduledEventUpdate: 'イベント更新',
+    GuildScheduledEventDelete: 'イベント削除',
+    ThreadCreate: 'スレッド作成',
+    ThreadUpdate: 'スレッド更新',
+    ThreadDelete: 'スレッド削除',
+    ApplicationCommandPermissionUpdate: 'アプリコマンド権限更新',
+    AutoModerationRuleCreate: '自動モデレーションルール作成',
+    AutoModerationRuleUpdate: '自動モDEレーションルール更新',
+    AutoModerationRuleDelete: '自動モデレーションルール削除',
+    AutoModerationBlockMessage: 'メッセージをブロック',
+  };
+
+  tableBody.innerHTML = logs
+    .map(
+      (log) => `
+        <tr>
+            <td class="text-center">${new Date(log.createdAt).toLocaleString()}</td>
+            <td>${log.executor.tag}</td>
+            <td>${actionTranslations[log.action] || log.action}</td>
+            <td class="truncate-text">${log.target ? log.target.tag || log.target.name : 'N/A'}</td>
+            <td>${log.reason || '理由なし'}</td>
+        </tr>
+    `
+    )
+    .join('');
+}
+
+async function openChannelManager(guildId) {
+  showView('guild-view');
+  serverInfoContainer.innerHTML = '';
+  commandContainer.innerHTML = `
+        <div class="management-section">
+            <h3>チャンネル管理</h3>
+            <div id="channel-manager-container"></div>
+            <div style="margin-top: 20px;">
+                <button id="add-channel-btn" class="btn-success">新規チャンネル作成</button>
+                <button id="save-channel-order-btn" class="btn-primary" style="display: none; margin-left: 10px;">チャンネル順序を保存</button>
+            </div>
+        </div>
+    `;
+  attachChannelManagementListeners();
+}
+
+async function attachChannelManagementListeners() {
+  const guildId = currentGuildData.id;
+  const container = document.getElementById('channel-manager-container');
+  if (!container) return;
+
+  const channels = await fetchApi(`/api/guilds/${guildId}/channels-detailed`);
+  if (!channels) {
+    container.innerHTML = '<p>チャンネルの読み込みに失敗しました。</p>';
+    return;
+  }
+
+  renderChannelManager(guildId, channels);
+
+  document.getElementById('add-channel-btn').addEventListener('click', () => {
+    openChannelModal(guildId, null, channels);
+  });
+}
+
+function renderChannelManager(guildId, channels) {
+  const container = document.getElementById('channel-manager-container');
+  const { categories, uncategorized } = groupChannels(channels);
+
+  container.innerHTML = `
+        ${renderChannelCategory(guildId, { id: null, name: 'カテゴリなし' }, uncategorized, channels)}
+        ${categories
+          .map((category) =>
+            renderChannelCategory(
+              guildId,
+              category,
+              channels.filter((c) => c.parentId === category.id),
+              channels
+            )
+          )
+          .join('')}
+    `;
+
+  // Add event listeners for the edit buttons
+  container.querySelectorAll('.edit-channel-btn').forEach((button) => {
+    const channelId = button.closest('.channel-item').dataset.channelId;
+    button.addEventListener('click', () => openChannelModal(guildId, channelId, channels));
+  });
+
+  makeChannelsDraggable(guildId);
+}
+
+function renderChannelCategory(guildId, category, channelsInCategory, allChannels) {
+  return `
+        <div class="channel-category-container" data-category-id="${category.id || 'null'}">
+            <div class="channel-category-header">${category.name}</div>
+            <div class="channel-list">
+                ${channelsInCategory.map((channel) => renderChannelItem(guildId, channel)).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function renderChannelItem(guildId, channel) {
+  return `
+        <div class="channel-item" data-channel-id="${channel.id}" draggable="true">
+            <span class="drag-handle">⠿</span>
+            <span class="channel-item-name">${getChannelIcon(channel)} ${channel.name}</span>
+            <button class="btn-primary btn-sm edit-channel-btn">編集</button>
+            <button class="btn-danger btn-sm" onclick="deleteChannel('${guildId}', '${channel.id}', '${channel.name}')">削除</button>
+        </div>
+    `;
+}
+
+function groupChannels(channels) {
+  const categories = channels.filter((c) => c.type === 4).sort((a, b) => a.position - b.position);
+  const uncategorized = channels
+    .filter((c) => !c.parentId && c.type !== 4)
+    .sort((a, b) => a.position - b.position);
+  return { categories, uncategorized };
+}
+
+function getChannelIcon(channel) {
+  switch (channel.type) {
+    case 0:
+      return '#'; // Text
+    case 2:
+      return '🔊'; // Voice
+    case 4:
+      return '📁'; // Category
+    case 5:
+      return '📢'; // Announcement
+    case 13:
+      return '🎤'; // Stage
+    case 15:
+      return '📰'; // Forum
+    default:
+      return '❓';
+  }
+}
+
+// 汎用的なドラッグ要素取得関数
+function getDragAfterElement(container, y, selector) {
+  const draggableElements = [...container.querySelectorAll(`${selector}:not(.dragging)`)];
+  return draggableElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
       }
-      // Also update the main channel list if the update is for a voice channel
-      const channelListItem = document.querySelector(
-        `.voice-channel[data-channel-id="${data.channelId}"]`
-      );
-      if (channelListItem) {
-        fetchAndRenderVoiceMembers(data.guildId, data.channelId);
+    },
+    { offset: Number.NEGATIVE_INFINITY }
+  ).element;
+}
+
+function makeChannelsDraggable(guildId) {
+  const containers = document.querySelectorAll('.channel-list');
+  const saveButton = document.getElementById('save-channel-order-btn');
+  let draggedItem = null;
+
+  const startDrag = (e) => {
+    draggedItem = e.target.closest('.channel-item');
+    if (!draggedItem) return;
+    setTimeout(() => {
+      if (draggedItem) draggedItem.classList.add('dragging');
+    }, 0);
+    if (saveButton) saveButton.style.display = 'inline-block';
+  };
+
+  const endDrag = () => {
+    if (draggedItem) {
+      draggedItem.classList.remove('dragging');
+    }
+    const activeDraggable = document.querySelector('.channel-item[draggable="true"]');
+    if (activeDraggable) {
+      activeDraggable.removeAttribute('draggable');
+    }
+    draggedItem = null;
+  };
+
+  const moveDrag = (e) => {
+    if (!draggedItem) return;
+    e.preventDefault();
+    const y = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+    if (!y) return;
+
+    const container = draggedItem.closest('.channel-list');
+    const afterElement = getDragAfterElement(container, y, '.channel-item');
+    if (afterElement === null) {
+      container.appendChild(draggedItem);
+    } else {
+      container.insertBefore(draggedItem, afterElement);
+    }
+  };
+
+  containers.forEach((container) => {
+    // MOUSE
+    container.addEventListener('dragstart', startDrag);
+    container.addEventListener('dragend', endDrag);
+    container.addEventListener('dragover', moveDrag);
+    container.addEventListener('mousedown', (e) => {
+      if (e.target.classList.contains('drag-handle')) {
+        const item = e.target.closest('.channel-item');
+        if (item) item.setAttribute('draggable', 'true');
+      }
+    });
+
+    // TOUCH
+    container.addEventListener(
+      'touchstart',
+      (e) => {
+        if (e.target.classList.contains('drag-handle')) {
+          const item = e.target.closest('.channel-item');
+          item.setAttribute('draggable', 'true');
+          startDrag({ target: item });
+        }
+      },
+      { passive: true }
+    );
+    container.addEventListener('touchend', endDrag);
+    container.addEventListener('touchmove', moveDrag, { passive: false });
+  });
+
+  if (saveButton) {
+    saveButton.addEventListener('click', async () => {
+      const positions = [];
+      document.querySelectorAll('.channel-item').forEach((item) => {
+        const categoryId = item.closest('.channel-category-container').dataset.categoryId;
+        positions.push({
+          id: item.dataset.channelId,
+          parentId: categoryId !== 'null' ? categoryId : null,
+        });
+      });
+
+      const result = await fetchApi(`/api/guilds/${guildId}/channels/positions`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ positions }),
+      });
+
+      if (result) {
+        showToast('チャンネルの順序を保存しました。');
+        saveButton.style.display = 'none';
+        // A full re-fetch and re-render is the most reliable way to reflect the new order.
+        const channels = await fetchApi(`/api/guilds/${guildId}/channels-detailed`);
+        if (channels) {
+          renderChannelManager(guildId, channels);
+        }
+      }
+    });
+  }
+}
+
+async function openChannelModal(guildId, channelId, allChannels) {
+  const isEdit = channelId !== null;
+  const channel = isEdit ? allChannels.find((c) => c.id === channelId) : null;
+  const roles = currentGuildData.roles;
+
+  const modalHtml = `
+    <div id="channel-modal-overlay" class="modal-overlay active">
+        <div class="modal-content">
+            <h3>${isEdit ? 'チャンネルを編集' : '新規チャンネル作成'}</h3>
+            <form id="channel-form">
+                <div class="form-group">
+                    <label for="channel-name">チャンネル名</label>
+                    <input type="text" id="channel-name" value="${channel ? channel.name : ''}" required>
+                </div>
+                <div class="form-group">
+                    <label for="channel-type">チャンネルタイプ</label>
+                    <select id="channel-type" ${isEdit ? 'disabled' : ''}>
+                        <option value="0" ${channel && channel.type === 0 ? 'selected' : ''}>テキスト</option>
+                        <option value="2" ${channel && channel.type === 2 ? 'selected' : ''}>ボイス</option>
+                        <option value="4" ${channel && channel.type === 4 ? 'selected' : ''}>カテゴリ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="channel-category">カテゴリ</label>
+                    <select id="channel-category">
+                        <option value="">なし</option>
+                        ${allChannels
+                          .filter((c) => c.type === 4)
+                          .map(
+                            (c) =>
+                              `<option value="${c.id}" ${channel && channel.parentId === c.id ? 'selected' : ''}>${c.name}</option>`
+                          )
+                          .join('')}
+                    </select>
+                </div>
+                <h4>権限の上書き</h4>
+                <div id="permission-overwrites-container"></div>
+                <button type="button" id="add-overwrite-btn" class="btn-secondary">上書きを追加</button>
+                <div class="modal-footer">
+                    <button type="button" id="cancel-channel-edit" class="btn-secondary">キャンセル</button>
+                    <button type="submit" class="btn-primary">保存</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    `;
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+  // Populate permission overwrites
+  const overwritesContainer = document.getElementById('permission-overwrites-container');
+  if (isEdit) {
+    channel.permissionOverwrites.forEach((ow) => renderPermissionOverwrite(ow, roles));
+  }
+
+  document.getElementById('add-overwrite-btn').addEventListener('click', () => {
+    // Logic to add a new overwrite UI
+  });
+
+  document.getElementById('channel-modal-overlay').addEventListener('click', (e) => {
+    if (e.target.id === 'channel-modal-overlay' || e.target.id === 'cancel-channel-edit') {
+      document.getElementById('channel-modal-overlay').remove();
+    }
+  });
+
+  document.getElementById('channel-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const body = {
+      name: document.getElementById('channel-name').value,
+      type: parseInt(document.getElementById('channel-type').value, 10),
+      parentId: document.getElementById('channel-category').value || null,
+      // permissionOverwrites: ...
+    };
+
+    const url = isEdit
+      ? `/api/guilds/${guildId}/channels/${channelId}`
+      : `/api/guilds/${guildId}/channels`;
+    const method = isEdit ? 'PATCH' : 'POST';
+
+    const result = await fetchApi(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
+    if (result) {
+      showToast(`チャンネルを${isEdit ? '更新' : '作成'}しました。`);
+      document.getElementById('channel-modal-overlay').remove();
+      attachChannelManagementListeners();
+    }
+  });
+}
+
+function renderPermissionOverwrite(overwrite, roles) {
+  const container = document.getElementById('permission-overwrites-container');
+  const target = roles.find((r) => r.id === overwrite.id);
+  if (!target) return; // Or handle members
+
+  const overwriteEl = document.createElement('div');
+  overwriteEl.className = 'permission-overwrite-grid';
+  overwriteEl.innerHTML = `
+        <span>${target.name}</span>
+        <div>...</div> // UI for permissions
+        <button class="btn-danger btn-sm">削除</button>
+    `;
+  container.appendChild(overwriteEl);
+}
+
+async function deleteChannel(guildId, channelId, channelName) {
+  if (!confirm(`本当にチャンネル「${channelName}」を削除しますか？`)) return;
+  const result = await fetchApi(`/api/guilds/${guildId}/channels/${channelId}`, {
+    method: 'DELETE',
+  });
+  if (result) {
+    showToast('チャンネルを削除しました。');
+    attachChannelManagementListeners();
+  }
+}
+
+async function openMemberManager(guildId) {
+  showView('guild-view');
+  serverInfoContainer.innerHTML = '';
+  commandContainer.innerHTML = getMemberManagementPaneHTML();
+  attachMemberManagementListeners();
+}
+
+async function openRoleManager(guildId) {
+  showView('guild-view');
+  serverInfoContainer.innerHTML = '';
+  commandContainer.innerHTML = `
+        <div class="management-section">
+            <h3>ロール管理</h3>
+            <div id="role-manager-wrapper"></div>
+        </div>
+    `;
+
+  const roles = await fetchApi(`/api/guilds/${guildId}/roles`);
+  if (!roles) {
+    commandContainer.innerHTML = '<p>ロールの読み込みに失敗しました。</p>';
+    return;
+  }
+
+  renderRoleUI(guildId, roles);
+}
+
+function renderRoleUI(guildId, roles) {
+  const wrapper = document.getElementById('role-manager-wrapper');
+  wrapper.innerHTML = `
+        <div class="role-manager-container">
+            <div class="role-list-sidebar">
+                <button id="add-role-btn" class="btn-success" style="width: 100%; margin-bottom: 10px;">新規ロール作成</button>
+                <div id="role-order-actions" style="display: none; gap: 10px; margin-bottom: 10px;">
+                    <button id="save-role-order-btn" class="btn-success" style="flex-grow: 1;">順序を保存</button>
+                    <button id="reset-role-order-btn" class="btn-secondary" style="flex-grow: 1;">リセット</button>
+                </div>
+                <div id="role-list-container">
+                    ${roles
+                      .map(
+                        (role) => `
+                        <div class="role-list-item" data-role-id="${role.id}">
+                            <span class="drag-handle" style="cursor: grab; touch-action: none;">⠿</span>
+                            <span class="role-color-dot" style="background-color: ${role.color};"></span>
+                            <span class="role-name">${role.name}</span>
+                            <div class="role-actions">
+                                <button class="btn-primary btn-sm" onclick="openRoleModal('${guildId}', '${role.id}')">編集</button>
+                                <button class="btn-danger btn-sm" onclick="deleteRole('${guildId}', '${role.id}', '${role.name}')">削除</button>
+                            </div>
+                        </div>
+                    `
+                      )
+                      .join('')}
+                </div>
+            </div>
+        </div>
+    `;
+
+  document
+    .getElementById('add-role-btn')
+    .addEventListener('click', () => openRoleModal(guildId, null, roles));
+  makeRolesDraggable(guildId, roles);
+}
+
+function makeRolesDraggable(guildId, originalRoles) {
+  const container = document.getElementById('role-list-container');
+  const roleOrderActions = document.getElementById('role-order-actions');
+  let draggedItem = null;
+
+  const startDrag = (e) => {
+    draggedItem = e.target.closest('.role-list-item');
+    if (!draggedItem) return;
+
+    setTimeout(() => {
+      if (draggedItem) draggedItem.classList.add('dragging');
+    }, 0);
+
+    roleOrderActions.style.display = 'flex';
+  };
+
+  const endDrag = () => {
+    if (!draggedItem) return;
+    draggedItem.classList.remove('dragging');
+
+    const activeDraggable = container.querySelector('.role-list-item[draggable="true"]');
+    if (activeDraggable) {
+      activeDraggable.removeAttribute('draggable');
+    }
+
+    draggedItem = null;
+  };
+
+  const moveDrag = (e) => {
+    if (!draggedItem) return;
+    e.preventDefault();
+
+    const y = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
+    if (!y) return;
+
+    const afterElement = getDragAfterElement(container, y, '.role-list-item');
+    if (afterElement === null) {
+      container.appendChild(draggedItem);
+    } else {
+      container.insertBefore(draggedItem, afterElement);
+    }
+  };
+
+  // --- Event Listeners ---
+
+  // For MOUSE drag-and-drop
+  container.addEventListener('dragstart', startDrag);
+  container.addEventListener('dragend', endDrag);
+  container.addEventListener('dragover', moveDrag);
+
+  container.addEventListener('mousedown', (e) => {
+    if (e.target.classList.contains('drag-handle')) {
+      e.target.closest('.role-list-item').setAttribute('draggable', 'true');
+    }
+  });
+  container.addEventListener('mouseup', () => {
+    const draggableItem = container.querySelector('[draggable="true"]');
+    if (draggableItem) {
+      setTimeout(() => draggableItem.removeAttribute('draggable'), 50);
+    }
+  });
+
+  // For TOUCH drag-and-drop
+  container.addEventListener(
+    'touchstart',
+    (e) => {
+      if (e.target.classList.contains('drag-handle')) {
+        e.preventDefault();
+        startDrag(e);
+      }
+    },
+    { passive: false }
+  );
+
+  container.addEventListener('touchend', endDrag);
+  container.addEventListener('touchmove', moveDrag, { passive: false });
+
+  // --- Action Button Listeners ---
+  document.getElementById('save-role-order-btn').addEventListener('click', async () => {
+    const roleIds = Array.from(container.querySelectorAll('.role-list-item')).map(
+      (card) => card.dataset.roleId
+    );
+    const result = await fetchApi(`/api/guilds/${guildId}/roles/positions`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ roles: roleIds }),
+    });
+    if (result) {
+      showToast('ロールの順序を保存しました。');
+      roleOrderActions.style.display = 'none';
+      openRoleManager(guildId);
+    }
+  });
+
+  document.getElementById('reset-role-order-btn').addEventListener('click', () => {
+    renderRoleUI(guildId, originalRoles);
+  });
+}
+
+async function openRoleModal(guildId, roleId = null) {
+  const isEdit = roleId !== null;
+  let role = null;
+  if (isEdit) {
+    const roles = await fetchApi(`/api/guilds/${guildId}/roles`);
+    role = roles.find((r) => r.id === roleId);
+  }
+
+  const modalHtml = `
+        <div id="role-modal-overlay" class="modal-overlay active">
+            <div class="modal-content">
+                <h3>${isEdit ? 'ロールを編集' : '新規ロール作成'}</h3>
+                <form id="role-form">
+                    <div class="form-group">
+                        <label for="role-name">ロール名</label>
+                        <input type="text" id="role-name" value="${role ? role.name : ''}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role-color">色</label>
+                        <input type="color" id="role-color" value="${role ? role.color : '#99aab5'}">
+                    </div>
+                    <h4>権限</h4>
+                    <div class="permissions-grid">
+                        ${Object.keys(permissionTranslations)
+                          .map(
+                            (perm) => `
+                            <div class="permission-checkbox">
+                                <input type="checkbox" id="perm-${perm}" name="${perm}" ${role && role.permissions.includes(perm) ? 'checked' : ''}>
+                                <label for="perm-${perm}">${permissionTranslations[perm]}</label>
+                            </div>
+                        `
+                          )
+                          .join('')}
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="cancel-role-edit" class="btn-secondary">キャンセル</button>
+                        <button type="submit" class="btn-primary">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    `;
+  document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+  document.getElementById('role-modal-overlay').addEventListener('click', (e) => {
+    if (e.target.id === 'role-modal-overlay' || e.target.id === 'cancel-role-edit') {
+      document.getElementById('role-modal-overlay').remove();
+    }
+  });
+
+  document.getElementById('role-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('role-name').value;
+    const color = document.getElementById('role-color').value;
+    const permissions = Array.from(
+      document.querySelectorAll('.permission-checkbox input:checked')
+    ).map((cb) => cb.name);
+
+    const url = isEdit ? `/api/guilds/${guildId}/roles/${roleId}` : `/api/guilds/${guildId}/roles`;
+    const method = isEdit ? 'PATCH' : 'POST';
+
+    const result = await fetchApi(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, color, permissions }),
+    });
+
+    if (result) {
+      showToast(`ロールを${isEdit ? '更新' : '作成'}しました。`);
+      document.getElementById('role-modal-overlay').remove();
+      openRoleManager(guildId);
+    }
+  });
+}
+
+async function deleteRole(guildId, roleId, roleName) {
+  if (!confirm(`本当にロール「${roleName}」を削除しますか？`)) return;
+  const result = await fetchApi(`/api/guilds/${guildId}/roles/${roleId}`, { method: 'DELETE' });
+  if (result) {
+    showToast(`ロール「${roleName}」を削除しました。`);
+    openRoleManager(guildId);
+  }
+}
+
+// --- WebSocket & Toast ---
+function connectWebSocket() {
+  const protocol = window.location.protocol === 'https' ? 'wss' : 'ws';
+  const ws = new WebSocket(`${protocol}://${window.location.host}`);
+  ws.onopen = () => {
+    console.log('[WebSocket] Connection established.');
+  };
+  ws.onclose = () => {
+    console.log('[WebSocket] Connection closed. Reconnecting in 5s...');
+    setTimeout(connectWebSocket, 5000);
+  };
+  ws.onerror = (err) => {
+    console.error('[WebSocket] Error:', err);
+  };
+  ws.onmessage = (event) => {
+    const { type, data } = JSON.parse(event.data);
+
+    if (type === 'NEW_MESSAGE') {
+      // Check if the message is for the currently active channel
+      const currentChannelId = chatHeader.dataset.channelId;
+      if (currentChannelId && data.channelId === currentChannelId) {
+        const isScrolledToBottom =
+          chatMessages.scrollHeight - chatMessages.clientHeight <= chatMessages.scrollTop + 5;
+
+        renderMessages([data], { append: true });
+
+        if (isScrolledToBottom) {
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // If we thought there were no more new messages, this proves us wrong.
+        noMoreNewerMessages = false;
+      }
+    } else if (type === 'CI_CD_LOG') {
+      // UI animation added: Handle CI/CD logs
+      const cicdLogContainer = document.getElementById('cicd-log-container');
+      if (cicdLogContainer) {
+        const isScrolledToBottom =
+          cicdLogContainer.scrollHeight - cicdLogContainer.clientHeight <=
+          cicdLogContainer.scrollTop + 5;
+        cicdLogContainer.textContent += data;
+        if (isScrolledToBottom) {
+          cicdLogContainer.scrollTop = cicdLogContainer.scrollHeight;
+        }
       }
     } else {
       const entry = document.createElement('div');
@@ -989,7 +1708,7 @@ async function deleteSchedule(guildId, cronTime) {
 }
 
 function getReactionRolePaneHTML() {
-  const { channels } = currentGuildData;
+  const { channels, roles } = currentGuildData;
   const textChannels = channels.filter((c) => c.type === 0);
   return `
         <div class="management-section">
@@ -1096,7 +1815,7 @@ function getDeleteMessagePaneHTML() {
             <h3>メッセージ一括削除</h3>
             <form id="delete-message-form">
                 <div class="form-group"><label for="dm-channel-id">チャンネル</label><select id="dm-channel-id" required>${textChannels.map((c) => `<option value="${c.id}">${c.name}</option>`).join('')}</select></div>
-                <div class="form-group"><label for="dm-user-id">対象ユーザー (任意)</label><input type="text" id="dm-user-id" placeholder="ユーザーIDまたは名前で絞り込み">
+                <div class="form-group"><label for="dm-user-id">対象ユーザー (任意)</label><input type="text" id="dm-user-id" placeholder="ユーザーIDまたは名前で絞り込み"></div>
                 <div class="form-group"><label for="dm-count">削除するメッセージ件数 (最大100件)</label><input type="number" id="dm-count" min="1" max="100" value="50" required></div>
                 <button type="submit" class="btn-danger">削除実行</button>
             </form>
@@ -1344,210 +2063,4 @@ async function banMember(guildId, memberId) {
       '<p>メンバーがBANされました。リストから再選択してください。</p>';
     fetchMembers(guildId, document.getElementById('member-search').value);
   }
-}
-
-// --- Voice Channel Management ---
-
-function generateVoiceControlPanelHTML(channelName) {
-  // Using descriptive icons for better UX
-  const icons = {
-    join: '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>',
-    leave:
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>',
-    mute: '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/></svg>',
-    unmute:
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.1-5.3-5.1H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c.91-.13 1.77-.45 2.55-.9L19.73 21 21 19.73 4.27 3z"/></svg>',
-    deafen:
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 9h-2.06c-.33-2.22-1.88-4.03-3.94-4.79V2h-2v2.21C8.88 4.97 7.33 6.78 7.06 9H5c-1.1 0-2 .9-2 2v2c0 1.1.9 2 2 2h2.06c.33 2.22 1.88 4.03 3.94 4.79V22h2v-2.21c2.06-.76 3.61-2.57 3.94-4.79H19c1.1 0 2-.9 2-2v-2c0-1.1-.9-2-2-2zm-7 9.5c-2.48 0-4.5-2.02-4.5-4.5S9.52 9.5 12 9.5s4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5z"/></svg>',
-    undeafen:
-      '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.28 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>',
-    stream:
-      '<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><g><rect fill="none" height="24" width="24"/></g><g><path d="M21,3H3C1.9,3,1,3.9,1,5v12c0,1.1,0.9,2,2,2h5v2h8v-2h5c1.1,0,1.99-0.9,1.99-2L23,5C23,3.9,22.1,3,21,3z M21,17H3V5h18V17z M14.5,11l2-3l-2-3H13v6H14.5z M9.5,11l2-3l-2-3H8v6H9.5z"/></g></svg>',
-    mic: '<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12,12c2.21,0,4-1.79,4-4V4c0-2.21-1.79-4-4-4S8,1.79,8,4v4C8,10.21,9.79,12,12,12z M17,11c0,2.76-2.24,5-5,5s-5-2.24-5-5H5c0,3.53,2.61,6.43,6,6.92V21h2v-3.08c3.39-0.49,6-3.39,6-6.92H17z"/></svg>',
-  };
-
-  return `
-    <div class="management-section">
-      <div class="voice-channel-header">
-        <h3>🔊 ${channelName}</h3>
-        <div id="voice-channel-members-panel" class="voice-channel-members"></div>
-      </div>
-      <div class="voice-control-grid">
-        <button id="join-voice-btn" class="voice-control-button btn-success">
-          ${icons.join}
-          <span>参加</span>
-        </button>
-        <button id="leave-voice-btn" class="voice-control-button btn-danger">
-          ${icons.leave}
-          <span>切断</span>
-        </button>
-        <button id="mute-btn" class="voice-control-button" data-muted="false">
-          ${icons.mute}
-          <span>ミュート</span>
-        </button>
-        <button id="deafen-btn" class="voice-control-button" data-deafened="false">
-          ${icons.deafen}
-          <span>スピーカーミュート</span>
-        </button>
-      </div>
-    </div>
-  `;
-}
-
-async function selectVoiceChannel(guildId, channelId, channelName) {
-  showView('voice-view');
-  const voiceView = document.getElementById('voice-view');
-  voiceView.innerHTML = generateVoiceControlPanelHTML(channelName);
-
-  // Fetch bot's current voice state and update UI
-  const botVoiceState = await fetchApi(`/api/guilds/${guildId}/bot-voice-state`);
-  const joinBtn = document.getElementById('join-voice-btn');
-  const leaveBtn = document.getElementById('leave-voice-btn');
-  const muteBtn = document.getElementById('mute-btn');
-  const deafenBtn = document.getElementById('deafen-btn');
-
-  if (botVoiceState && botVoiceState.inVoiceChannel && botVoiceState.channelId === channelId) {
-    joinBtn.disabled = true;
-    leaveBtn.disabled = false;
-
-    muteBtn.dataset.muted = botVoiceState.selfMute;
-    muteBtn.querySelector('span').textContent = botVoiceState.selfMute
-      ? 'ミュート解除'
-      : 'ミュート';
-    muteBtn.classList.toggle('active', botVoiceState.selfMute);
-
-    deafenBtn.dataset.deafened = botVoiceState.selfDeaf;
-    deafenBtn.querySelector('span').textContent = botVoiceState.selfDeaf
-      ? 'スピーカーミュート解除'
-      : 'スピーカーミュート';
-    deafenBtn.classList.toggle('active', botVoiceState.selfDeaf);
-  } else {
-    joinBtn.disabled = false;
-    leaveBtn.disabled = true;
-    muteBtn.disabled = true;
-    deafenBtn.disabled = true;
-  }
-
-  attachVoiceControlListeners(guildId, channelId);
-  fetchAndRenderVoiceMembers(guildId, channelId);
-}
-
-async function fetchAndRenderVoiceMembers(guildId, channelId) {
-  const members = await fetchApi(`/api/guilds/${guildId}/voice-members/${channelId}`);
-  if (members) {
-    renderVoiceMembers(channelId, members);
-  }
-}
-
-function renderVoiceMembers(channelId, members) {
-  const listContainer = document.querySelector(
-    `.voice-channel-members[data-channel-id="${channelId}"]`
-  );
-  const panelContainer = document.getElementById('voice-channel-members-panel');
-
-  const membersHtml = members
-    .map(
-      (member) =>
-        `<img src="${member.avatarURL}" alt="${member.displayName}" class="member-avatar-small" title="${member.displayName}">`
-    )
-    .join('');
-
-  if (listContainer) {
-    listContainer.innerHTML = membersHtml;
-  }
-  if (panelContainer) {
-    panelContainer.innerHTML = membersHtml;
-  }
-}
-
-function attachVoiceControlListeners(guildId, channelId) {
-  document.getElementById('join-voice-btn').addEventListener('click', async () => {
-    const result = await fetchApi(`/api/guilds/${guildId}/voice/join`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ channelId }),
-    });
-    if (result) {
-      showToast('ボイスチャンネルに参加しました。');
-      // Update UI after successful join
-      const joinBtn = document.getElementById('join-voice-btn');
-      const leaveBtn = document.getElementById('leave-voice-btn');
-      const muteBtn = document.getElementById('mute-btn');
-      const deafenBtn = document.getElementById('deafen-btn');
-
-      joinBtn.disabled = true;
-      leaveBtn.disabled = false;
-      muteBtn.disabled = false;
-      deafenBtn.disabled = false;
-
-      // Bot joins muted and undeafened by default
-      muteBtn.dataset.muted = 'true';
-      muteBtn.querySelector('span').textContent = 'ミュート解除';
-      muteBtn.classList.add('active');
-
-      deafenBtn.dataset.deafened = 'false';
-      deafenBtn.querySelector('span').textContent = 'スピーカーミュート';
-      deafenBtn.classList.remove('active');
-
-      fetchAndRenderVoiceMembers(guildId, channelId);
-    }
-  });
-
-  document.getElementById('leave-voice-btn').addEventListener('click', async () => {
-    const result = await fetchApi(`/api/guilds/${guildId}/voice/leave`, {
-      method: 'POST',
-    });
-    if (result) {
-      showToast('ボイスチャンネルから切断しました。');
-      // Update UI after successful leave
-      const joinBtn = document.getElementById('join-voice-btn');
-      const leaveBtn = document.getElementById('leave-voice-btn');
-      const muteBtn = document.getElementById('mute-btn');
-      const deafenBtn = document.getElementById('deafen-btn');
-
-      joinBtn.disabled = false;
-      leaveBtn.disabled = true;
-      muteBtn.disabled = true;
-      deafenBtn.disabled = true;
-
-      // Clear voice members display
-      renderVoiceMembers(channelId, []);
-    }
-  });
-
-  const muteBtn = document.getElementById('mute-btn');
-  muteBtn.addEventListener('click', async () => {
-    const isMuted = muteBtn.dataset.muted === 'true';
-    const result = await fetchApi(`/api/guilds/${guildId}/voice/mute`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ mute: !isMuted }),
-    });
-    if (result) {
-      muteBtn.dataset.muted = !isMuted;
-      muteBtn.querySelector('span').textContent = !isMuted ? 'ミュート解除' : 'ミュート';
-      muteBtn.classList.toggle('active', !isMuted);
-      showToast(!isMuted ? 'ミュートしました。' : 'ミュートを解除しました。');
-    }
-  });
-
-  const deafenBtn = document.getElementById('deafen-btn');
-  deafenBtn.addEventListener('click', async () => {
-    const isDeafened = deafenBtn.dataset.deafened === 'true';
-    const result = await fetchApi(`/api/guilds/${guildId}/voice/deafen`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ deafen: !isDeafened }),
-    });
-    if (result) {
-      deafenBtn.dataset.deafened = !isDeafened;
-      deafenBtn.querySelector('span').textContent = !isDeafened
-        ? 'スピーカーミュート解除'
-        : 'スピーカーミュート';
-      deafenBtn.classList.toggle('active', !isDeafened);
-      showToast(
-        !isDeafened ? 'スピーカーミュートしました。' : 'スピーカーミュートを解除しました。'
-      );
-    }
-  });
 }

@@ -7460,5 +7460,1251 @@
     "type": "user",
     "message": "スマホだから開発者ツール開けんのよ、webダッシュボード関連のファイルを全部読みこんで原因を特定して",
     "timestamp": "2025-08-03T13:40:38.533Z"
+  },
+  {
+    "sessionId": "ff76b5c1-6cb9-4692-a247-08d182c3ed7b",
+    "messageId": 16,
+    "type": "user",
+    "message": "ねね、ボイスチャンネル専用のメニューあるじゃん？",
+    "timestamp": "2025-08-03T14:26:24.914Z"
+  },
+  {
+    "sessionId": "ff76b5c1-6cb9-4692-a247-08d182c3ed7b",
+    "messageId": 17,
+    "type": "user",
+    "message": "そこさ、opusscriptで代用できんかな…",
+    "timestamp": "2025-08-03T14:27:08.967Z"
+  },
+  {
+    "sessionId": "ff76b5c1-6cb9-4692-a247-08d182c3ed7b",
+    "messageId": 18,
+    "type": "user",
+    "message": "音声ストリーミング機能で、自分の発言を、マイク経由でvc内にやる、vc内の発言を、自分の方のスピーカーから出るようにする、",
+    "timestamp": "2025-08-03T14:29:33.356Z"
+  },
+  {
+    "sessionId": "ff76b5c1-6cb9-4692-a247-08d182c3ed7b",
+    "messageId": 19,
+    "type": "user",
+    "message": "まぁ、ものは試しって言うじゃん",
+    "timestamp": "2025-08-03T14:31:27.676Z"
+  },
+  {
+    "sessionId": "ff76b5c1-6cb9-4692-a247-08d182c3ed7b",
+    "messageId": 20,
+    "type": "user",
+    "message": "ん、行けた",
+    "timestamp": "2025-08-03T14:34:02.164Z"
+  },
+  {
+    "sessionId": "ff76b5c1-6cb9-4692-a247-08d182c3ed7b",
+    "messageId": 21,
+    "type": "user",
+    "message": "0|discord-bot  | ReferenceError: audioPlayers is not defined0|discord-bot  |     at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/routes/api.js:1249:28)0|discord-bot  |     at Module._compile (node:internal/modules/cjs/loader:1730:14)0|discord-bot  |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord-bot  |     at Module.load (node:internal/modules/cjs/loader:1465:32)0|discord-bot  |     at Module._load (node:internal/modules/cjs/loader:1282:12)0|discord-bot  |     at TracingChannel.traceSync (node:diagnostics_channel:322:14)0|discord-bot  |     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)0|discord-bot  |     at Module.require (node:internal/modules/cjs/loader:1487:12)0|discord-bot  |     at Hook._require.Module.require (/data/data/com.termux/files/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:",
+    "timestamp": "2025-08-03T14:43:00.907Z"
+  },
+  {
+    "sessionId": "ff76b5c1-6cb9-4692-a247-08d182c3ed7b",
+    "messageId": 22,
+    "type": "user",
+    "message": "0|discord-bot  | ReferenceError: audioPlayers is not defined0|discord-bot  |     at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/routes/api.js:1249:28)0|discord-bot  |     at Module._compile (node:internal/modules/cjs/loader:1730:14)0|discord-bot  |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord-bot  |     at Module.load (node:internal/modules/cjs/loader:1465:32)0|discord-bot  |     at Module._load (node:internal/modules/cjs/loader:1282:12)0|discord-bot  |     at TracingChannel.traceSync (node:diagnostics_channel:322:14)0|discord-bot  |     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)0|discord-bot  |     at Module.require (node:internal/modules/cjs/loader:1487:12)0|discord-bot  |     at Hook._require.Module.require (/data/data/com.termux/files/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:と",
+    "timestamp": "2025-08-03T14:47:18.031Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 0,
+    "type": "user",
+    "message": "/auth",
+    "timestamp": "2025-08-03T14:49:21.132Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 1,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botに、webダッシュボードがあるたんけど、それのボイスチャンネル系のファイルを読みこんで、エラーとかも特定して、あとopusscriptね",
+    "timestamp": "2025-08-03T14:50:59.490Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 2,
+    "type": "user",
+    "message": "あ、ごめんまだopusscriptはやってなくて、ウェブのマイクとか、音声とかの機能を段階的に機能を入れてるんだけど、コードにエラーとかない？",
+    "timestamp": "2025-08-03T14:52:43.892Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 3,
+    "type": "user",
+    "message": "0|discord- |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord- |     at Module.load (node:internal/modules/cjs/loader:1465:32)0|discord- |     at Module._load (node:internal/modules/cjs/loader:1282:12)0|discord- |     at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)0|discord- | TypeError: argument handler must be a function0|discord- |     at Function.use (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:392:13)0|discord- |     at Function.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:222:21)0|discord- |     at Array.forEach (<anonymous>)0|discord- |     at Function.use (/data/data/com.termux/files/home/discord-server-bot/node_modules/express/lib/application.js:219:7)0|discord- |     at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:74:5)0|discord- |     at Module._compile (node:internal/modules/cjs/loader:1730:14)0|discord- |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord- |     at Module.load (node:internal/modules/cjs/loader:1465:32)0|discord- |     at Module._load (node:internal/modules/cjs/loader:1282:12)0|discord- |     at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)　このエラーどうにかできる？",
+    "timestamp": "2025-08-03T14:56:07.262Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 4,
+    "type": "user",
+    "message": "マイクのアクセスに失敗しました、サイドの設定を確認してください的なこと表示されたんだけど、マイクは許可にしてます",
+    "timestamp": "2025-08-03T14:59:43.645Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 5,
+    "type": "user",
+    "message": "これってもしかして、自分開発してるの一人だけだから、vcのてすととかも一人でやってて、一つのスマホで2つのマイク（discord垢とwebダッシュボード）やってるから？",
+    "timestamp": "2025-08-03T15:01:15.981Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 6,
+    "type": "user",
+    "message": "あ、discord閉じて、webの方でマイク使おうとしたらやっぱだめだった…、通知の方では、マイクは使用されてますって出てる",
+    "timestamp": "2025-08-03T15:02:41.405Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 7,
+    "type": "user",
+    "message": "1と2をやっても依然として、ただ、通知ではマイクを使用されてるって表示されたのに、webの方は依然としてなんよなぁ、",
+    "timestamp": "2025-08-03T15:04:42.572Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 8,
+    "type": "user",
+    "message": "0|discord-bot  | ReferenceError: selfsigned is not defined0|discord-bot  |     at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:90:14)0|discord-bot  |     at Module._compile (node:internal/modules/cjs/loader:1730:14)0|discord-bot  |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord-bot  |     at Module.load (node:internal/modules/cjs/loader:1465:32)0|discord-bot  |     at Module._load (node:internal/modules/cjs/loader:1282:12)0|discord-bot  |     at Object.<anonymous> (/data/data/com.termux/files/usr/lib/node_modules/pm2/lib/ProcessContainerFork.js:33:23)0|discord-bot  |     at Module._compile (node:internal/modules/cjs/loader:1730:14)0|discord-bot  |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord-bot  |     at Module.load (node:internal/modules/cjs/loader:1465:32)",
+    "timestamp": "2025-08-03T15:10:11.545Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 9,
+    "type": "user",
+    "message": "く0|discord-bot  | Error: error:0A00018F:SSL routines::ee key too small0|discord-bot  |     at node:internal/tls/secure-context:70:130|discord-bot  |     at Array.forEach (<anonymous>)0|discord-bot  |     at setCerts (node:internal/tls/secure-context:68:3)0|discord-bot  |     at configSecureContext (node:internal/tls/secure-context:191:5)0|discord-bot  |     at Object.createSecureContext (node:_tls_common:113:3)0|discord-bot  |     at Server.setSecureContext (node:_tls_wrap:1490:27)0|discord-bot  |     at Server (node:_tls_wrap:1354:8)0|discord-bot  |     at new Server (node:https:80:3)0|discord-bot  |     at Object.createServer (node:https:135:10)0|discord-bot  |     at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/index.js:95:22) {0|discord-bot  |   library: 'SSL routines',0|discord-bot  |   reason: 'ee key too small',0|discord-bot  |   code: 'ERR_SSL_EE_KEY_TOO_SMALL'0|discord-bot  | }",
+    "timestamp": "2025-08-03T15:12:16.047Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 10,
+    "type": "user",
+    "message": "この接続ではプライバシーが保護されません攻撃者が、localhost 上のあなたの情報（パスワード、メッセージ、クレジット カード情報など）を不正に取得しようとしている可能性があります。この警告の詳細net::ERR_CERT_AUTHORITY_INVALID",
+    "timestamp": "2025-08-03T15:14:10.597Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 11,
+    "type": "user",
+    "message": "あれ、マイク開始押しても依然としてだな…",
+    "timestamp": "2025-08-03T15:15:51.606Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 12,
+    "type": "user",
+    "message": "普通に、マイク関連のとこにエラーログ（リアルタイムログに表示）は？",
+    "timestamp": "2025-08-03T15:16:56.032Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 13,
+    "type": "user",
+    "message": "0|discord-bot  | [Frontend Error] {0|discord-bot  |   message: 'icons is not defined',0|discord-bot  |   name: 'ReferenceError',0|discord-bot  |   stack: 'ReferenceError: icons is not defined\\n' +0|discord-bot  |     '    at HTMLButtonElement.<anonymous> (https://localhost:3000/public/js/dashboard.js:1591:33)',0|discord-bot  |   timestamp: '2025-08-03T15:18:32.310Z'0|discord-bot  | }",
+    "timestamp": "2025-08-03T15:19:01.422Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 14,
+    "type": "user",
+    "message": "マイクのエラーは治ったけど、discordの方に音声は行かないね、もしかしてまだ実装途中だった？",
+    "timestamp": "2025-08-03T15:27:39.099Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 15,
+    "type": "user",
+    "message": "依然として、opusscriptはやってるの？",
+    "timestamp": "2025-08-03T15:29:40.985Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 16,
+    "type": "user",
+    "message": "えっと、依然として、webダッシュボード関連のファイルを全て読みこんで、それで問題点を洗い流せば？",
+    "timestamp": "2025-08-03T15:32:06.174Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 17,
+    "type": "user",
+    "message": "依然としてだなぁ、もう本当に仕詳細の詳細の詳細の詳細くらい、ファイルを徹底的に調べ上げて、Google検索も駆使したら？",
+    "timestamp": "2025-08-03T15:35:22.722Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 18,
+    "type": "user",
+    "message": "ステップ3の途中でモデル変更されたけど",
+    "timestamp": "2025-08-03T15:40:00.047Z"
+  },
+  {
+    "sessionId": "426e7a4c-fbb6-45f5-aead-ddea1b694cc9",
+    "messageId": 19,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-03T15:41:32.877Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botにさ、ボイスチャンネル系の機能があるんだけど、opusscriptとffmpeg使ってるんだけど、ちゃんと使えるかファイルを、正確に、詳細に確認してくれない？",
+    "timestamp": "2025-08-04T03:30:57.775Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 1,
+    "type": "user",
+    "message": "モデル変更で中断さらたよ",
+    "timestamp": "2025-08-04T03:31:34.572Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 2,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T03:31:44.936Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 3,
+    "type": "user",
+    "message": "api.jgと、server.js，dashboard.jsと、wjsとか",
+    "timestamp": "2025-08-04T03:32:57.406Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 4,
+    "type": "user",
+    "message": "えっとね、/data/data/com.termux/files/home/discord-server-botにある、ファイルやフォルダの中身を全て、詳細に確認して、ボイスチャンネルで、botが自分のマイクからの音声をボイスチャンネルに送れるか調べろ",
+    "timestamp": "2025-08-04T03:34:40.281Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 5,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T03:35:11.640Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 6,
+    "type": "user",
+    "message": "ちゃんと、正確に読み込んだ？",
+    "timestamp": "2025-08-04T03:35:58.661Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 7,
+    "type": "user",
+    "message": "なんか、できないんだよね",
+    "timestamp": "2025-08-04T03:36:28.945Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 8,
+    "type": "user",
+    "message": "エラーログは出てなくて",
+    "timestamp": "2025-08-04T03:37:22.702Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 9,
+    "type": "user",
+    "message": "ボイスチャンネルで、参加、切断、ミュート機能一通り使えて、マイクの使用許可も、できる、通知にはしっかりマイクが使用されていると出る、だが、vcに接続して、テスト（スマホ2代）してもbotが発言しない",
+    "timestamp": "2025-08-04T03:38:48.154Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 10,
+    "type": "user",
+    "message": "そういや、なんかwebダッシュボードのリアルタイムログがちゃんと表示されなくなったの直してくれ",
+    "timestamp": "2025-08-04T03:40:22.424Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 11,
+    "type": "user",
+    "message": "0|discord-bot  | [Web] Error joining voice channel: ReferenceError: PassThrough is not defined0|discord-bot  |     at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1138:200|discord-bot  |     at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)0|discord-bot  |     at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)0|discord-bot  |     at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)0|discord-bot  |     at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)0|discord-bot  |     at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)0|discord-bot  |     at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:150|discord-bot  |     at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)0|discord-bot  |     at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)0|discord-bot  |     at processParams (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:664:3)",
+    "timestamp": "2025-08-04T03:43:11.578Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 12,
+    "type": "user",
+    "message": "0|discord-bot  | [Web] Error joining voice channel: ReferenceError: createAudioResource is not defined0|discord-bot  |     at /data/data/com.termux/files/home/discord-server-bot/routes/api.js:1140:220|discord-bot  |     at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)0|discord-bot  |     at next (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:157:13)0|discord-bot  |     at Route.dispatch (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/route.js:117:3)0|discord-bot  |     at handle (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:435:11)0|discord-bot  |     at Layer.handleRequest (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/lib/layer.js:152:17)0|discord-bot  |     at /data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:295:150|discord-bot  |     at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:600:14)0|discord-bot  |     at param (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:610:14)0|discord-bot  |     at processParams (/data/data/com.termux/files/home/discord-server-bot/node_modules/router/index.js:664:3)0|discord-bot  | [Voice] ServrePilot・サーバーパイロット#5945 joined voice channel 雑談1 in ServerPilot 公式サーバー なんかボイスチャンネルには入ってるよな…エラー出るけど",
+    "timestamp": "2025-08-04T03:45:52.805Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 13,
+    "type": "user",
+    "message": "0|discord- | [FFmpeg] Stderr: ffmpeg version 7.1.1 Copyright (c) 2000-2025 the FFmpeg developers0|discord- |   built with Android (12470979, +pgo, +bolt, +lto, +mlgo, based on r522817c) clang version 18.0.3 (https://android.googlesource.com/toolchain/llvm-project d8003a456d14a3deb8054cdaa529ffbf02d9b262)0|discord- |   configuration: --arch=aarch64 --as=aarch64-linux-android-clang --cc=aarch64-linux-android-clang --cxx=aarch64-linux-android-clang++ --nm=llvm-nm --ar=llvm-ar --ranlib=llvm-ranlib --pkg-config=/home/builder/.termux-build/_cache/android-r27c-api-24-v1/bin/pkg-config --strip=llvm-strip --cross-prefix=aarch64-linux-android- --disable-indevs --disable-outdevs --enable-indev=lavfi --disable-static --disable-symver --enable-cross-compile --enable-gnutls --enable-gpl --enable-version3 --enable-jni --enable-lcms2 --enable-libaom --enable-libass --enable-libbluray --enable-libdav1d --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libgme --enable-libharfbuzz --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenmpt --enable-libopus --enable-librav1e --enable-librubberband --enable-libsoxr --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libtheora --enable-libv4l2 --enable-libvidstab --enable-libvmaf --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-libzmq --enable-mediacodec --enable-opencl --enable-shared --prefix=/data/data/com.termux/files/usr --target-os=android --extra-libs=-landroid-glob --disable-vulkan --enable-neon --disable-libfdk-aac0|discord- |   libavutil      59. 39.100 / 59. 39.1000|discord- |   libavcodec     61. 19.101 / 61. 19.1010|discord- |   libavformat    61.  7.100 / 61.  7.1000|discord- |   libavdevice    61.  3.100 / 61.  3.1000|discord- |   libavfilter    10.  4.100 / 10.  4.1000|discord- |   libswscale      8.  3.100 /  8.  3.1000|discord- |   libswresample   5.  3.100 /  5.  3.1000|discord- |   libpostproc    58.  3.100 / 58.  3.100",
+    "timestamp": "2025-08-04T03:49:02.654Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 14,
+    "type": "user",
+    "message": "うーん、できねぇわ",
+    "timestamp": "2025-08-04T03:54:51.254Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 15,
+    "type": "user",
+    "message": "ログは何も、使ってる機種は、redmi note 10 jeね",
+    "timestamp": "2025-08-04T03:56:49.942Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 16,
+    "type": "user",
+    "message": "うーん、ボイスチャンネルの、発言をbot経由で送る、以外のことはできてるんよな、メッセージ記録も、監視ログも、ロール管理も全部できてるから、botが起動してないとかではないよ",
+    "timestamp": "2025-08-04T03:59:02.741Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 17,
+    "type": "user",
+    "message": "スマホだから、コンソール開けないンゴ",
+    "timestamp": "2025-08-04T04:00:02.619Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 18,
+    "type": "user",
+    "message": "13:02:53] WebSocket not open. State: 3[13:02:53] Data available. Size: 966[13:02:53] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] WebSocket not open. State: 3[13:02:54] Data available. Size: 966[13:02:54] 喋ってないのに、マイクonにしたらこう、マイクonにして、喋ってもこれしか表示されない",
+    "timestamp": "2025-08-04T04:03:47.621Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 19,
+    "type": "user",
+    "message": "1回、ファイルのコード全て確認したら？",
+    "timestamp": "2025-08-04T04:06:01.980Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 20,
+    "type": "user",
+    "message": "[13:07:36] [WebSocket] Error: undefined[13:07:36] [WebSocket] Connection closed. Code: 1006, Reason: . Reconnecting in 5s...",
+    "timestamp": "2025-08-04T04:08:29.660Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 21,
+    "type": "user",
+    "message": "13:09:42] [WebSocket] Error: undefined[13:09:42] [WebSocket] Connection closed. Code: 1006, Reason: . Reconnecting in 5s...[13:09:48] [WebSocket] Connection established.",
+    "timestamp": "2025-08-04T04:10:13.920Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 22,
+    "type": "user",
+    "message": "0|discord-bot  | TypeError: Cannot read properties of undefined (reading 'keys')0|discord-bot  |     at WebSocket.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/ws/server.js:21:53)0|discord-bot  |     at WebSocket.emit (node:events:518:28)0|discord-bot  |     at Receiver.receiverOnMessage (/data/data/com.termux/files/home/discord-server-bot/node_modules/ws/lib/websocket.js:1220:20)0|discord-bot  |     at Receiver.emit (node:events:518:28)0|discord-bot  |     at Receiver.dataMessage (/data/data/com.termux/files/home/discord-server-bot/node_modules/ws/lib/receiver.js:569:14)0|discord-bot  |     at Receiver.getData (/data/data/com.termux/files/home/discord-server-bot/node_modules/ws/lib/receiver.js:496:10)0|discord-bot  |     at Receiver.startLoop (/data/data/com.termux/files/home/discord-server-bot/node_modules/ws/lib/receiver.js:167:16)0|discord-bot  |     at Receiver._write (/data/data/com.termux/files/home/discord-server-bot/node_modules/ws/lib/receiver.js:94:10)0|discord-bot  |     at writeOrBuffer (node:internal/streams/writable:572:12)0|discord-bot  |     at _write (node:internal/streams/writable:501:10)",
+    "timestamp": "2025-08-04T04:12:13.354Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 23,
+    "type": "user",
+    "message": "0|discord-bot  | (node:2648) Warning: Accessing non-existent property 'audioPlayers' of module exports inside circular dependency0|discord-bot  | (Use `node --trace-warnings ...` to show where the warning was created)",
+    "timestamp": "2025-08-04T04:13:15.204Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 24,
+    "type": "user",
+    "message": "なんか、最初聞こえたのに、2回目からは聞こえた？わかんないけど、なんか聞こえるときと聞こえないときある、聞こえる時は、vcはいって、ミュート解除して、マイクｏｎにしたらきこえる、なんかマイクoffにしてから、もっかいマイクonにするとか聞こえない気がする、一応コード確認して",
+    "timestamp": "2025-08-04T04:18:48.818Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 25,
+    "type": "user",
+    "message": "みよし、ほとんど治ったけど、なんかずっと喋ってると、なぜか途中から、まったく音声が入らなくなって、1回マイクをoffにしてからonにしないと音声入らない、それもずっと喋ってるとまたそうなる",
+    "timestamp": "2025-08-04T06:02:49.004Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 26,
+    "type": "user",
+    "message": "途切れるときにこれといったエラーはなくて、普段のログだね",
+    "timestamp": "2025-08-04T06:08:31.444Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 27,
+    "type": "user",
+    "message": "なんもエラーでない、マイクをoffにしてからonにするとやっぱり治るね",
+    "timestamp": "2025-08-04T06:11:43.353Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 28,
+    "type": "user",
+    "message": "[Stream] Error: Error [ERR_STREAM_PREMATURE_CLOSE]: Premature close    at WebmDemuxer.<anonymous> (node:internal/streams/pipeline:415:29)    at WebmDemuxer.emit (node:events:530:35)    at emitCloseNT (node:internal/streams/destroy:148:10)    at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {  code: 'ERR_STREAM_PREMATURE_CLOSE'}",
+    "timestamp": "2025-08-04T06:20:21.596Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 29,
+    "type": "user",
+    "message": "よし、直った、ノイキャンつけてくれない？程々の",
+    "timestamp": "2025-08-04T06:27:29.032Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 30,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T06:28:13.550Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 31,
+    "type": "user",
+    "message": "なんか、遠くの音がはいらないようにしてほしい",
+    "timestamp": "2025-08-04T06:41:24.752Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 32,
+    "type": "user",
+    "message": "う？",
+    "timestamp": "2025-08-04T06:42:24.886Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 33,
+    "type": "user",
+    "message": "はい",
+    "timestamp": "2025-08-04T06:43:10.030Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 34,
+    "type": "user",
+    "message": "0|discord-bot  | [WebSocket] Writing to ffmpeg stdin.                                                                                                   0|discord-bot  | [Stream] Error: Error [ERR_STREAM_PREMATURE_CLOSE]: Premature close0|discord-bot  |     at WebmDemuxer.<anonymous> (node:internal/streams/pipeline:415:29)0|discord-bot  |     at WebmDemuxer.emit (node:events:530:35)                                                                                           0|discord-bot  |     at emitCloseNT (node:internal/streams/destroy:148:10)0|discord-bot  |     at process.processTicksAndRejections (node:internal/process/task_queues:89:21) {0|discord-bot  |   code: 'ERR_STREAM_PREMATURE_CLOSE'0|discord-bot  | }                                                                                                                                      0|discord-bot  | [Stream] Stream closed.",
+    "timestamp": "2025-08-04T06:49:00.657Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 35,
+    "type": "user",
+    "message": "エラー出なくなった",
+    "timestamp": "2025-08-04T06:53:02.431Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 36,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T06:54:01.963Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 37,
+    "type": "user",
+    "message": "よし直った、次は、vc内の発言を、自分のスピーカーに流す機能追加してほしい",
+    "timestamp": "2025-08-04T06:57:28.321Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 38,
+    "type": "user",
+    "message": "ん？もうノイキャンは実装されてるのでは？",
+    "timestamp": "2025-08-04T06:59:28.049Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 39,
+    "type": "user",
+    "message": "うーん、再生ボタンとかいらないから、vcはいったら、もう常に受信状態にしてくれ",
+    "timestamp": "2025-08-04T07:04:36.592Z"
+  },
+  {
+    "sessionId": "521aaa03-f12d-47fe-9b64-34fe78612568",
+    "messageId": 40,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T07:06:00.281Z"
+  },
+  {
+    "sessionId": "197f56a1-76b2-4608-93fa-be273433150e",
+    "messageId": 0,
+    "type": "user",
+    "message": "/auth",
+    "timestamp": "2025-08-04T07:08:06.437Z"
+  },
+  {
+    "sessionId": "197f56a1-76b2-4608-93fa-be273433150e",
+    "messageId": 1,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botの、webダッシュボードのファイルと、webダッシュボード関連のファイルを全て読み込んて",
+    "timestamp": "2025-08-04T07:09:14.239Z"
+  },
+  {
+    "sessionId": "197f56a1-76b2-4608-93fa-be273433150e",
+    "messageId": 2,
+    "type": "user",
+    "message": "読み込めた？",
+    "timestamp": "2025-08-04T07:17:19.068Z"
+  },
+  {
+    "sessionId": "197f56a1-76b2-4608-93fa-be273433150e",
+    "messageId": 3,
+    "type": "user",
+    "message": "えっとね、ボイスチャンネルのとこに、opusscriptとffmpegがあるんだけど、それで、自分の音声をマイク経由で、discordのvcに送るのはできたから、vc内の発言を、自分のスピーカーに流すってのを追加してほしい",
+    "timestamp": "2025-08-04T07:18:54.941Z"
+  },
+  {
+    "sessionId": "197f56a1-76b2-4608-93fa-be273433150e",
+    "messageId": 4,
+    "type": "user",
+    "message": "あ、botがvcに入った時点で、もう常に受信するようにしてほしい",
+    "timestamp": "2025-08-04T07:20:03.579Z"
+  },
+  {
+    "sessionId": "197f56a1-76b2-4608-93fa-be273433150e",
+    "messageId": 5,
+    "type": "user",
+    "message": "うーん、聞こえないなぁ、1回コードをちゃんと再確認",
+    "timestamp": "2025-08-04T07:26:48.526Z"
+  },
+  {
+    "sessionId": "197f56a1-76b2-4608-93fa-be273433150e",
+    "messageId": 6,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T07:27:44.665Z"
+  },
+  {
+    "sessionId": "197f56a1-76b2-4608-93fa-be273433150e",
+    "messageId": 7,
+    "type": "user",
+    "message": "えー、webダッシュボードがずっとロード中で止まらくなりました",
+    "timestamp": "2025-08-04T07:32:04.736Z"
+  },
+  {
+    "sessionId": "197f56a1-76b2-4608-93fa-be273433150e",
+    "messageId": 8,
+    "type": "user",
+    "message": "君は役立たずだから、違うAPI使うね",
+    "timestamp": "2025-08-04T07:36:29.923Z"
+  },
+  {
+    "sessionId": "31e155d6-f9eb-4ed3-82c9-fa7342ded5de",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、なんか/data/data/com.termux/files/home/discord-server-botの、webダッシュボードがずっとロード中で止まらくなったから、webダッシュボード関連のファイルを全部調べて、原因を特定して、ちなみにJAVCscript関連であると言うことはわかるよ",
+    "timestamp": "2025-08-04T07:38:26.662Z"
+  },
+  {
+    "sessionId": "31e155d6-f9eb-4ed3-82c9-fa7342ded5de",
+    "messageId": 1,
+    "type": "user",
+    "message": "うーん、JAVCscriptを変えた後に起きたから、JAVAscritp関連であることはわかる、もっと細か言うと、ボイスチャンネルの、vcの発言を自分のスピーカーに流すとこに、追加したり修正したりしたらなったよ、だからほぼほぼJAVAscritpが原因",
+    "timestamp": "2025-08-04T07:41:45.235Z"
+  },
+  {
+    "sessionId": "31e155d6-f9eb-4ed3-82c9-fa7342ded5de",
+    "messageId": 2,
+    "type": "user",
+    "message": "よし、ダッシュボードは表示されるようになった、次は、botが参加してる、vcの人の発言を受信して、自分のスピーカーに流すようになってるか、コードを確認して、自分はスマホね",
+    "timestamp": "2025-08-04T07:46:55.745Z"
+  },
+  {
+    "sessionId": "aa9965e7-63f5-4d87-a8bc-bab99f67dc28",
+    "messageId": 0,
+    "type": "user",
+    "message": "/auth",
+    "timestamp": "2025-08-04T12:18:23.287Z"
+  },
+  {
+    "sessionId": "aa9965e7-63f5-4d87-a8bc-bab99f67dc28",
+    "messageId": 1,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botのwebダッシュボードがなんか開いてもなんも表示されんから原因を探って",
+    "timestamp": "2025-08-04T12:19:27.938Z"
+  },
+  {
+    "sessionId": "aa9965e7-63f5-4d87-a8bc-bab99f67dc28",
+    "messageId": 2,
+    "type": "user",
+    "message": "/auth",
+    "timestamp": "2025-08-04T12:19:59.210Z"
+  },
+  {
+    "sessionId": "aa9965e7-63f5-4d87-a8bc-bab99f67dc28",
+    "messageId": 3,
+    "type": "user",
+    "message": "/help",
+    "timestamp": "2025-08-04T12:20:45.904Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 0,
+    "type": "user",
+    "message": "/auth",
+    "timestamp": "2025-08-04T12:28:00.801Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 1,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botのwebダッシュボードがずっとロード中で画面が表示されないか原因を探って",
+    "timestamp": "2025-08-04T12:32:55.497Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 2,
+    "type": "user",
+    "message": "0|discord- | /data/data/com.termux/files/home/discord-server-bot/routes/api.js:5520|discord- |       })0|discord- |       ^0|discord- |0|discord- | SyntaxError: Missing catch or finally after try0|discord- |     at wrapSafe (node:internal/modules/cjs/loader:1662:18)0|discord- |     at Module._compile (node:internal/modules/cjs/loader:1704:20)0|discord- |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord- |     at Module.load (node:internal/modules/cjs/loader:1465:32)0|discord- |     at Module._load (node:internal/modules/cjs/loader:1282:12)0|discord- |     at TracingChannel.traceSync (node:diagnostics_channel:322:14)0|discord- |     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)0|discord- |     at Module.require (node:internal/modules/cjs/loader:1487:12)0|discord- |     at Hook._require.Module.require (/data/data/com.termux/files/usr/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)0|discord- |     at require (node:internal/modules/helpers:135:16)",
+    "timestamp": "2025-08-04T12:35:41.465Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 3,
+    "type": "user",
+    "message": "そのエラーは直ったけど、依然としてだね、ずっとロード中になったのがdashboard.js変えた時だからdashboard.jsに原因があるのは確定だけど",
+    "timestamp": "2025-08-04T12:38:06.642Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 4,
+    "type": "user",
+    "message": "うーん、多分だけどなんかのとこでエラーが起きて、そのせいでJAVAscritpの読み込みが終了するとかの感じだとおもう",
+    "timestamp": "2025-08-04T12:39:10.124Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 5,
+    "type": "user",
+    "message": "0|discord-bot  | --------------------------------------------------0|discord-bot  | [Frontend Error] {0|discord-bot  |   message: 'Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules',0|discord-bot  |   source: 'http://localhost:3000/public/js/dashboard.js',0|discord-bot  |   lineno: 1022,0|discord-bot  |   colno: 16,0|discord-bot  |   error: 'SyntaxError: await is only valid in async functions and the top level bodies of modules',0|discord-bot  |   timestamp: '2025-08-04T12:40:47.913Z'0|discord-bot  | }",
+    "timestamp": "2025-08-04T12:41:29.107Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 6,
+    "type": "user",
+    "message": "0|discord-bot  | [Frontend Error] {0|discord-bot  |   message: 'Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules',0|discord-bot  |   source: 'http://localhost:3000/public/js/dashboard.js',0|discord-bot  |   lineno: 1022,0|discord-bot  |   colno: 16,0|discord-bot  |   error: 'SyntaxError: await is only valid in async functions and the top level bodies of modules',0|discord-bot  |   timestamp: '2025-08-04T12:43:16.713Z'0|discord-bot  | }0|discord-bot  | [Frontend Error] {0|discord-bot  |   message: \"Uncaught SyntaxError: Unexpected token '{'\",0|discord-bot  |   source: 'http://localhost:3000/public/js/dashboard.js',0|discord-bot  |   lineno: 828,0|discord-bot  |   colno: 47,0|discord-bot  |   error: \"SyntaxError: Unexpected token '{'\",0|discord-bot  |   timestamp: '2025-08-04T12:43:18.250Z'0|discord-bot  | }0|discord-bot  | [Frontend Error] {0|discord-bot  |   message: \"Uncaught SyntaxError: Unexpected token '{'\",0|discord-bot  |   source: 'http://localhost:3000/public/js/dashboard.js',0|discord-bot  |   lineno: 828,0|discord-bot  |   colno: 47,0|discord-bot  |   error: \"SyntaxError: Unexpected token '{'\",0|discord-bot  |   timestamp: '2025-08-04T12:43:19.357Z'0|discord-bot  | }",
+    "timestamp": "2025-08-04T12:43:42.094Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 7,
+    "type": "user",
+    "message": "0|discord-bot  | [Frontend Error] {0|discord-bot  |   message: \"Uncaught SyntaxError: Unexpected token '{'\",0|discord-bot  |   source: 'http://localhost:3000/public/js/dashboard.js',0|discord-bot  |   lineno: 836,0|discord-bot  |   colno: 47,0|discord-bot  |   error: \"SyntaxError: Unexpected token '{'\",0|discord-bot  |   timestamp: '2025-08-04T12:44:47.898Z'0|discord-bot  | }",
+    "timestamp": "2025-08-04T12:45:31.481Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 8,
+    "type": "user",
+    "message": "そのバックアップやめて、普通にコードの修正して",
+    "timestamp": "2025-08-04T12:46:18.327Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 9,
+    "type": "user",
+    "message": "ねね、なんかwebダッシュボードの、ロール管理、メンバー管理、チャンネル管理を押してメニューに飛ばされても、メニューにはなんも表示されないのと、監視ログのとこの監視ログが表示されてないね、メニューは表示されてるけど",
+    "timestamp": "2025-08-04T12:54:13.876Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 10,
+    "type": "user",
+    "message": "あ、ねね、メンバー管理とか、ロール管理とかチャンネル管理とか監視ログとかは、/data/data/com.termux/files/homeの、latest2.tar.gzの方にコード書いてるから、それ参考にしたら？",
+    "timestamp": "2025-08-04T12:56:57.405Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 11,
+    "type": "user",
+    "message": "あ、やっぱりもう、latest.2で/data/data/com.termux/files/home/discord-server-botを置き換えてもいいよ",
+    "timestamp": "2025-08-04T12:58:42.635Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 12,
+    "type": "user",
+    "message": "あ、やっぱりもう、latest.2で/data/data/com.termux/files/home/discord-server-botを置き換えてもいいよ、ただ、メッセージ履歴の、画像表示とEmbed表示のやつはそのままにしてね",
+    "timestamp": "2025-08-04T12:59:22.280Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 13,
+    "type": "user",
+    "message": "|discord-bot  | [Frontend Error] {0|discord-bot  |   message: 'Uncaught SyntaxError: Invalid or unexpected token',0|discord-bot  |   source: 'http://localhost:3000/public/js/dashboard.js',0|discord-bot  |   lineno: 557,0|discord-bot  |   colno: 4,0|discord-bot  |   error: 'SyntaxError: Invalid or unexpected token',0|discord-bot  |   timestamp: '2025-08-04T13:02:35.901Z'0|discord-bot  | }0|discord-bot  | [Frontend Error] {0|discord-bot  |   message: 'Uncaught SyntaxError: Invalid or unexpected token',0|discord-bot  |   source: 'http://localhost:3000/public/js/dashboard.js',0|discord-bot  |   lineno: 557,0|discord-bot  |   colno: 4,0|discord-bot  |   error: 'SyntaxError: Invalid or unexpected token',0|discord-bot  |   timestamp: '2025-08-04T13:02:39.159Z'0|discord-bot  | }",
+    "timestamp": "2025-08-04T13:02:58.067Z"
+  },
+  {
+    "sessionId": "598d9cd3-b66a-455c-b3c0-0b17f434690b",
+    "messageId": 14,
+    "type": "user",
+    "message": "うーん、なんだろうな、1回/data/data/com.termux/files/home/discord-server-botを削除して、latest2.gzを展開して、展開された/data/data/com.termux/files/home/discord-server-botのメッセージ履歴のとこに画像とEmbed表示機能を移植するみたいな",
+    "timestamp": "2025-08-04T13:10:08.266Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botを削除して、/data/data/com.termux/files/homeにある、latest2.gzで上書きしてくれない？",
+    "timestamp": "2025-08-04T13:16:32.926Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 1,
+    "type": "user",
+    "message": "展開できた？",
+    "timestamp": "2025-08-04T13:20:29.709Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 2,
+    "type": "user",
+    "message": "でさ、",
+    "timestamp": "2025-08-04T13:21:39.280Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 3,
+    "type": "user",
+    "message": "でさ、その/data/data/com.termux/files/home/discord-server-botに、メッセージ履歴を表示させるやつあると思うんだけどそれさ、画像がメッセージに表示されてる場合はメッセージの見やすいとこに、画像表示　ってボタン追加してそのボタン押したら画像が読み込まれて表示されるようにするのと、Embedを普通に表示できるようにして、後メッセージにリアクションがある場合そのリアクションをメッセージの下の方にやって、それをタップしたらそのリアクションをできるようにする機能追加してほしい",
+    "timestamp": "2025-08-04T13:24:08.221Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 4,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T13:25:01.991Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 5,
+    "type": "user",
+    "message": "ん、/data/data/com.termux/files/home/discord-server-botにしてって言った始めただけど…",
+    "timestamp": "2025-08-04T13:30:05.789Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 6,
+    "type": "user",
+    "message": "え、/data/data/com.termux/files/home/discord-server-botにしてって言ったはずだけど…",
+    "timestamp": "2025-08-04T13:30:28.121Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 7,
+    "type": "user",
+    "message": "いや、1回落ち着け、ちゃんと、しっかり詳細に正確に、ファイルを読み込んで、それでやりな、あと上書きするなら、絶対に既存の他の機能に絶対に必ず影響がないようにしてね、上書きするなら本当に変更が必要なとこだけにしてね",
+    "timestamp": "2025-08-04T13:36:13.135Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 8,
+    "type": "user",
+    "message": "いや、1回落ち着け、ちゃんと、しっかり詳細に正確に、ファイルを読み込んで、それでやりな、あと上書きするなら、絶対に既存の他の機能に絶対に必ず影響がないようにしてね、上書きするなら本当に変更が必要なとこだけにしてね",
+    "timestamp": "2025-08-04T13:36:36.510Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 9,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T13:37:24.406Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 10,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T13:38:25.337Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 11,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T13:42:10.336Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 12,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T13:45:36.141Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 13,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T13:47:41.866Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 14,
+    "type": "user",
+    "message": "0|discord-bot  | [Web] Error: Required environment variables for dashboard authentication are missing.",
+    "timestamp": "2025-08-04T13:54:01.939Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 15,
+    "type": "user",
+    "message": "latest2に.envあるからその.envをコピーして",
+    "timestamp": "2025-08-04T13:56:31.220Z"
+  },
+  {
+    "sessionId": "40d7a6e7-0a6e-4759-a8e2-734f82aae391",
+    "messageId": 16,
+    "type": "user",
+    "message": "0|discord-bot  | [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '.sessions/-Bi7NeXg_HXC5ATxE5xIGolq7AWoh8AN.json'",
+    "timestamp": "2025-08-04T14:00:23.714Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 0,
+    "type": "user",
+    "message": "/auth",
+    "timestamp": "2025-08-04T14:03:14.958Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 1,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botを/data/data/com.termux/files/homeの、latest.gzでウワガしてくれない？",
+    "timestamp": "2025-08-04T14:04:22.510Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 2,
+    "type": "user",
+    "message": "latestの方",
+    "timestamp": "2025-08-04T14:04:56.323Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 3,
+    "type": "user",
+    "message": "あ、本当に展開できた？",
+    "timestamp": "2025-08-04T14:06:46.641Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 4,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T14:07:20.914Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 5,
+    "type": "user",
+    "message": "/data/data/com.termux/files/home/.pm2/logs/discord-bot-error.log last 15 lines:0|discord- |     at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/commands/backup-manage.js:9:43)0|discord- |     at Module._compile (node:internal/modules/cjs/loader:1730:14)0|discord- |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord- |     at Module.load (node:internal/modules/cjs/loader:1465:32)0|discord- |     at Module._load (node:internal/modules/cjs/loader:1282:12)0|discord- |     at TracingChannel.traceSync (node:diagnostics_channel:322:14)0|discord- |     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24) {0|discord- |   code: 'MODULE_NOT_FOUND',0|discord- |   requireStack: [0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/commands/backup-manage.js',0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/utils/commandLoader.js',0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/bot/client.js',0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/index.js'0|discord- |   ]0|discord- | }",
+    "timestamp": "2025-08-04T14:09:15.454Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 6,
+    "type": "user",
+    "message": "あ、",
+    "timestamp": "2025-08-04T14:09:39.289Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 7,
+    "type": "user",
+    "message": "あ",
+    "timestamp": "2025-08-04T14:10:00.921Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 8,
+    "type": "user",
+    "message": "あ",
+    "timestamp": "2025-08-04T14:10:08.992Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 9,
+    "type": "user",
+    "message": "/data/data/com.termux/files/home/.pm2/logs/discord-bot-error.log last 15 lines:0|discord- |     at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/commands/backup-manage.js:9:43)0|discord- |     at Module._compile (node:internal/modules/cjs/loader:1730:14)0|discord- |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord- |     at Module.load (node:internal/modules/cjs/loader:1465:32)0|discord- |     at Module._load (node:internal/modules/cjs/loader:1282:12)0|discord- |     at TracingChannel.traceSync (node:diagnostics_channel:322:14)0|discord- |     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24) {0|discord- |   code: 'MODULE_NOT_FOUND',0|discord- |   requireStack: [0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/commands/backup-manage.js',0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/utils/commandLoader.js',0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/bot/client.js',0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/index.js'0|discord- |   ]0|discord- | }",
+    "timestamp": "2025-08-04T14:10:35.904Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 10,
+    "type": "user",
+    "message": "data/data/com.termux/files/home/.pm2/logs/discord-bot-error.log last 15 lines:0|discord- |     at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/commands/backup-manage.js:9:43)0|discord- |     at Module._compile (node:internal/modules/cjs/loader:1730:14)0|discord- |     at Module._extensions..js (node:internal/modules/cjs/loader:1895:10)0|discord- |     at Module.load (node:internal/modules/cjs/loader:1465:32)0|discord- |     at Module._load (node:internal/modules/cjs/loader:1282:12)0|discord- |     at TracingChannel.traceSync (node:diagnostics_channel:322:14)0|discord- |     at wrapModuleLoad (node:internal/modules/cjs/loader:235:24) {0|discord- |   code: 'MODULE_NOT_FOUND',0|discord- |   requireStack: [0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/commands/backup-manage.js',0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/utils/commandLoader.js',0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/bot/client.js',0|discord- |     '/data/data/com.termux/files/home/discord-server-bot/index.js'0|discord- |   ]0|discord- | }",
+    "timestamp": "2025-08-04T14:10:58.260Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 11,
+    "type": "user",
+    "message": "ねね、そしたらさ、",
+    "timestamp": "2025-08-04T14:14:33.971Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 12,
+    "type": "user",
+    "message": "メッセージ履歴のとこ、画像があったらメッセージの見やすいとこに、画像を表示(○件)みたいな表示をやって、それを押したら画像を読み込んで表示させるようにしてほしいのと、Embedも表示されるようにしてほしい、わかりやすいuiとわかりやすい操作性にしてね、あとメッセージのとこにリアクションがある場合、そのリアクションをタップしたら、リアクションを追加できるようにしてほしい（もう一度リアクションをタップしたらリアクション解除、リアクションするときはメッセージを再読込しない）",
+    "timestamp": "2025-08-04T14:16:35.085Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 13,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T14:18:44.248Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 14,
+    "type": "user",
+    "message": "0|discord-bot  | [session-file-store] will retry, error on last attempt: Error: ENOENT: no such file or directory, open '.sessions/R5YSeud9idmOG5uYwqm03RaKlfyTYLSL.json'",
+    "timestamp": "2025-08-04T14:23:09.196Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 15,
+    "type": "user",
+    "message": "リアクションを追加できるんだけど、その画面上の変化（例えばリアクションボタンを押したら、画面上では1のまま（サーバーとか処理では2になっている）で、画面をリロードしないと変わらないのと、解除するときのログとかが、リアクションを追加しましたって出てくる（リアクションは解除されている）あとリンクとかの埋め込み画像の画像の比率を、スマホの画面に収まるように変えてほしい",
+    "timestamp": "2025-08-04T15:00:23.916Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 16,
+    "type": "user",
+    "message": "あと、CiとcdとC/CD機能を見直してほしい",
+    "timestamp": "2025-08-04T15:02:30.888Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 17,
+    "type": "user",
+    "message": "あ、リアクションのやつさ例えばリアクション追加するじゃん？そしてもっかいタップしても解除できない（ログ上でもリアクション追加と出てくる）",
+    "timestamp": "2025-08-04T15:05:39.551Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 18,
+    "type": "user",
+    "message": "/usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0npm error code ENOENTnpm error syscall opennpm error path /data/data/com.termux/files/home/package.jsonnpm error errno -2npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/data/data/com.termux/files/home/package.json'npm error enoent This is related to npm not being able to find a file.npm error enoentnpm error A complete log of this run can be found in: /data/data/com.termux/files/home/.npm/_logs/2025-08-04T15_07_28_676Z-debug-0.loghusky - pre-commit script failed (code 254)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---　CI実行時のログ",
+    "timestamp": "2025-08-04T15:07:54.139Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 19,
+    "type": "user",
+    "message": "usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0npm error code ENOENTnpm error syscall opennpm error path /data/data/com.termux/files/home/package.jsonnpm error errno -2npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/data/data/com.termux/files/home/package.json'npm error enoent This is related to npm not being able to find a file.npm error enoentnpm error A complete log of this run can be found in: /data/data/com.termux/files/home/.npm/_logs/2025-08-04T15_07_28_676Z-debug-0.loghusky - pre-commit script failed (code 254)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---　CI実行時のログ",
+    "timestamp": "2025-08-04T15:08:25.091Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 20,
+    "type": "user",
+    "message": "すまん、途中で回戦落ちた",
+    "timestamp": "2025-08-04T15:12:27.230Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 21,
+    "type": "user",
+    "message": "もうapi.jsは修正された？一応確認",
+    "timestamp": "2025-08-04T15:13:25.266Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 22,
+    "type": "user",
+    "message": "うん、わかった",
+    "timestamp": "2025-08-04T15:14:11.314Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 23,
+    "type": "user",
+    "message": "1回落ち着けって、もっと詳細に、正確に、空白一つも改行一つも間違えずにしっかり、詳細に正確に読み込みな",
+    "timestamp": "2025-08-04T15:15:37.061Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 24,
+    "type": "user",
+    "message": "うーんとね、修正したいとこを、読み込んでここに表示させて、しっかり確認してからやったら？",
+    "timestamp": "2025-08-04T15:17:08.452Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 25,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T15:17:46.494Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 26,
+    "type": "user",
+    "message": "うーん、replaceは無理そうだから、SED使ったら？",
+    "timestamp": "2025-08-04T15:24:46.192Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 27,
+    "type": "user",
+    "message": "うーん、やっぱりリアクション解除できないなぁ…",
+    "timestamp": "2025-08-04T15:33:53.350Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 28,
+    "type": "user",
+    "message": "うーん、やっぱりリアクション解除できないなぁ…",
+    "timestamp": "2025-08-04T15:34:34.193Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 29,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T15:34:52.614Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 30,
+    "type": "user",
+    "message": "うーん、やっぱりリアクション済みのリアクションにやると、[Web] nigenkun added reaction  to message 1399344789043806329　が出てくるわ",
+    "timestamp": "2025-08-04T15:39:59.427Z"
+  },
+  {
+    "sessionId": "96aa766e-c30d-4fe3-939f-2701fc86fc7b",
+    "messageId": 31,
+    "type": "user",
+    "message": "うーん、依然としてだなぁ",
+    "timestamp": "2025-08-04T15:42:41.368Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 0,
+    "type": "user",
+    "message": "/auth",
+    "timestamp": "2025-08-04T15:59:20.948Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 1,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botのwebダッシュボードのメッセージ履歴のとこの、リアクションあるんだけど、それを追加したら、なぜか解除できない",
+    "timestamp": "2025-08-04T16:00:45.764Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 2,
+    "type": "user",
+    "message": "直ってないな",
+    "timestamp": "2025-08-04T16:03:39.869Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 3,
+    "type": "user",
+    "message": "依然として",
+    "timestamp": "2025-08-04T16:05:11.465Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 4,
+    "type": "user",
+    "message": "スマホだからログ見れんよ",
+    "timestamp": "2025-08-04T16:05:36.217Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 5,
+    "type": "user",
+    "message": "Web Reaction] Request received: POST for emoji  from user nigenkun on message 1399344789043806329[Web Reaction] Attempting to add reaction.[Web Reaction] Success: nigenkun added reaction",
+    "timestamp": "2025-08-04T16:08:49.705Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 6,
+    "type": "user",
+    "message": "いや、空なのは単純にここチャットに絵文字が表示されてないだけだよ、あとまだ直ってません",
+    "timestamp": "2025-08-04T16:10:21.052Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 7,
+    "type": "user",
+    "message": "[Web Reaction] Request received: POST for emoji  from user nigenkun on message 1399344789043806329[Web Reaction] Attempting to add reaction.[Web Reaction] Success: nigenkun added reaction 　このnigenkunってのは、僕のアカウントの名前だけど、リアクションしてるのはbotだよ",
+    "timestamp": "2025-08-04T16:12:32.418Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 8,
+    "type": "user",
+    "message": "直ったー",
+    "timestamp": "2025-08-04T16:14:17.168Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 9,
+    "type": "user",
+    "message": "ログがここに表示されます...--- Starting task: CI at 2025-08-04T16:14:37.555Z ------ Running CI tasks ---$ git add .Process finished with exit code 0.$ git commit -m CI: Automatic commit at 2025-08-04T16:14:38.121Zhusky - DEPRECATEDPlease remove the following two lines from .husky/pre-commit:usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0npm error code ENOENTnpm error syscall opennpm error path /data/data/com.termux/files/home/package.jsonnpm error errno -2npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open '/data/data/com.termux/files/home/package.json'npm error enoent This is related to npm not being able to find a file.npm error enoentnpm error A complete log of this run can be found in: /data/data/com.termux/files/home/.npm/_logs/2025-08-04T16_14_39_983Z-debug-0.loghusky - pre-commit script failed (code 254)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:16:11.138Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 10,
+    "type": "user",
+    "message": "この、CIを超強化できない？",
+    "timestamp": "2025-08-04T16:17:03.227Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 11,
+    "type": "user",
+    "message": "さらに強化できる？",
+    "timestamp": "2025-08-04T16:18:27.770Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 12,
+    "type": "user",
+    "message": "ログがここに表示されます...--- Starting task: CI at 2025-08-04T16:29:27.752Z ------ Running CI tasks ---$ git add .Process finished with exit code 0.$ git commit -m CI: Automatic commit at 2025-08-04T16:29:28.845Zhusky - DEPRECATEDPlease remove the following two lines from .husky/pre-commit:#/usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 ci-check> npm audit && npm run lint && npm run format && npm testfound 0 vulnerabilities> discord-server-bot@1.0.0 lint> eslint .sh: 1: eslint: Permission deniedhusky - pre-commit script failed (code 126)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 --",
+    "timestamp": "2025-08-04T16:30:14.821Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 13,
+    "type": "user",
+    "message": ":(ESLint: 9.32.0Error: Cannot find module 'globals'Require stack:- /data/data/com.termux/files/home/eslint.config.js    at Module._resolveFilename (node:internal/modules/cjs/loader:1401:15)    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)    at Module._load (node:internal/modules/cjs/loader:1211:37)    at TracingChannel.traceSync (node:diagnostics_channel:322:14)    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)    at Module.require (node:internal/modules/cjs/loader:1487:12)    at require (node:internal/modules/helpers:135:16)    at Object.<anonymous> (/data/data/com.termux/files/home/eslint.config.js:1:17)    at Module._compile (node:internal/modules/cjs/loader:1730:14)husky - pre-commit script failed (code 2)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:32:27.156Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 14,
+    "type": "user",
+    "message": "ログがここに表示されます...--- Starting task: CI at 2025-08-04T16:31:17.890Z ------ Running CI tasks ---$ git add .Process finished with exit code 0.$ git commit -m CI: Automatic commit at 2025-08-04T16:31:19.034Zhusky - DEPRECATEDPlease remove the following two lines from .husky/pre-commit:#/usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 ci-check> npm audit && npm run lint && npm run format && npm testfound 0 vulnerabilities> discord-server-bot@1.0.0 lint> node node_modules/eslint/bin/eslint.js .Oops Something went wrong :(ESLint: 9.32.0Error: Cannot find module 'globals'Require stack:- /data/data/com.termux/files/home/eslint.config.js    at Module._resolveFilename (node:internal/modules/cjs/loader:1401:15)    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)    at Module._load (node:internal/modules/cjs/loader:1211:37)    at TracingChannel.traceSync (node:diagnostics_channel:322:14)    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)    at Module.require (node:internal/modules/cjs/loader:1487:12)    at require (node:internal/modules/helpers:135:16)    at Object.<anonymous> (/data/data/com.termux/files/home/eslint.config.js:1:17)    at Module._compile (node:internal/modules/cjs/loader:1730:14)husky - pre-commit script failed (code 2)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:34:20.502Z"
+  },
+  {
+    "sessionId": "190f2211-7c42-46a4-a9fa-d2ce805fb529",
+    "messageId": 15,
+    "type": "user",
+    "message": "ログがここに表示されます...--- Starting task: CI at 2025-08-04T16:36:28.707Z ------ Running CI tasks ---$ git add .Process finished with exit code 0.$ git commit -m CI: Automatic commit at 2025-08-04T16:36:29.835Zhusky - DEPRECATEDPlease remove the following two lines from .husky/pre-commit:#/usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 ci-check> npm audit && npm run lint && npm run format && npm testfound 0 vulnerabilities> discord-server-bot@1.0.0 lint> node node_modules/eslint/bin/eslint.js --no-eslintrc --config .eslintrc.json .Invalid option '--eslintrc' - perhaps you meant '--ext'?You're using eslint.config.js, some command line flags are no longer available. Please see https://eslint.org/docs/latest/use/command-line-interface for details.husky - pre-commit script failed (code 2)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:37:17.974Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 0,
+    "type": "user",
+    "message": "ねね、/data/data/com.termux/files/home/discord-server-botのwebダッシュボードのCI機能のエラーログ出すね？",
+    "timestamp": "2025-08-04T16:40:11.670Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 1,
+    "type": "user",
+    "message": "いや、自分がエラーログをここにはる",
+    "timestamp": "2025-08-04T16:40:49.983Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 2,
+    "type": "user",
+    "message": ":(ESLint: 9.32.0Error: Cannot find module 'globals'Require stack:- /data/data/com.termux/files/home/eslint.config.js    at Module._resolveFilename (node:internal/modules/cjs/loader:1401:15)    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)    at Module._load (node:internal/modules/cjs/loader:1211:37)    at TracingChannel.traceSync (node:diagnostics_channel:322:14)    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)    at Module.require (node:internal/modules/cjs/loader:1487:12)    at require (node:internal/modules/helpers:135:16)    at Object.<anonymous> (/data/data/com.termux/files/home/eslint.config.js:1:17)    at Module._compile (node:internal/modules/cjs/loader:1730:14)husky - pre-commit script failed (code 2)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:41:00.749Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 3,
+    "type": "user",
+    "message": "ログがここに表示されます...--- Starting task: CI at 2025-08-04T16:42:28.634Z ------ Running CI tasks ---$ git add .Process finished with exit code 0.$ git commit -m CI: Automatic commit at 2025-08-04T16:42:29.781Zhusky - DEPRECATEDPlease remove the following two lines from .husky/pre-commit:#/usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 ci-check> npm audit && npm run lint && npm run format && npm testfound 0 vulnerabilities> discord-server-bot@1.0.0 lint> node node_modules/eslint/bin/eslint.js .Oops Something went wrong :(ESLint: 9.32.0Error: Cannot find module 'eslint-config-prettier'Require stack:- /data/data/com.termux/files/home/eslint.config.js    at Module._resolveFilename (node:internal/modules/cjs/loader:1401:15)    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)    at Module._load (node:internal/modules/cjs/loader:1211:37)    at TracingChannel.traceSync (node:diagnostics_channel:322:14)    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)    at Module.require (node:internal/modules/cjs/loader:1487:12)    at require (node:internal/modules/helpers:135:16)    at Object.<anonymous> (/data/data/com.termux/files/home/eslint.config.js:2:18)    at Module._compile (node:internal/modules/cjs/loader:1730:14)husky - pre-commit script failed (code 2)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:43:55.427Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 4,
+    "type": "user",
+    "message": "/usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 ci-check> npm audit && npm run lint && npm run format && npm testfound 0 vulnerabilities> discord-server-bot@1.0.0 lint> node node_modules/eslint/bin/eslint.js ./data/data/com.termux/files/home/discord-server-bot/public/js/dashboard.js     8:7   warning  'mainContent' is assigned a value but never used          no-unused-vars     9:7   warning  'guildView' is assigned a value but never used            no-unused-vars    10:7   warning  'logView' is assigned a value but never used              no-unused-vars    11:7   warning  'welcomeView' is assigned a value but never used          no-unused-vars    19:7   warning  'chatView' is assigned a value but never used             no-unused-vars  1113:9   warning  'overwritesContainer' is assigned a value but never used  no-unused-vars  1171:16  warning  'deleteChannel' is defined but never used                 no-unused-vars  1419:16  warning  'deleteRole' is defined but never used                    no-unused-vars  1637:16  warning  'performBackupAction' is defined but never used           no-unused-vars  1670:16  warning  'deleteSchedule' is defined but never used                no-unused-vars  1684:21  warning  'roles' is assigned a value but never used                no-unused-vars  1774:16  warning  'deleteNgWord' is defined but never used                  no-unused-vars✖ 12 problems (0 errors, 12 warnings)> discord-server-bot@1.0.0 format> node node_modules/prettier/bin/prettier.js --write .node:internal/modules/cjs/loader:1404  throw err;  ^Error: Cannot find module '/data/data/com.termux/files/home/discord-server-bot/node_modules/prettier/bin/prettier.js'    at Module._resolveFilename (node:internal/modules/cjs/loader:1401:15)    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)    at Module._load (node:internal/modules/cjs/loader:1211:37)    at TracingChannel.traceSync (node:diagnostics_channel:322:14)    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)    at node:internal/main/run_main_module:36:49 {  code: 'MODULE_NOT_FOUND',  requireStack: []}Node.js v22.17.1husky - pre-commit script failed (code 1)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:45:37.467Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 5,
+    "type": "user",
+    "message": "usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 ci-check> npm audit && npm run lint && npm run format && npm testfound 0 vulnerabilities> discord-server-bot@1.0.0 lint> node node_modules/eslint/bin/eslint.js ./data/data/com.termux/files/home/discord-server-bot/public/js/dashboard.js     8:7   warning  'mainContent' is assigned a value but never used          no-unused-vars     9:7   warning  'guildView' is assigned a value but never used            no-unused-vars    10:7   warning  'logView' is assigned a value but never used              no-unused-vars    11:7   warning  'welcomeView' is assigned a value but never used          no-unused-vars    19:7   warning  'chatView' is assigned a value but never used             no-unused-vars  1113:9   warning  'overwritesContainer' is assigned a value but never used  no-unused-vars  1171:16  warning  'deleteChannel' is defined but never used                 no-unused-vars  1419:16  warning  'deleteRole' is defined but never used                    no-unused-vars  1637:16  warning  'performBackupAction' is defined but never used           no-unused-vars  1670:16  warning  'deleteSchedule' is defined but never used                no-unused-vars  1684:21  warning  'roles' is assigned a value but never used                no-unused-vars  1774:16  warning  'deleteNgWord' is defined but never used                  no-unused-vars✖ 12 problems (0 errors, 12 warnings)> discord-server-bot@1.0.0 format> node node_modules/prettier/bin/prettier.js --write .node:internal/modules/cjs/loader:1404  throw err;  ^Error: Cannot find module '/data/data/com.termux/files/home/discord-server-bot/node_modules/prettier/bin/prettier.js'    at Module._resolveFilename (node:internal/modules/cjs/loader:1401:15)    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)    at Module._load (node:internal/modules/cjs/loader:1211:37)    at TracingChannel.traceSync (node:diagnostics_channel:322:14)    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)    at node:internal/main/run_main_module:36:49 {  code: 'MODULE_NOT_FOUND',  requireStack: []}Node.js v22.17.1husky - pre-commit script failed (code 1)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:46:13.423Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 6,
+    "type": "user",
+    "message": "usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0npm error No workspaces found:npm error   --workspace=discord-server-botnpm error A complete log of this run can be found in: /data/data/com.termux/files/home/.npm/_logs/2025-08-04T16_47_24_184Z-debug-0.loghusky - pre-commit script failed (code 1)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:47:40.334Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 7,
+    "type": "user",
+    "message": "usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 ci-check> npm audit && npm run lint && npm run format && npm testfound 0 vulnerabilities> discord-server-bot@1.0.0 lint> node node_modules/eslint/bin/eslint.js ./data/data/com.termux/files/home/discord-server-bot/public/js/dashboard.js     8:7   warning  'mainContent' is assigned a value but never used          no-unused-vars     9:7   warning  'guildView' is assigned a value but never used            no-unused-vars    10:7   warning  'logView' is assigned a value but never used              no-unused-vars    11:7   warning  'welcomeView' is assigned a value but never used          no-unused-vars    19:7   warning  'chatView' is assigned a value but never used             no-unused-vars  1113:9   warning  'overwritesContainer' is assigned a value but never used  no-unused-vars  1171:16  warning  'deleteChannel' is defined but never used                 no-unused-vars  1419:16  warning  'deleteRole' is defined but never used                    no-unused-vars  1637:16  warning  'performBackupAction' is defined but never used           no-unused-vars  1670:16  warning  'deleteSchedule' is defined but never used                no-unused-vars  1684:21  warning  'roles' is assigned a value but never used                no-unused-vars  1774:16  warning  'deleteNgWord' is defined but never used                  no-unused-vars✖ 12 problems (0 errors, 12 warnings)> discord-server-bot@1.0.0 format> node node_modules/prettier/bin/prettier.js --write .node:internal/modules/cjs/loader:1404  throw err;  ^Error: Cannot find module '/data/data/com.termux/files/home/discord-server-bot/node_modules/prettier/bin/prettier.js'    at Module._resolveFilename (node:internal/modules/cjs/loader:1401:15)    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)    at Module._load (node:internal/modules/cjs/loader:1211:37)    at TracingChannel.traceSync (node:diagnostics_channel:322:14)    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:171:5)    at node:internal/main/run_main_module:36:49 {  code: 'MODULE_NOT_FOUND',  requireStack: []}Node.js v22.17.1husky - pre-commit script failed (code 1)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:49:22.959Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 8,
+    "type": "user",
+    "message": "usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 ci-check> npm audit && npm run lint && npm run format && npm testfound 0 vulnerabilities> discord-server-bot@1.0.0 lint> eslint ./data/data/com.termux/files/home/discord-server-bot/public/js/dashboard.js     8:7   warning  'mainContent' is assigned a value but never used          no-unused-vars     9:7   warning  'guildView' is assigned a value but never used            no-unused-vars    10:7   warning  'logView' is assigned a value but never used              no-unused-vars    11:7   warning  'welcomeView' is assigned a value but never used          no-unused-vars    19:7   warning  'chatView' is assigned a value but never used             no-unused-vars  1113:9   warning  'overwritesContainer' is assigned a value but never used  no-unused-vars  1171:16  warning  'deleteChannel' is defined but never used                 no-unused-vars  1419:16  warning  'deleteRole' is defined but never used                    no-unused-vars  1637:16  warning  'performBackupAction' is defined but never used           no-unused-vars  1670:16  warning  'deleteSchedule' is defined but never used                no-unused-vars  1684:21  warning  'roles' is assigned a value but never used                no-unused-vars  1774:16  warning  'deleteNgWord' is defined but never used                  no-unused-vars✖ 12 problems (0 errors, 12 warnings)> discord-server-bot@1.0.0 format> prettier --write .sh: 1: prettier: Permission deniedhusky - pre-commit script failed (code 126)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:50:38.773Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 9,
+    "type": "user",
+    "message": "usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0> discord-server-bot@1.0.0 ci-check> npm audit && npm run lint && npm run format && npm testfound 0 vulnerabilities> discord-server-bot@1.0.0 lint> eslint ./data/data/com.termux/files/home/discord-server-bot/public/js/dashboard.js     8:7   warning  'mainContent' is assigned a value but never used          no-unused-vars     9:7   warning  'guildView' is assigned a value but never used            no-unused-vars    10:7   warning  'logView' is assigned a value but never used              no-unused-vars    11:7   warning  'welcomeView' is assigned a value but never used          no-unused-vars    19:7   warning  'chatView' is assigned a value but never used             no-unused-vars  1113:9   warning  'overwritesContainer' is assigned a value but never used  no-unused-vars  1171:16  warning  'deleteChannel' is defined but never used                 no-unused-vars  1419:16  warning  'deleteRole' is defined but never used                    no-unused-vars  1637:16  warning  'performBackupAction' is defined but never used           no-unused-vars  1670:16  warning  'deleteSchedule' is defined but never used                no-unused-vars  1684:21  warning  'roles' is assigned a value but never used                no-unused-vars  1774:16  warning  'deleteNgWord' is defined but never used                  no-unused-vars✖ 12 problems (0 errors, 12 warnings)> discord-server-bot@1.0.0 format> prettier --write .node:internal/modules/cjs/loader:1404  throw err;  ^Error: Cannot find module '../package.json'Require stack:- /data/data/com.termux/files/home/discord-server-bot/node_modules/.bin/prettier    at Module._resolveFilename (node:internal/modules/cjs/loader:1401:15)    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)    at Module._load (node:internal/modules/cjs/loader:1211:37)    at TracingChannel.traceSync (node:diagnostics_channel:322:14)    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)    at Module.require (node:internal/modules/cjs/loader:1487:12)    at require (node:internal/modules/helpers:135:16)    at Object.<anonymous> (/data/data/com.termux/files/home/discord-server-bot/node_modules/.bin/prettier:61:19)    at Module._compile (node:internal/modules/cjs/loader:1730:14) {  code: 'MODULE_NOT_FOUND',  requireStack: [    '/data/data/com.termux/files/home/discord-server-bot/node_modules/.bin/prettier'  ]}Node.js v22.17.1husky - pre-commit script failed (code 1)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:51:58.610Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 10,
+    "type": "user",
+    "message": "usr/bin/env sh. \"$(dirname -- \"$0\")/_/husky.sh\"They WILL FAIL in v10.0.0node:internal/modules/cjs/loader:1404  throw err;  ^Error: Cannot find module '../package.json'Require stack:- /data/data/com.termux/files/home/discord-server-bot/node_modules/.bin/eslint    at Module._resolveFilename (node:internal/modules/cjs/loader:1401:15)    at defaultResolveImpl (node:internal/modules/cjs/loader:1057:19)    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1062:22)    at Module._load (node:internal/modules/cjs/loader:1211:37)    at TracingChannel.traceSync (node:diagnostics_channel:322:14)    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)    at Module.require (node:internal/modules/cjs/loader:1487:12)    at require (node:internal/modules/helpers:135:16)    at process.onFatalError (/data/data/com.termux/files/home/discord-server-bot/node_modules/.bin/eslint:120:22)    at process.emit (node:events:518:28) {  code: 'MODULE_NOT_FOUND',  requireStack: [    '/data/data/com.termux/files/home/discord-server-bot/node_modules/.bin/eslint'  ]}Node.js v22.17.1husky - pre-commit script failed (code 7)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T16:53:21.714Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 11,
+    "type": "user",
+    "message": "モデル変更で中断されたよ",
+    "timestamp": "2025-08-04T16:54:03.487Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 12,
+    "type": "user",
+    "message": "うん",
+    "timestamp": "2025-08-04T16:54:18.247Z"
+  },
+  {
+    "sessionId": "a6c52b77-9b81-494c-ab3b-b997748a370b",
+    "messageId": 13,
+    "type": "user",
+    "message": "> discord-server-bot@1.0.0 test> jestNo tests found, exiting with code 1Run with `--passWithNoTests` to exit with code 0In /data/data/com.termux/files/home/discord-server-bot  49 files checked.  testMatch: **/__tests__/**/*.?([mc])[jt]s?(x), **/?(*.)+(spec|test).?([mc])[jt]s?(x) - 0 matches  testPathIgnorePatterns: /node_modules/ - 49 matches  testRegex:  - 0 matchesPattern:  - 0 matcheshusky - pre-commit script failed (code 1)Process failed with exit code 1.--- Task \"CI\" failed: Exit code 1 ---",
+    "timestamp": "2025-08-04T17:03:08.295Z"
   }
 ]

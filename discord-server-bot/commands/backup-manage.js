@@ -6,7 +6,7 @@ const {
 } = require('discord.js');
 const fsp = require('fs/promises');
 const path = require('path');
-const { getBackupDir, ensureBackupDir } = require('../../utils/backupManager');
+const { getBackupDir, ensureBackupDir } = require('../utils/backupManager');
 
 module.exports = {
   data: new SlashCommandBuilder()

@@ -24,5 +24,9 @@ jobs:
           cache-dependency-path: discord-server-bot/package-lock.json
       - run: npm ci
         working-directory: ./discord-server-bot
+      - run: npm audit
+        working-directory: ./discord-server-bot
       - run: npm run lint
+        working-directory: ./discord-server-bot
+      - run: npm test
         working-directory: ./discord-server-bot

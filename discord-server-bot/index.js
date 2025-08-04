@@ -48,7 +48,7 @@ passport.use(
 
 app.use(
   session({
-    store: new FileStore({ path: './.sessions', ttl: 86400 }),
+    store: new FileStore({ path: path.join(__dirname, '.sessions'), ttl: 86400 }),
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,

@@ -20,7 +20,6 @@ const intents = [
   GatewayIntentBits.GuildMessages,
   GatewayIntentBits.MessageContent,
   GatewayIntentBits.GuildMessageReactions,
-  GatewayIntentBits.GuildVoiceStates, // Add this intent
 ].filter(Boolean);
 
 const client = new Client({ intents });
@@ -428,37 +427,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
 process.on('unhandledRejection', (reason) => {
   console.error('[エラー] 未処理のPromise rejection:', reason);
-});
-
-// Voice State Update Event
-client.on(Events.VoiceStateUpdate, (oldState, newState) => {
-  const wsServer = require('../ws/server'); // Import here to avoid circular dependency
-
-  // Check if a user joined or left a voice channel
-  if (oldState.channelId !== newState.channelId) {
-    // User joined a channel
-    if (newState.channelId) {
-      console.log(
-        `[Voice] ${newState.member.user.tag} joined voice channel ${newState.channel.name} in ${newState.guild.name}`
-      );
-      wsServer.broadcastVoiceStateUpdate(
-        newState.guild.id,
-        newState.channel.id,
-        newState.member.user.id
-      );
-    }
-    // User left a channel
-    if (oldState.channelId) {
-      console.log(
-        `[Voice] ${oldState.member.user.tag} left voice channel ${oldState.channel.name} in ${oldState.guild.name}`
-      );
-      wsServer.broadcastVoiceStateUpdate(
-        oldState.guild.id,
-        oldState.channel.id,
-        oldState.member.user.id
-      );
-    }
-  }
 });
 
 module.exports = client;
